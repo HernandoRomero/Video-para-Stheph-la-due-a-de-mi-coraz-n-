@@ -5,24 +5,36 @@
     <title>¡Tú puedes con todo!</title>
     <style>
         body {
-            background: linear-gradient(to bottom, #d8b4fe, #c084fc); /* Lila suave */
+            background: #d8b4fe url('snoopy.png') repeat;
+            background-size: 150px;
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
         }
 
+        .contenedor {
+            background-color: rgba(255, 255, 255, 0.75); 
+            border-radius: 20px;
+            padding: 20px;
+            display: inline-block;
+            margin-top: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            max-width: 90%;
+        }
+
         h1 {
-            color: #4b0082; /* Índigo oscuro */
-            margin-top: 40px;
+            color: #4b0082;
+            margin-top: 0;
             font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
 
         iframe {
             margin-top: 20px;
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            max-width: 95%;
+            max-width: 100%;
         }
 
         p {
@@ -30,6 +42,7 @@
             font-size: 1.1em;
             color: #4b0082;
             padding: 0 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
 
         .foto {
@@ -37,7 +50,7 @@
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             width: 90%;
-            max-width: 300px; /* No será más grande de 300px */
+            max-width: 300px;
             height: auto;
         }
 
@@ -47,30 +60,30 @@
             color: #2d004d;
             font-weight: bold;
             padding: 0 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
     </style>
 </head>
 <body>
-    <h1>💜PARA MI CACHETONA💜</h1>
+    <div class="contenedor">
+        <h1>💜PARA MI CACHETONA💜</h1>
 
-    <!-- Video de YouTube -->
-    <iframe width="800" height="450"
-            src="https://www.youtube.com/embed/Evs4-q3a-K8"
-            title="Video motivacional"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-    </iframe>
+        <iframe width="800" height="450"
+                src="https://www.youtube.com/embed/Evs4-q3a-K8"
+                title="Video motivacional"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
 
-    <p>🌟 Eres increíble y vas a romperla en el ICFES 🌟</p>
+        <p>🌟 Eres increíble y vas a romperla en el ICFES 🌟</p>
 
-    <!-- Foto juntos -->
-    <img src="foto.jpeg" alt="Nosotros" class="foto">
+        <img src="foto.jpeg" alt="Nosotros" class="foto">
 
-    <!-- Mensaje especial -->
-    <div class="mensaje-foto">
-        Siempre contigo, en cada paso que des 💜
-        (PDTA: tenemos que tomarnos fotos porque no encontre foto de los 2 :( )
+        <div class="mensaje-foto">
+            Siempre contigo, en cada paso que des 💜
+            ( PDTA: tenemos que tomarnos fotos porque no encontré casi foto de los 2 :( )
+        </div>
     </div>
 </body>
 </html>
