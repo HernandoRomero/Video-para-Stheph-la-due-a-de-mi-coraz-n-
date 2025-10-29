@@ -2,87 +2,118 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>¡Tú puedes con todo!</title>
+    <title>💜 Para ti 💜</title>
     <style>
         body {
             background: #d8b4fe url('snoopy.png') repeat;
             background-size: 150px;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
         }
 
-        .contenedor {
-            background-color: rgba(255, 255, 255, 0.75); 
-            border-radius: 20px;
-            padding: 20px;
-            display: inline-block;
-            margin-top: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            max-width: 90%;
-        }
-
         h1 {
             color: #4b0082;
-            margin-top: 0;
-            font-size: 2em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            margin-top: 25px;
+            font-size: 2.2em;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+        }
+
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 900px;
+        }
+
+        .ranura {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            padding: 25px;
+            width: 100%;
+            max-width: 850px;
+            transition: transform 0.3s ease;
+        }
+
+            .ranura:hover {
+                transform: scale(1.02);
+            }
+
+        .mensaje {
+            font-size: 1.2em;
+            color: #2d004d;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+            line-height: 1.6;
+            white-space: pre-line;
         }
 
         iframe {
-            margin-top: 20px;
+            width: 100%;
+            height: 450px;
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            max-width: 100%;
-        }
-
-        p {
-            margin-top: 15px;
-            font-size: 1.1em;
-            color: #4b0082;
-            padding: 0 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            border: none;
         }
 
         .foto {
-            margin-top: 20px;
+            margin-top: 10px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             width: 90%;
-            max-width: 300px;
+            max-width: 350px;
             height: auto;
         }
 
-        .mensaje-foto {
+        .frase-final {
             margin-top: 10px;
             font-size: 1.1em;
-            color: #2d004d;
+            color: #4b0082;
             font-weight: bold;
-            padding: 0 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
     </style>
 </head>
 <body>
+    <h1>💜 PARA TI 💜</h1>
+
     <div class="contenedor">
-        <h1>💜PARA MI CACHETONA💜</h1>
 
-        <iframe width="800" height="450"
-                src="https://www.youtube.com/embed/Evs4-q3a-K8"
-                title="Video motivacional"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-        </iframe>
+        <!-- Ranura 1: Mensaje -->
+        <div class="ranura">
+            <h2>💌 Un pequeño mensaje 💌</h2>
+            <div class="mensaje">
+                Aquí puedes escribir lo que sientes, por ejemplo:
 
-        <p>🌟 Eres increíble y vas a romperla en el ICFES 🌟</p>
+                “Sé que las cosas no están siendo fáciles últimamente,
+                pero quiero que recuerdes lo fuerte que eres.
+                No importa cuántas veces caigas, siempre te levantarás,
+                porque eso es lo que te hace tan especial.
+                Estoy aquí, aunque sea desde lejos 💜”
+            </div>
+        </div>
 
-        <img src="foto.jpeg" alt="Nosotros" class="foto">
+        <!-- Ranura 2: Video -->
+        <div class="ranura">
+            <h2>🎥 Un video para ti 🎥</h2>
+            <iframe src="https://www.youtube.com/embed/Evs4-q3a-K8"
+                    title="Video especial"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+        </div>
 
-        <div class="mensaje-foto">
-            Siempre contigo, en cada paso que des 💜
-            ( PDTA: tenemos que tomarnos fotos porque no encontré casi foto de los 2 :( )
+        <!-- Ranura 3: Imagen o frase final -->
+        <div class="ranura">
+            <h2>🌸 Para terminar... 🌸</h2>
+            <img src="foto.jpeg" alt="Nosotros" class="foto">
+            <div class="frase-final">
+                Siempre contigo, incluso en los días nublados 💜
+            </div>
         </div>
     </div>
 </body>
