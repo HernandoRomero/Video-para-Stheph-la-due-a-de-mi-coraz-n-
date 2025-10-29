@@ -21,6 +21,12 @@
             margin-top: 40px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             max-width: 90%;
+            animation: aparecer 0.8s ease-in-out;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         h1 {
@@ -77,6 +83,7 @@
 
         .boton:hover {
             background-color: #7e22ce;
+            transform: scale(1.05);
         }
 
         .contenido {
@@ -90,6 +97,7 @@
 
         <button class="boton" onclick="mostrar('video')">🎥 Ver video</button>
         <button class="boton" onclick="mostrar('mensaje')">💌 Ver mensaje</button>
+        <button class="boton" onclick="mostrar('proximamente')">✨ Pronto más mensajitos</button>
 
         <div id="video" class="contenido">
             <iframe width="800" height="450"
@@ -136,12 +144,20 @@
                 Recuerda que eres luz, y aunque a veces no lo veas, Dios sigue obrando en ti. Espero tengas un día lindo como tus ojitos 🌷
             </p>
         </div>
+
+        <div id="proximamente" class="contenido">
+            <p style="text-align:center; font-size:1.3em; color:#6b21a8; font-weight:bold;">
+                💫 Pronto más mensajitos lindos para ti 💕<br>
+                (Sigue pendiente, esto apenas empieza 😌)
+            </p>
+        </div>
     </div>
 
     <script>
         function mostrar(seccion) {
             document.getElementById('video').style.display = 'none';
             document.getElementById('mensaje').style.display = 'none';
+            document.getElementById('proximamente').style.display = 'none';
             document.getElementById(seccion).style.display = 'block';
         }
     </script>
