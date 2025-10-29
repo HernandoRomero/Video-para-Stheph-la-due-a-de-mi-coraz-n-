@@ -31,18 +31,20 @@
         }
 
         .ranura {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.85);
             border-radius: 20px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             padding: 25px;
             width: 100%;
             max-width: 850px;
-            transition: transform 0.3s ease;
+            display: none;
+            animation: aparecer 0.6s ease;
         }
 
-            .ranura:hover {
-                transform: scale(1.02);
-            }
+        @keyframes aparecer {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
 
         .mensaje {
             font-size: 1.2em;
@@ -76,6 +78,35 @@
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
+
+        .botones {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        button {
+            background-color: #7c3aed;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        button:hover {
+            background-color: #9f67ff;
+            transform: scale(1.05);
+        }
+
+        .volver {
+            background-color: #d946ef;
+        }
     </style>
 </head>
 <body>
@@ -83,38 +114,63 @@
 
     <div class="contenedor">
 
+        <!-- Botones de elección -->
+        <div class="botones" id="menu-principal">
+            <button onclick="mostrar('mensaje')">💌 Ver mensaje</button>
+            <button onclick="mostrar('video')">🎥 Ver video</button>
+            <button onclick="mostrar('final')">🌸 Ver frase final</button>
+        </div>
+
         <!-- Ranura 1: Mensaje -->
-        <div class="ranura">
+        <div class="ranura" id="mensaje">
             <h2>💌 Un pequeño mensaje 💌</h2>
             <div class="mensaje">
-                Aquí puedes escribir lo que sientes, por ejemplo:
-
-                “Sé que las cosas no están siendo fáciles últimamente,
-                pero quiero que recuerdes lo fuerte que eres.
-                No importa cuántas veces caigas, siempre te levantarás,
-                porque eso es lo que te hace tan especial.
-                Estoy aquí, aunque sea desde lejos 💜”
+                Sé que no estás pasando por el mejor momento, 
+                y quizá no tengo las palabras perfectas, 
+                pero quiero que sepas que no estás sola. 
+                Estoy contigo, incluso cuando no me veas ahí.  
+                Eres fuerte, hermosa y capaz de salir adelante. 💜
             </div>
+            <br>
+            <button class="volver" onclick="volverAlMenu()">⬅ Volver</button>
         </div>
 
         <!-- Ranura 2: Video -->
-        <div class="ranura">
+        <div class="ranura" id="video">
             <h2>🎥 Un video para ti 🎥</h2>
             <iframe src="https://www.youtube.com/embed/Evs4-q3a-K8"
-                    title="Video especial"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
+                title="Video especial"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
             </iframe>
+            <br>
+            <button class="volver" onclick="volverAlMenu()">⬅ Volver</button>
         </div>
 
-        <!-- Ranura 3: Imagen o frase final -->
-        <div class="ranura">
+        <!-- Ranura 3: Frase final -->
+        <div class="ranura" id="final">
             <h2>🌸 Para terminar... 🌸</h2>
             <img src="foto.jpeg" alt="Nosotros" class="foto">
             <div class="frase-final">
-                Siempre contigo, incluso en los días nublados 💜
+                Incluso en la distancia, mi cariño por ti sigue intacto 💜  
+                (y sí, seguimos necesitando más fotos juntos 😅)
             </div>
+            <br>
+            <button class="volver" onclick="volverAlMenu()">⬅ Volver</button>
         </div>
     </div>
+
+    <script>
+        function mostrar(id) {
+            document.getElementById('menu-principal').style.display = 'none';
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function volverAlMenu() {
+            const secciones = document.querySelectorAll('.ranura');
+            secciones.forEach(sec => sec.style.display = 'none');
+            document.getElementById('menu-principal').style.display = 'flex';
+        }
+    </script>
 </body>
 </html>
