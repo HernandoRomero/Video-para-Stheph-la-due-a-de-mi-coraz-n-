@@ -2,80 +2,64 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>💜 Para ti 💜</title>
+    <title>💜 Para mi cachetona 💜</title>
     <style>
         body {
             background: #d8b4fe url('snoopy.png') repeat;
             background-size: 150px;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
         }
 
+        .contenedor {
+            background-color: rgba(255, 255, 255, 0.75);
+            border-radius: 20px;
+            padding: 20px;
+            display: inline-block;
+            margin-top: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            max-width: 90%;
+        }
+
         h1 {
             color: #4b0082;
-            margin-top: 25px;
-            font-size: 2.2em;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
-        }
-
-        .contenedor {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-            margin: 30px auto;
-            width: 90%;
-            max-width: 900px;
-        }
-
-        .ranura {
-            background-color: rgba(255, 255, 255, 0.85);
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            padding: 25px;
-            width: 100%;
-            max-width: 850px;
-            display: none;
-            animation: aparecer 0.6s ease;
-        }
-
-        @keyframes aparecer {
-            from {opacity: 0; transform: translateY(20px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-
-        .mensaje {
-            font-size: 1.2em;
-            color: #2d004d;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-            line-height: 1.6;
-            white-space: pre-line;
+            margin-top: 0;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
 
         iframe {
-            width: 100%;
-            height: 450px;
+            margin-top: 20px;
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            border: none;
+            max-width: 100%;
+        }
+
+        p {
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: #4b0082;
+            padding: 0 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
 
         .foto {
-            margin-top: 10px;
+            margin-top: 20px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             width: 90%;
-            max-width: 350px;
+            max-width: 300px;
             height: auto;
         }
 
-        .frase-final {
+        .mensaje-foto {
             margin-top: 10px;
             font-size: 1.1em;
-            color: #4b0082;
+            color: #2d004d;
             font-weight: bold;
+            padding: 0 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
 
@@ -107,70 +91,76 @@
         .volver {
             background-color: #d946ef;
         }
+
+        .seccion {
+            display: none;
+            animation: aparecer 0.5s ease;
+        }
+
+        @keyframes aparecer {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
     </style>
 </head>
 <body>
-    <h1>💜 PARA TI 💜</h1>
 
     <div class="contenedor">
+        <h1>💜 PARA MI CACHETONA 💜</h1>
 
-        <!-- Botones de elección -->
-        <div class="botones" id="menu-principal">
-            <button onclick="mostrar('mensaje')">💌 Ver mensaje</button>
+        <!-- Menú inicial -->
+        <div id="menu" class="botones">
             <button onclick="mostrar('video')">🎥 Ver video</button>
-            <button onclick="mostrar('final')">🌸 Ver frase final</button>
+            <button onclick="mostrar('mensaje')">💌 Ver mensaje</button>
         </div>
 
-        <!-- Ranura 1: Mensaje -->
-        <div class="ranura" id="mensaje">
-            <h2>💌 Un pequeño mensaje 💌</h2>
-            <div class="mensaje">
-                Sé que no estás pasando por el mejor momento, 
-                y quizá no tengo las palabras perfectas, 
-                pero quiero que sepas que no estás sola. 
-                Estoy contigo, incluso cuando no me veas ahí.  
-                Eres fuerte, hermosa y capaz de salir adelante. 💜
-            </div>
-            <br>
-            <button class="volver" onclick="volverAlMenu()">⬅ Volver</button>
-        </div>
-
-        <!-- Ranura 2: Video -->
-        <div class="ranura" id="video">
-            <h2>🎥 Un video para ti 🎥</h2>
-            <iframe src="https://www.youtube.com/embed/Evs4-q3a-K8"
-                title="Video especial"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
+        <!-- Sección del video -->
+        <div id="video" class="seccion">
+            <iframe width="800" height="450"
+                    src="https://www.youtube.com/embed/Evs4-q3a-K8"
+                    title="Video motivacional"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
             </iframe>
+
+            <p>🌟 Eres increíble y vas a romperla en el ICFES 🌟</p>
+
+            <img src="foto.jpeg" alt="Nosotros" class="foto">
+
+            <div class="mensaje-foto">
+                Siempre contigo, en cada paso que des 💜<br>
+                (PDTA: tenemos que tomarnos fotos porque no encontré casi foto de los 2 😅)
+            </div>
+
             <br>
-            <button class="volver" onclick="volverAlMenu()">⬅ Volver</button>
+            <button class="volver" onclick="volver()">⬅ Volver</button>
         </div>
 
-        <!-- Ranura 3: Frase final -->
-        <div class="ranura" id="final">
-            <h2>🌸 Para terminar... 🌸</h2>
-            <img src="foto.jpeg" alt="Nosotros" class="foto">
-            <div class="frase-final">
-                Incluso en la distancia, mi cariño por ti sigue intacto 💜  
-                (y sí, seguimos necesitando más fotos juntos 😅)
-            </div>
+        <!-- Sección del mensaje -->
+        <div id="mensaje" class="seccion">
+            <p style="font-size: 1.2em; color: #4b0082; font-weight: bold;">
+                Sé que últimamente las cosas no han sido fáciles, y que a veces cuesta encontrar motivos para sonreír.  
+                Pero quiero que recuerdes algo: tú siempre has podido con todo, incluso cuando creías que no.  
+                No importa la distancia, siempre voy a desearte cosas buenas y estaré orgulloso de ti 💜
+            </p>
             <br>
-            <button class="volver" onclick="volverAlMenu()">⬅ Volver</button>
+            <button class="volver" onclick="volver()">⬅ Volver</button>
         </div>
     </div>
 
     <script>
         function mostrar(id) {
-            document.getElementById('menu-principal').style.display = 'none';
+            document.getElementById('menu').style.display = 'none';
             document.getElementById(id).style.display = 'block';
         }
 
-        function volverAlMenu() {
-            const secciones = document.querySelectorAll('.ranura');
-            secciones.forEach(sec => sec.style.display = 'none');
-            document.getElementById('menu-principal').style.display = 'flex';
+        function volver() {
+            document.getElementById('menu').style.display = 'flex';
+            document.getElementById('video').style.display = 'none';
+            document.getElementById('mensaje').style.display = 'none';
         }
     </script>
+
 </body>
 </html>
