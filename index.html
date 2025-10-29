@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>💜 Para mi cachetona 💜</title>
+    <title>💜 Para mi Cachetona 💜</title>
     <style>
         body {
             background: #d8b4fe url('snoopy.png') repeat;
@@ -14,11 +14,11 @@
         }
 
         .contenedor {
-            background-color: rgba(255, 255, 255, 0.75);
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: 20px;
-            padding: 20px;
+            padding: 25px;
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 40px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             max-width: 90%;
         }
@@ -38,11 +38,11 @@
         }
 
         p {
-            margin-top: 15px;
-            font-size: 1.1em;
             color: #4b0082;
-            padding: 0 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            font-size: 1.1em;
+            text-align: justify;
+            padding: 10px 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
         .foto {
@@ -59,69 +59,45 @@
             font-size: 1.1em;
             color: #2d004d;
             font-weight: bold;
-            padding: 0 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
         }
 
-        .botones {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        button {
-            background-color: #7c3aed;
+        .boton {
+            background-color: #a855f7;
             color: white;
             border: none;
-            border-radius: 25px;
-            padding: 15px 25px;
-            font-size: 1.1em;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1em;
             cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: 0.3s;
         }
 
-        button:hover {
-            background-color: #9f67ff;
-            transform: scale(1.05);
+        .boton:hover {
+            background-color: #7e22ce;
         }
 
-        .volver {
-            background-color: #d946ef;
-        }
-
-        .seccion {
+        .contenido {
             display: none;
-            animation: aparecer 0.5s ease;
-        }
-
-        @keyframes aparecer {
-            from {opacity: 0; transform: translateY(20px);}
-            to {opacity: 1; transform: translateY(0);}
         }
     </style>
 </head>
 <body>
-
     <div class="contenedor">
         <h1>💜 PARA MI CACHETONA 💜</h1>
 
-        <!-- Menú inicial -->
-        <div id="menu" class="botones">
-            <button onclick="mostrar('video')">🎥 Ver video</button>
-            <button onclick="mostrar('mensaje')">💌 Ver mensaje</button>
-        </div>
+        <button class="boton" onclick="mostrar('video')">🎥 Ver video</button>
+        <button class="boton" onclick="mostrar('mensaje')">💌 Ver mensaje</button>
 
-        <!-- Sección del video -->
-        <div id="video" class="seccion">
+        <div id="video" class="contenido">
             <iframe width="800" height="450"
-                    src="https://www.youtube.com/embed/Evs4-q3a-K8"
-                    title="Video motivacional"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
+                src="https://www.youtube.com/embed/Evs4-q3a-K8"
+                title="Video motivacional"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
             </iframe>
 
             <p>🌟 Eres increíble y vas a romperla en el ICFES 🌟</p>
@@ -130,37 +106,44 @@
 
             <div class="mensaje-foto">
                 Siempre contigo, en cada paso que des 💜<br>
-                (PDTA: tenemos que tomarnos fotos porque no encontré casi foto de los 2 😅)
+                (PDTA: tenemos que tomarnos más fotos 😅)
             </div>
-
-            <br>
-            <button class="volver" onclick="volver()">⬅ Volver</button>
         </div>
 
-        <!-- Sección del mensaje -->
-        <div id="mensaje" class="seccion">
-            <p style="font-size: 1.2em; color: #4b0082; font-weight: bold;">
-                Sé que últimamente las cosas no han sido fáciles, y que a veces cuesta encontrar motivos para sonreír.  
-                Pero quiero que recuerdes algo: tú siempre has podido con todo, incluso cuando creías que no.  
-                No importa la distancia, siempre voy a desearte cosas buenas y estaré orgulloso de ti 💜
+        <div id="mensaje" class="contenido">
+            <p>
+                Holaaa Stheph, ojalá hoy empieces el día con calma en el corazón y con la certeza de que todo lo que estás viviendo tiene un propósito, incluso si ahora no lo entiendes del todo.
+                Sé que últimamente te has sentido en decadencia, con mucho estrés y cargada por el ritmo del día a día. Pero también sé que dentro de ti hay una fortaleza enorme, una que siempre te ha ayudado a salir adelante incluso cuando sientes que no puedes más.
             </p>
-            <br>
-            <button class="volver" onclick="volver()">⬅ Volver</button>
+            <p>
+                A veces la vida solo nos está pidiendo que respiremos, que bajemos el ritmo y recordemos que no tenemos que cargar con todo solos.
+                Y ahí es donde entra Dios. Él siempre está, esperando que le entregues tus cargas, tus miedos y tus días difíciles.
+            </p>
+            <p>
+                Si tienes un tiempito hoy, y como es miércoles, podrías pasar por la iglesia (aunque no es necesario, porque igual puedes hablar con Él desde tu casa). Pero créeme, a veces estar ahí, en silencio, te llena de una paz distinta, esa que solo Dios sabe dar.
+            </p>
+            <p>
+                (Y si pudiera, te acompañaría… pero bueno, ando cojo JAJAJAJA. Así que por lo menos te acompaño en espíritu).
+            </p>
+            <p>
+                De verdad, pídele a Dios que te dé calma, porque Él escucha, siempre.
+                Y aunque ahora todo parezca pesado, pronto vas a ver cómo todo empieza a acomodarse.
+                Tú eres fuerte, lo has sido siempre, aunque sé que a veces te agota serlo todo el tiempo. Pero también tienes derecho a descansar, a soltar y dejarte cuidar.
+            </p>
+            <p>
+                Empieza el día con fe, con esperanza y con la certeza de que todo va a estar bien.
+                Porque lo va a estar.
+                Recuerda que eres luz, y aunque a veces no lo veas, Dios sigue obrando en ti. Espero tengas un día lindo como tus ojitos 🌷
+            </p>
         </div>
     </div>
 
     <script>
-        function mostrar(id) {
-            document.getElementById('menu').style.display = 'none';
-            document.getElementById(id).style.display = 'block';
-        }
-
-        function volver() {
-            document.getElementById('menu').style.display = 'flex';
+        function mostrar(seccion) {
             document.getElementById('video').style.display = 'none';
             document.getElementById('mensaje').style.display = 'none';
+            document.getElementById(seccion).style.display = 'block';
         }
     </script>
-
 </body>
 </html>
