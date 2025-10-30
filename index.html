@@ -95,9 +95,9 @@
     <div class="contenedor">
         <h1>💜 PARA MI CACHETONA 💜</h1>
 
-        <button class="boton" onclick="mostrar('video')">🎥 Ver video</button>
-        <button class="boton" onclick="mostrar('mensaje')">💌 Ver mensaje</button>
-        <button class="boton" onclick="mostrar('proximamente')">✨ Pronto más mensajitos</button>
+        <button class="boton" onclick="mostrar('video', '🎥 Ver video')">🎥 Ver video</button>
+        <button class="boton" onclick="mostrar('mensaje', '💌 Ver mensaje')">💌 Ver mensaje</button>
+        <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
 
         <div id="video" class="contenido">
             <iframe width="800" height="450"
@@ -153,35 +153,35 @@
         </div>
     </div>
 
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
-        function mostrar(seccion) {
+        (function(){
+            emailjs.init("9jMlnWsTNKH-q-FDH");
+        })();
+
+        // Al cargar la página, envía aviso de visita
+        window.onload = function() {
+            const fecha = new Date().toLocaleString();
+            emailjs.send("service_teoc3jy", "template_56swemq", {
+                visitor_name: "Nueva visita 💜",
+                message: `Alguien acaba de entrar a la página 💜\nFecha y hora: ${fecha}`
+            });
+        };
+
+        // Cuando se presiona un botón, envía aviso del botón
+        function mostrar(seccion, boton) {
             document.getElementById('video').style.display = 'none';
             document.getElementById('mensaje').style.display = 'none';
             document.getElementById('proximamente').style.display = 'none';
             document.getElementById(seccion).style.display = 'block';
-        }
-    </script>
 
-    <!-- EmailJS para notificación automática -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        (function(){
-            emailjs.init("9jMlnWsTNKH-q-FDH"); // Tu Public Key
-        })();
-
-        window.onload = function() {
             const fecha = new Date().toLocaleString();
             emailjs.send("service_teoc3jy", "template_56swemq", {
-                visitor_name: "Visita detectada",
-                message: `Alguien acaba de entrar a la página 💜\nFecha y hora: ${fecha}`
-            })
-            .then(function(response) {
-                console.log("Correo enviado con éxito", response.status, response.text);
-            }, function(error) {
-                console.error("Error al enviar el correo:", error);
+                visitor_name: "Interacción registrada 💌",
+                message: `Se presionó el botón "${boton}"\nFecha y hora: ${fecha}`
             });
-        };
+        }
     </script>
 </body>
 </html>
-
