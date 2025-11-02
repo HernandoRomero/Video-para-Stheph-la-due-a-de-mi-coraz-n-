@@ -121,6 +121,37 @@
             background-color: #6d28d9;
             transform: scale(1.05);
         }
+                /* --- Estilo especial para la carta "Posiblemente el último" --- */
+        body.fondo-elegante {
+            background: #f5f5f5 url('textura-elegante.png') repeat;
+            background-size: 200px;
+            color: #222;
+            transition: background 0.8s ease;
+        }
+
+        #nuevo2.carta-elegante {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 800px;
+            margin: 40px auto;
+            font-family: "Georgia", serif;
+            font-size: 1.2em;
+            line-height: 1.8em;
+            color: #333;
+            border: 2px solid #ccc;
+            animation: aparecer 1s ease-in-out;
+        }
+
+        #nuevo2.carta-elegante strong {
+            color: #6b21a8;
+        }
+
+        #nuevo2.carta-elegante p {
+            text-align: justify;
+            text-indent: 20px;
+        }
     </style>
 </head>
 <body>
@@ -363,17 +394,32 @@
             const el = document.getElementById(id);
             if (el) el.style.display = 'none';
         });
-        document.getElementById(seccion).style.display = 'block';
     
+        // Mostrar la sección seleccionada
+        const mostrarSeccion = document.getElementById(seccion);
+        mostrarSeccion.style.display = 'block';
+    
+        // Cambiar el fondo y estilo si es la carta final
+        if (seccion === 'nuevo2') {
+            document.body.classList.add('fondo-elegante');
+            mostrarSeccion.classList.add('carta-elegante');
+        } else {
+            document.body.classList.remove('fondo-elegante');
+            document.getElementById('nuevo2').classList.remove('carta-elegante');
+        }
+    
+        // Enviar registro al correo
         const fecha = new Date().toLocaleString();
         emailjs.send("service_teoc3jy", "template_56swemq", {
             visitor_name: "Interacción registrada 💌",
             message: `Se presionó el botón "${boton}"\nFecha y hora: ${fecha}`
         });
     }
+
     </script>
 </body>
 </html>
+
 
 
 
