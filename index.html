@@ -131,6 +131,7 @@
         <button class="boton" onclick="mostrar('mensaje', '💌 Ver mensaje')">💌 Ver mensaje</button>
         <button class="boton-especial" onclick="mostrar('especial', '💖 Lo que siento')">💖 Lo que siento</button>
         <button class="boton" onclick="mostrar('nuevo', '💭 Nuevo mensaje especial')">💭 Nuevo mensaje</button>
+        <button class="boton" onclick="mostrar('nuevo2', 'Posiblemente el ultimo')">💞 Otro mensaje</button>
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
         
 
@@ -184,7 +185,7 @@
         <div id="proximamente" class="contenido">
             <p style="text-align:center; font-size:1.3em; color:#6b21a8; font-weight:bold;">
                 💫 Pronto más mensajitos lindos para ti 💕<br>
-                (Sigue pendiente, esto apenas empieza 😌)
+                (Yo se que esperas mas mensajes, pero no te has puesto a pensar que a lo mejor yo quiero un mensaje tuyo tambien?)
             </p>
         </div>
 
@@ -297,15 +298,57 @@
             Bueno, uno de esos❤️<br><br>
         </p>
     </div>
+    <div id="nuevo2" class="contenido">
+    <p style="font-size:1.1em; color:#4b0082; text-align:justify;">
+        Hoy se cumple exactamente un mes desde que nos dejamos.
+        Y sinceramente, ha sido un mes en el que he aprendido muchas cosas… pero también uno en el que te he extrañado más de lo que imaginé que se podía extrañar a alguien.
+        <br><br>
+        Me hubiese gustado que las cosas no se tornaran así, pero bueno, solo Dios sabe por qué todo se dio de esa manera.
+        Aun así, no ha pasado ni un solo día sin que piense en ti, como lo hago desde aquella primera conversación que tuvimos.
+        Tampoco ha pasado un día sin que le pida a Dios por ti, por tu bienestar, por tu paz y porque la vida te sonría.
+        <br><br>
+        Obviamente quiero estar contigo.
+        Quiero que luchemos para que las cosas se nos den, porque te quiero demasiado y porque creo que lo nuestro vale la pena.
+        Pero también entiendo si prefieres guardar distancia, y lo respeto.
+        <br><br>
+        Tú sabes que no soy una mala persona, y si me dieras la oportunidad de intentar las cosas otra vez, no te fallaría.
+        He cometido errores, sí, pero también he aprendido de ellos.
+        Y aunque sé que las palabras no bastan, estoy seguro de que si los dos lo intentamos, podemos llegar lejos, porque el amor que sentimos fue y sigue siendo real.
+        <br><br>
+        Desde ese 10 de junio en que te conocí, jamás imaginé que iba a tener una conexión tan bonita con alguien.
+        Aunque tengo mucho que aprender, quiero hacerlo contigo.
+        Sé que tengo cosas por corregir, pero quiero corregirlas contigo.
+        Y aunque todavía no he llegado a mi mejor versión, quiero que seas tú quien la disfrute, porque estoy enamorado de ti.
+        <br><br>
+        Y aunque eres demasiado hermosa,
+        no me enamoré solo de tu físico:
+        me enamoré de tu forma de pensar,
+        de cómo ves la vida de un modo distinto,
+        de tu esencia, de tu forma de sentir y de amar.
+        En fin… me enamoré de STHEPHANYA.
+        <br><br>
+        No sé qué estés pensando ahora, ni qué lugar ocupo en tu vida, pero quiero que pienses las cosas con calma.
+        Si sientes que no vale la pena intentarlo, solo te pido que me lo hagas saber.
+        Yo haré todo lo posible por seguir adelante, aunque me cueste.
+        <br><br>
+        Pase lo que pase, quiero que sepas que te quiero con el alma, y que aunque la vida siga su curso, siempre vas a ser alguien especial para mí.
+        Te deseo lo mejor del mundo, de verdad.
+        <br><br>
+        Y si este es el final, me quedo tranquilo sabiendo que todo lo que sentí fue sincero, que lo di con el corazón, y que si algún día el destino quiere, volverá a cruzar nuestros caminos.
+        <br><br>
+        Te mando un beso y abrazo fuerte mi cielo🫂❤️
+        <br><br>
+    </p>
+    </div>
 
  </div>
 
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
-        (function(){
+        document.addEventListener("DOMContentLoaded", function(){
             emailjs.init("9jMlnWsTNKH-q-FDH");
-        })();
+        });
 
         window.onload = function() {
             const fecha = new Date().toLocaleString();
@@ -316,20 +359,22 @@
         };
 
         function mostrar(seccion, boton) {
-            ['video', 'mensaje', 'proximamente', 'especial', 'nuevo'].forEach(id => {
-                document.getElementById(id).style.display = 'none';
-            });
-            document.getElementById(seccion).style.display = 'block';
-
-            const fecha = new Date().toLocaleString();
-            emailjs.send("service_teoc3jy", "template_56swemq", {
-                visitor_name: "Interacción registrada 💌",
-                message: `Se presionó el botón "${boton}"\nFecha y hora: ${fecha}`
-            });
-        }
+        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.style.display = 'none';
+        });
+        document.getElementById(seccion).style.display = 'block';
+    
+        const fecha = new Date().toLocaleString();
+        emailjs.send("service_teoc3jy", "template_56swemq", {
+            visitor_name: "Interacción registrada 💌",
+            message: `Se presionó el botón "${boton}"\nFecha y hora: ${fecha}`
+        });
+    }
     </script>
 </body>
 </html>
+
 
 
 
