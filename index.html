@@ -163,6 +163,7 @@
         <button class="boton-especial" onclick="mostrar('especial', '💖 Lo que siento')">💖 Lo que siento</button>
         <button class="boton" onclick="mostrar('nuevo', '💭 Nuevo mensaje especial')">💭 Nuevo mensaje</button>
         <button class="boton" onclick="mostrar('nuevo2', 'Posiblemente el ultimo')">✉️</button>
+        <button class="boton" onclick="mostrar('nuevo3', '📜 Otra carta más')">📜 Otra carta más</button>
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
         
 
@@ -373,7 +374,37 @@
     </p>
     </div>
 
- </div>
+    <div id="nuevo3" class="contenido carta-elegante">
+            <p>
+                Holaaa de nuevo, no sé si leíste el mensaje de ayer, pero bueno… aquí voy con otro nuevo.  
+                </p>
+                Hoy fue un día en el que me desperté con toda la actitud, con ganas de que fuera un buen día, pero fue inevitable que en el transcurso del día llegara tu recuerdo una y otra vez.  
+                Me vinieron a la mente los momentos lindos que vivimos, las risas, las conversaciones, las miradas… y con eso también llegó una tristeza que no sé ni cómo estoy disimulando, porque la verdad es que aún te quiero con toda mi alma.  
+                </p>
+                Sé que todo esto está siendo difícil, tanto para ti como para mí.  
+                Por eso quiero que sepas que mi intención no es sonar insistente ni agobiarte, solo ser sincero.  
+                Le he pedido mucho a Dios que, si lo nuestro ya no tiene más historia que escribir, entonces me quite ese deseo del corazón de seguir juntos, que nos ayude a soltar en paz.  
+                Pero te cuento algo: no sé si tú ya no sientes lo mismo por mí, pero por lo menos a mí, ese deseo no se me ha ido.  
+                Sigue ahí, vivo, fuerte, y cada día me recuerda cuánto vales y cuánto deseo hacer las cosas bien contigo.  
+                </p>
+                Obviamente, sé que no todo se soluciona con palabras.  
+                También hay que demostrar, construir y sanar.  
+                Y eso es lo que quiero hacer, porque no quiero perderte.  
+                Y aunque no lo digas, algo dentro de mí me dice que tú, en el fondo, tampoco quieres eso.  
+                </p>
+                Si es así, solo te pido una cosa:( que sé que no es fácil) pero permítete querer sin miedo.  
+                Permítete creer que sí puede salir bien, que sí puede ser diferente esta vez.  
+                Yo lo haré también, sin reservas, con el corazón abierto, porque estoy convencido de que cuando Dios une dos caminos con tanta conexión desde el principio, no es por casualidad, sino porque hay un propósito.  
+                </p>
+                Y mientras la vida se encarga de mostrarnos cuál es, yo seguiré pidiéndole a Dios que te cuide, que te dé calma y que te regale claridad para tomar las decisiones correctas en tu vida, pero sobre todo, que te llene de amor y serenidad.  
+                </p>
+                Porque aunque no estemos juntos ahora, mi cariño por ti sigue siendo el mismo: limpio, profundo y lleno de fe.  
+                </p>
+                Te quiero con todo mi corazón mi cachetona❤️
+            </p>
+        </div>
+
+    </div>
 
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -391,32 +422,30 @@
         };
 
         function mostrar(seccion, boton) {
-        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.style.display = 'none';
-        });
-    
-        // Mostrar la sección seleccionada
-        const mostrarSeccion = document.getElementById(seccion);
-        mostrarSeccion.style.display = 'block';
-    
-        // Cambiar el fondo y estilo si es la carta final
-        if (seccion === 'nuevo2') {
-            document.body.classList.add('fondo-elegante');
-            mostrarSeccion.classList.add('carta-elegante');
-        } else {
-            document.body.classList.remove('fondo-elegante');
-            document.getElementById('nuevo2').classList.remove('carta-elegante');
-        }
-    
-        // Enviar registro al correo
-        const fecha = new Date().toLocaleString();
-        emailjs.send("service_teoc3jy", "template_56swemq", {
-            visitor_name: "Interacción registrada 💌",
-            message: `Se presionó el botón "${boton}"\nFecha y hora: ${fecha}`
-        });
-    }
+            ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
 
+            const mostrarSeccion = document.getElementById(seccion);
+            mostrarSeccion.style.display = 'block';
+
+            // Aplicar fondo elegante si es una carta
+            if (seccion === 'nuevo2' || seccion === 'nuevo3') {
+                document.body.classList.add('fondo-elegante');
+                mostrarSeccion.classList.add('carta-elegante');
+            } else {
+                document.body.classList.remove('fondo-elegante');
+                document.querySelectorAll('.carta-elegante').forEach(e => e.classList.remove('carta-elegante'));
+            }
+
+            // Enviar registro al correo
+            const fecha = new Date().toLocaleString();
+            emailjs.send("service_teoc3jy", "template_56swemq", {
+                visitor_name: "Interacción registrada 💌",
+                message: `Se presionó el botón "${boton}"\nFecha y hora: ${fecha}`
+            });
+        }
     </script>
 </body>
 </html>
