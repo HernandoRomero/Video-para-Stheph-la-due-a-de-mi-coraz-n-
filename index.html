@@ -452,7 +452,7 @@
         };
 
         function mostrar(seccion, boton) {
-            ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3'].forEach(id => {
+            ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'nuevo4'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.style.display = 'none';
             });
@@ -461,7 +461,7 @@
             mostrarSeccion.style.display = 'block';
 
             // Aplicar fondo elegante si es una carta
-            if (seccion === 'nuevo2' || seccion === 'nuevo3') {
+            if (seccion === 'nuevo2' || seccion === 'nuevo3' || seccion === 'nuevo4') {
                 document.body.classList.add('fondo-elegante');
                 mostrarSeccion.classList.add('carta-elegante');
             } else {
@@ -479,6 +479,7 @@
     </script>
 </body>
 </html>
+
 
 
 
