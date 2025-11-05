@@ -185,19 +185,17 @@
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
         }
         
-        /* Efecto de estrellas animadas */
-        .contenido-luna::before {
-            content: "";
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(white 1px, transparent 1px);
-            background-size: 40px 40px;
-            opacity: 0.15;
-            animation: estrellas 40s linear infinite;
-            top: -50%;
-            left: -50%;
+        .contenido-luna {
+        background: radial-gradient(circle at top center, #2e2e48, #0b0b14);
+        color: #ffffff; /* 🔥 Blanco brillante */
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 0 25px rgba(180, 144, 255, 0.4);
+        position: relative;
+        overflow: hidden;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* 🔥 Efecto de brillo */
         }
+
         
         @keyframes estrellas {
             from { transform: rotate(0deg); }
@@ -464,9 +462,7 @@
             </p>
         
     </div>
-        <div id="noviembre5" class="card-content" style="display:none; background: linear-gradient(180deg, #0b0c10, #1a1a2e); color: #e0e0e0; border-radius: 15px; padding: 30px; box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);">
-          <h2 style="text-align:center; color:#c0a6ff;">5 de noviembre</h2>
-          <p style="text-align:justify; color:#f0f0f0;">
+        <div id="noviembre5" class="contenido contenido-luna"> <h2>🌙 5 de Noviembre 🌙</h2> <p> 5 de noviembre<br><br>
             5 de noviembre<br><br>
             Holaaa, soy yo otra vez.<br><br> 
             
@@ -537,6 +533,7 @@
     </script>
 </body>
 </html>
+
 
 
 
