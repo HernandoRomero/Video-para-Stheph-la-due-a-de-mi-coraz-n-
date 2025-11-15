@@ -224,6 +224,7 @@
         <button class="boton" onclick="mostrar('nuevo2', 'Posiblemente el ultimo')">✉️</button>
         <button class="boton" onclick="mostrar('nuevo3', '📜 Otra carta más')">📜 Otra carta más</button>
         <button class="boton-luna" onclick="mostrar('noviembre5', '4 de noviembre 🌕')">4 de noviembre 🌕</button>
+        <button class="boton" onclick="mostrar('15 DE NOVIEMBRE', '💌 Mensaje para tu correo')">15/11</button>
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
         
 
@@ -499,7 +500,52 @@
         </p>
     </div>
 
+        </div>
+        <div id="email" class="contenido carta-elegante" style="
+        display:none;
+        max-width: 750px; 
+        margin: 40px auto; 
+        background: #ffffffcc;
+        backdrop-filter: blur(6px);
+        padding: 30px; 
+        border-radius: 18px; 
+        box-shadow: 0 0 18px rgba(0,0,0,0.15);
+        color: #3b0066;
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+    ">
+        <h2 style="text-align:center; color:#5e0099; margin-bottom:15px;">
+            💌 Para ti
+        </h2>
+    
+        <p style="font-size:1.2em; text-align:justify; color:#2e004d;">
+        </p>
+            Hola Stheph,<br><br>
+            Primero que todo, espero de corazón que estés muy bien. Y si por algún motivo no lo estás, deseo que todo mejore pronto, que encuentres calma y que cada día te sientas un poquito más tranquila contigo misma.<br><br>
+            
+            He tratado de respetar tu espacio lo mejor que he podido, aunque sinceramente me sobran las ganas de llamarte o escribirte. No lo hago, no porque no quiera, sino por el respeto y el cariño tan grande que te tengo.
+            Te extraño mucho. Y aunque siento que le he estado dando cierto manejo a la situación, hay momentos en los que simplemente no puedo evitar recordarte… tus abrazos, que me daban una paz que no se imagina; cuando nos tomábamos de la mano, tus besos, tu aroma, y todas esas pequeñas cosas que se quedaron conmigo.<br><br>
+            
+            Ya casi se cumplen dos meses desde que terminamos, y con cada día que pasa me doy más cuenta de algo: quiero seguir escribiendo historia contigo. Mientras esté en mis manos elegir, mi elección siempre serás tú.
+            Porque en ti no encontré solo a la persona con la que quiero vivir muchas cosas, sino también a alguien sin quien no sabría vivirlas. Es una sensación difícil de explicar, pero me hace bien… me inspira a ser mejor cada día, a trabajar en mí, a buscar mi mejor versión para algún día poder ofrecértela sin miedos, si tu me y Dios me lo permiten obviamente.<br><br>
+            
+            No niego que a veces quisiera buscarte, hablarte, si quiera solo para saber cómo estás, pero entiendo que tomaste una decisión, y por amor (no por resignación) debo respetarla. Porque supongo que el amor también se demuestra cuando uno sabe dar espacio, incluso si duele.<br><br>
+            
+            Otra cosita, no quiero ser entrometido ni nada por el estilo, pero la última vez que te vi estabas un poquito pálida, no te noté muy bien. Solo espero que lo que sea que estés pasando se vaya pronto, porque no me gusta verte apagada. Tú siempre has sido luz, y el mundo se nota distinto cuando no estás brillando.<br><br>
+            
+            Que Dios te bendiga y te proteja siempre.
+            Te quiero (aunque me ignores).
+            Y te mando un abrazote, de esos largos, fuertes y con todo el cariño del mundo.❤️<br><br>
+
+            PSDT: Se que no tienes casi tiempo pero aparta la cita medica por favor, hazlo por tu salud😡. Cuídate mucho, y está pendiente porque a lo mejor te cae un detallito por ahí. ¿o quien sabe?👀
+        </p>
+    
+        <p style="text-align:center; margin-top:20px; color:#4b0082; font-style:italic;">
+            Con cariño,<br>
+            Yo ❤️
+        </p>
     </div>
+
 
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -519,7 +565,7 @@
         };
     
         function mostrar(seccion, boton) {
-            ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5'].forEach(id => {
+            ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.style.display = 'none';
             });
@@ -546,6 +592,7 @@
     </script>
 </body>
 </html>
+
 
 
 
