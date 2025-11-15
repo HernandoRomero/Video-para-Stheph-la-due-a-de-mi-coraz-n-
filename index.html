@@ -551,50 +551,67 @@
 
 
     <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // 🔑 Reemplaza con tu nueva Public Key
-            emailjs.init("PB_0_CVIlGzkHoENp");
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+    let tiempoInicio = Date.now();  // Marca la hora de entrada
+
+    document.addEventListener("DOMContentLoaded", function(){
+        emailjs.init("PB_0_CVIlGzkHoENp"); // TU NUEVO USER ID
+    });
+
+    window.onload = function() {
+        const fecha = new Date().toLocaleString();
+        emailjs.send("service_tgthj7o", "template_yz9w6st", { 
+            visitor_name: "Nueva visita 💜",
+            message: `Alguien acaba de entrar a la página 💜\nFecha y hora: ${fecha}`
         });
-    
-        window.onload = function() {
-            const fecha = new Date().toLocaleString();
-            // 📩 Reemplaza con tu nuevo Service ID y Template ID
-            emailjs.send("service_tgthj7o", "template_yz9w6st", { 
-                visitor_name: "Nueva visita 💜",
-                message: `Alguien acaba de entrar a la página 💜\nFecha y hora: ${fecha}`
-            });
-        };
-    
-        function mostrar(seccion, boton) {
-            ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.style.display = 'none';
-            });
-    
-            const mostrarSeccion = document.getElementById(seccion);
-            mostrarSeccion.style.display = 'block';
-    
-            // Aplicar fondo elegante si es una carta
-            if (seccion === 'nuevo2' || seccion === 'nuevo3') {
-                document.body.classList.add('fondo-elegante');
-                mostrarSeccion.classList.add('carta-elegante');
-            } else {
-                document.body.classList.remove('fondo-elegante');
-                document.querySelectorAll('.carta-elegante').forEach(e => e.classList.remove('carta-elegante'));
-            }
-    
-            // Enviar registro del botón al correo
-            const fecha = new Date().toLocaleString();
-            emailjs.send("service_tgthj7o", "template_yz9w6st", { 
-                visitor_name: "Interacción registrada 💌",
-                message: `Se presionó el botón "${boton}"\nFecha y hora: ${fecha}`
-            });
+    };
+
+    // ---------------------------------------
+    // 🕒 Enviar tiempo total al salir de la página
+    // ---------------------------------------
+    window.addEventListener("beforeunload", function() {
+        const tiempoSalida = Date.now();
+        const duracion = Math.round((tiempoSalida - tiempoInicio) / 1000);
+
+        const minutos = Math.floor(duracion / 60);
+        const segundos = duracion % 60;
+
+        emailjs.send("service_tgthj7o", "template_yz9w6st", {
+            visitor_name: "Salida registrada 💜",
+            message: `La página estuvo abierta durante:\n${minutos} min ${segundos} seg`
+        });
+    });
+
+    function mostrar(seccion, boton) {
+        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE']
+        .forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.style.display = 'none';
+        });
+
+        const mostrarSeccion = document.getElementById(seccion);
+        mostrarSeccion.style.display = 'block';
+
+        // Fondo elegante
+        if (seccion === 'nuevo2' || seccion === 'nuevo3') {
+            document.body.classList.add('fondo-elegante');
+            mostrarSeccion.classList.add('carta-elegante');
+        } else {
+            document.body.classList.remove('fondo-elegante');
+            document.querySelectorAll('.carta-elegante').forEach(e => e.classList.remove('carta-elegante'));
         }
-    </script>
-</body>
-</html>
+
+        // Registro de clics
+        const fecha = new Date().toLocaleString();
+        emailjs.send("service_tgthj7o", "template_yz9w6st", { 
+            visitor_name: "Interacción registrada 💌",
+            message: `Se presionó el botón "${boton}"\nFecha y hora: ${fecha}`
+        });
+    }
+</script>
+
+
 
 
 
