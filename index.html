@@ -225,6 +225,7 @@
         <button class="boton" onclick="mostrar('nuevo3', '📜 Otra carta más')">📜 Otra carta más</button>
         <button class="boton-luna" onclick="mostrar('noviembre5', '4 de noviembre 🌕')">4 de noviembre 🌕</button>
         <button class="boton" onclick="mostrar('15 DE NOVIEMBRE', '15 de noviembre💌')">15/11</button>
+        <button class="boton" onclick="mostrar('gerbera', '18 de noviembre💌')">18/11 🌸</button>
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
         
 
@@ -556,7 +557,43 @@
             Yo 🫶🏼
         </p>
     </div>
+    
+    <div id="gerbera" style="display:none; 
+    padding: 25px; 
+    margin-top: 20px;
+    background: #fff7fb;
+    border-radius: 18px;
+    box-shadow: 0 0 15px rgba(255,150,190,0.4);
+    border: 2px solid #ffb6d5;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Georgia', serif;
+    color: #5a0031;
+    line-height: 1.8;
+">
+    
+    <h2 style="text-align:center; color:#d6006b;">🌼 Carta de las Gerberas 🌼</h2>
 
+    Holaaaa Stheph,<br><br>
+    Espero que hoy estés bien, y si por algun motivo no es así, deseo de corazón que Dios te dé la paz y la fuerza que necesitas para que todo empiece a mejorar pronto.<br><br>
+    
+    Si estás leyendo esto, imagino que ya te llegaron las flores…
+    Las envié con muchísimo amor. Y con la intención de regalarte un momento bonito en medio de la semana. No sé si lo logré, pero si sé que lo hice desde el corazón. Solo quería dejarte un gesto bonito, algo que te recordara lo ESPECIAL que eres.<br><br>
+    
+    Ojalá te hayan gustado tanto como a mí me gusto la idea de intentar hacerte sonreir aunque sea un poquito, porque aunque no estemos cerca, con solo recordar tu sonrisa aún me ilumina y me llena el alma de una forma que no sé ni explicar.<br><br>
+    Y ojalá también puedas tomarte esta semana con calma. Sé que a veces el alma se cansa, pero también creo que vienen bendiciones grandes y que lo mejor es recibirlas con el corazón tranquilo y dispuesto. Dios siempre tiene formas lindas de sorprendernos, incluso cuando no lo vemos venir.<br><br>
+    
+    Solo quiero que te vaya bien, que encuentres luz en lo que hoy parece confuso, y que todo lo bueno llegue a ti en el momento perfecto.<br><br>
+    
+    Te quiero mucho❤️,<br>
+    y te mando un abrazo largo, fuerte y lleno de buena energía.<br><br>
+        
+    <p style="font-size:18px;">
+        (Pega aquí tu mensaje tal cual lo quieres… yo no lo cambio para nada)
+    </p>
+
+</div>
 
     <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -592,7 +629,7 @@
     });
 
     function mostrar(seccion, boton) {
-        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE']
+        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera']
         .forEach(id => {
             const el = document.getElementById(id);
             if (el) el.style.display = 'none';
@@ -618,6 +655,7 @@
         });
     }
 </script>
+
 
 
 
