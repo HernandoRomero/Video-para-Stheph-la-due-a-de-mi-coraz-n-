@@ -121,7 +121,8 @@
             background-color: #6d28d9;
             transform: scale(1.05);
         }
-                /* --- Estilo especial para la carta "Posiblemente el último" --- */
+        
+        /* --- Estilo especial para la carta "Posiblemente el último" --- */
         body.fondo-elegante {
             background: #f5f5f5 url('textura-elegante.png') repeat;
             background-size: 200px;
@@ -210,6 +211,96 @@
             font-size: 1.8em;
         }
 
+        /* --- Estilo para el nuevo botón y sus opciones --- */
+        .boton-estados {
+            background-color: #e879f9;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 12px 25px;
+            margin: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            transition: 0.3s;
+        }
+
+        .boton-estados:hover {
+            background-color: #c026d3;
+            transform: scale(1.05);
+        }
+
+        .contenido-estados {
+            background: linear-gradient(135deg, #f0e6ff, #e9d5ff);
+            border-radius: 20px;
+            padding: 25px;
+            color: #4b0082;
+            font-size: 1.1em;
+            text-align: center;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.25);
+            line-height: 1.6em;
+            animation: aparecer 0.8s ease-in-out;
+            margin-top: 20px;
+        }
+
+        .boton-opcion {
+            background-color: #a855f7;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin: 8px;
+            font-size: 0.95em;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: 0.3s;
+            display: inline-block;
+            width: 180px;
+        }
+
+        .boton-opcion:hover {
+            background-color: #7e22ce;
+            transform: scale(1.05);
+        }
+
+        /* --- NUEVO ESTILO PARA LOS MENSAJES EMOCIONALES (15 de septiembre) --- */
+        .mensaje-opcion {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            color: #4b0082;
+            font-size: 1.1em;
+            text-align: justify;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: none;
+            border-left: 5px solid #a855f7;
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mensaje-opcion::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), rgba(126, 34, 206, 0.05));
+            z-index: -1;
+        }
+
+        .mensaje-opcion p:first-child {
+            font-weight: bold;
+            color: #6b21a8;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid #e9d5ff;
+            padding-bottom: 10px;
+        }
                 
     </style>
 </head>
@@ -226,6 +317,7 @@
         <button class="boton-luna" onclick="mostrar('noviembre5', '4 de noviembre 🌕')">4 de noviembre 🌕</button>
         <button class="boton" onclick="mostrar('15 DE NOVIEMBRE', '15 de noviembre💌')">15/11</button>
         <button class="boton" onclick="mostrar('gerbera', '18 de noviembre💌')">18/11 🌸</button>
+        <button class="boton-estados" onclick="mostrar('estados', '💕 Para cuando...')">💕 Para cuando...</button>
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
         
 
@@ -275,6 +367,132 @@
             </p>
         </div>
 
+        <div id="estados" class="contenido contenido-estados">
+            <p style="font-size:1.2em; font-weight:bold; margin-bottom:20px;">
+                <h2>🌙💜 Aquí te dejo unos mensajes con mucho cariño. 
+                No son para leer todos a la vez…
+                Cuando sientas algo fuerte en el corazón, abre solo el mensaje que te hable en ese momento.
+                son para acompañarte, de a poquito, justo cuando lo necesites. Ojalá cada uno te abrace en el instante perfecto. 💜🌙</h2>
+                 
+            </p>
+            
+            <button class="boton-opcion" onclick="mostrarMensaje('triste')">Si te sientes triste</button>
+            <button class="boton-opcion" onclick="mostrarMensaje('ansiosa')">Si te sientes ansiosa</button>
+            <button class="boton-opcion" onclick="mostrarMensaje('extrañas')">Si me extrañas</button>
+            <button class="boton-opcion" onclick="mostrarMensaje('sola')">Si te sientes sola</button>
+            <button class="boton-opcion" onclick="mostrarMensaje('feliz')">Cuando estés feliz</button>
+            <button class="boton-opcion" onclick="mostrarMensaje('nocpuedes')">Cuando sientas que no puedes más</button>
+            
+            <div id="mensaje-extrañas" class="mensaje-opcion">
+                <p>💜 Si me extrañas...</p>
+                <p>
+                Holaaa Stheph
+                Si por alguna razón del mundo hoy me extrañas un poquito, quiero que sepas algo:
+                yo también te llevo en mi corazón, aunque estemos tomando caminos diferentes por ahora.
+                <br><br>
+                Ojalá en ese instante en que tu mente se vaya hacia mí, te llegue también la calma, el recuerdo bonito, la certeza de que lo que vivimos fue real y especial.
+                <br><br>
+                No te sientas triste por extrañar. Extrañar también es una forma de haber amado… y de seguir amando.
+                Y si alguna vez ese pensamiento te hace sonreír, créeme que desde aquí también sonrío.
+                <br><br>
+                Y sí te lo preguntas, SI… yo también te extraño, cada día, cada hora, cada minuto. Tu recuerdo está conmigo en todo momento, y aunque la distancia nos separe físicamente, en mi corazón siempre estás cerca. Eres mi pensamiento favorito, mi razón para sonreír incluso en los días difíciles. Te extraño tanto como el mar extraña a la luna, con esa fuerza que mueve las mareas.
+                <br><br>
+                Pero a pesar de que te extraño sigo respetando tu espacio, tu proceso y tu tiempo.
+                Aun así, desde la distancia, te sigo deseando cosas buenas, lindas, sinceras… porque lo que siento por ti siempre me va a nacer en forma de cariño, no de presión.
+                <br><br>
+                Te mando un abrazo fuerte y un beso en esos cachetes hermosos🫂🫶🏼.</p>
+            </div>
+            
+            <div id="mensaje-triste" class="mensaje-opcion">
+                <p>💜 Si te sientes triste...</p>
+                Si estás triste, o si el día te pesa un poquito más de lo normal, quiero que sepas que no estás sola.
+                Incluso en esta distancia, sigo deseando que tu corazón encuentre luz y descanso.
+                <br><br>
+                Respira hondo, mi cachetona.
+                Todo pasa. Todo se ordena, aun cuando ahora parezca que nada encaja.
+                <br><br>
+                Y aunque no pueda estar ahí para apoyarte o abrazarte, aférrate a Dios y pídele que te arrope con su paz y estoy seguro que lo hará y te brindara lla calma que necesitas.
+                Pero aun así, desde este lado, te mando mi cariño aunque sea en silencio, con la esperanza de que te llegue como un susurro suave en el momento que más lo necesites.
+                <br><br>
+                Tú puedes con este día, incluso con los días que parecen más largos.
+                Yo creo en eso… siempre he creído en ti. Quiero que sepas que no estás sola en esto. Los días grises pasan, y aunque ahora sientas que la tristeza te abraza fuerte, quiero recordarte que eres más fuerte de lo que crees. Permítete sentir, pero no te quedes ahí. Recuerda todas las veces que has superado momentos difíciles y saliste adelante. Estoy seguro que esta vez no sera la excepción.</p>
+            </div>
+            
+            <div id="mensaje-ansiosa" class="mensaje-opcion">
+                <p>💜 Si te sientes ansiosa...</p>
+                <p>Si tu pecho está inquieto o tu mente se acelera, ojalá leas esto y te devuelva un poquito de paz.
+                Recuerda que no tienes que cargar el mundo en un solo día.
+                Ve despacio, una cosa a la vez.
+                <br><br>
+                Tú eres fuerte, más de lo que crees. Yo lo vi, yo lo sé.
+                Pon una mano en tu corazón y escucha tu respiración. Toma un momento para cerrar los ojos y relajarte. La ansiedad es solo una visita temporal, no se quedará para siempre. Recuerda que eres capaz de manejar lo que venga, porque tienes una fuerza interior increíble. Confía en el proceso y en que todo va a estar bien. 
+                Estás aquí, estás a salvo. Dios también está contigo, incluso en esos momentos en los que sientes que todo se te viene encima.
+                <br><br>
+
+                Te quiero un montón y estoy orgulloso de ti.
+                Sé que ahora no estás pasando por el mejor momento, pero también sé que Dios nos pone pequeños baches para recordarnos de qué estamos hechos… y tú estás hecha de fuerza, de coraje y de una ternura que sostiene más de lo que imaginas.<br><br>
+
+                Y aunque no hablemos, siempre estoy deseándote lo mejor y pidiéndole a Dios que te acompañe, que te abrace en esos segundos difíciles que no se ven pero sí se sienten.
+                Que Dios te sostenga hoy más fuerte que nunca, que te dé calma en el pecho y luz en la mente.
+                <br><br>
+
+                Respira…
+                Tú puedes con esto. No estás sola, nunca lo has estado.</p>
+            </div>
+            
+            <div id="mensaje-sola" class="mensaje-opcion">
+                <p>💜 Si te sientes sola...</p>
+                <p>Holaaa. Si estas leyendo esto es porqu seguramente la soledad toco tu puerta, pero quiero que sepas que nunca estás realmente sola. Aunque físicamente no pueda estar contigo en este momento, mi corazón está a tu lado. Piensa en todas las personas que te queremos. Eres amada más de lo que imaginas, y esta sensación de soledad es solo temporal. Recuerda que siempre pienso en ti,incluso en el silencio... incluso en la distancia.</p>
+            </div>
+            
+            <div id="mensaje-feliz" class="mensaje-opcion">
+                <p>💜 Cuando estés feliz...</p>
+                <p>Si hoy estás feliz, quédate ahí un ratito más.
+                Deja que esa alegría te recorra completica, que te llene el pecho y te recuerde lo lejos que has llegado.
+                <br><br>
+
+                Me alegra imaginarte sonriendo, porque al hacerlo no puedo evitar sonreir yo también, tambien me alegra que estes encontrando cosas que te hacen bien, rodeada de momentos bonitos y que te suman.
+                Tú te mereces eso: días ligeros, risas sinceras, calma en el alma.
+                <br><br>
+
+                Ojalá esta felicidad que sientes hoy te siga acompañando mañana… y pasado… y en todos esos días donde vuelves a encontrarte contigo misma.
+                Tienes una luz que, cuando se enciende, ilumina más de lo que te imaginas.
+                <br><br>
+                Y aunque la vida nos tenga en caminos distintos, desde aquí me alegro por ti, de verdad.
+                De corazón te deseo más motivos para reír, más paz en tus pasos y más bendiciones que te sorprendan cuando menos lo esperas.
+                <br><br>
+
+                Disfruta este momento.<br><br>
+                La felicidad también es un regalo de Dios, y tú siempre has sabido hacerlo brillar❤️🌞.</p>
+            </div>
+            
+            <div id="mensaje-nocpuedes" class="mensaje-opcion">
+                <p>💜 Cuando sientas que no puedes más...</p>
+                <p>Si hoy sientes que no puedes más, quédate quieta un momento.
+                No es debilidad, no es falla, es el alma pidiendo un respiro.
+                Estás cargando más de lo que cualquiera ve, y aun así sigues avanzando. Eso ya habla de tu valentía.
+                <br><br>
+
+                Si el cansancio te pesa en los hombros, suelta un poquito.
+                Respira despacio, deja que tu cuerpo se recupere y permite que tu corazón descanse.
+                No tienes que poder con todo en un solo día. No estás hecha para la perfección, estás hecha para la vida, y en la vida también hay que tomar pausas.
+                <br><br>
+
+                Dios conoce tus luchas, incluso esas que callas.
+                Él sabe cuándo te cuesta, cuándo te quiebras por dentro y cuándo sonríes por fuera mientras te sientes agotada.
+                Pídele que te sostenga hoy con más fuerza, que te dé calma donde hay ruido y esperanza donde te duela.
+                <br><br>
+
+                Y aunque ya no esté acompañando tu camino como antes, créeme:
+                te deseo luz, fortaleza y claridad para seguir adelante.
+                Ojalá la vida te haga más liviano aquello que ahora te pesa tanto.
+                <br><br>
+
+                Descansa, respira y vuelve a ti.
+                Tú puedes con esto y con más.
+                Siempre has podido, incluso cuando creías que no. Asi que recuerda, eres más fuerte de lo que crees. Has llegado hasta aquí a pesar de todo, y se que a veces cansa ser fuerte todo el tiempo, pero eso demuestra tu increíble capacidad de resistencia. No tienes que cargar con todo solita, entregale todas tus cargas a Dios. Tómate un descanso si lo necesitas, pero no te rindas. Los momentos más difíciles suelen preceder a los mayores triunfos.</p>
+            </div>
+        </div>
 
         <div id="proximamente" class="contenido">
             <p style="text-align:center; font-size:1.3em; color:#6b21a8; font-weight:bold;">
@@ -364,7 +582,7 @@
                 solo quiero que sepas que quiero luchar por esto contigo,
                 porque creo que aún vale la pena intentarlo.
                 Si decides darme una nueva oportunidad, prometo dar lo mejor de mí,
-                para que tú también puedas sentirte en paz y dar lo mejor de ti y tengamos la certeza de que esta vez nuestro “Love Affair” será para siempre.
+                para que tú también puedas sentirte en paz y dar lo mejor de ti y tengamos la certeza de que esta vez nuestro "Love Affair" será para siempre.
                 Y si no… lo entiendo, de verdad.
                 <br><br>
                 Porque pase lo que pase...
@@ -384,7 +602,7 @@
             Solo quiero decirte que te quiero demasiado ❤️, a pesar de la distancia o del silencio.
             No sé qué estés pensando o sintiendo en este momento, pero ojalá la vida te esté tratando bien y te este dando la paz que te mereces.
             <br><br>
-            Sigo aquí(Sentado porque por obvias razones no puedo mantenerme en pie JAJAJAJJAJAJAJAJAJAJ😭), con el mismo cariño de siempre, recordándote con mucho amor y deseándote lo mejor, siempre.🫂
+            Sigo aquí(Sentado porque por obvias razones no puedo mantenerme en pie JAJAJAJJAJAJAJAJAJAJ😭), con el mismo cariño de siempre, recordándote con mucho amor y deseándarte lo mejor, siempre.🫂
             <br><br>
             Y aunque no hablemos, te llevo presente en cada pensamiento bonito del día. Espero pases buena noche y ten mando un abrazo, pero no un abrazo normal.<br><br> 
             Te acuerdas cuando me abrazabas y yo te lo devolvia mas fuerte que no te queria ni soltar?<br><br>
@@ -493,7 +711,7 @@
             Y por favor, no pienses que el hecho de no hablarte significa que no te extraño o que no te quiero. Porque lo hago, y mucho(demasiado diría yo). Solo estoy te estoy respetando como ya te dije y esperando a que algún día podamos volver a hablarnos sin miedo ni barreras.
             <br><br>  
             
-            Mientras tanto, quiero que sepas que siempre hay alguien aquí, pensándote, queriéndote, deseándote lo mejor y esperando que la vida te sonría bonito todos los días.
+            Mientras tanto, quiero que sepas que siempre hay alguien aquí, pensándote, queriéndote, deseándarte lo mejor y esperando que la vida te sonría bonito todos los días.
             <br><br>  
             
             Te quiero más de lo que imaginas, y te extraño todavía más.  
@@ -528,15 +746,15 @@
             Como habrás notado he tratado de respetar al maximo tu espacio, y creeme que hago lo mejor que puedo. Aunque sinceramente me sobran las ganas de llamarte, escribirte o hasta irme asi enmuletado a tu casa, no mentiras JAJAJAJAJA. No lo hago, no porque no quiera, sino por el respeto y el amor tan grande que te tengo.
             TE EXTRAÑO MUCHO. Y aunque siento que le he tratado de darle el mejor manejo a la situación, hay momentos en los que simplemente no puedo evitar recordarte… tus abrazos, que me daban una paz que no te imaginas; cuando nos tomábamos de la mano, tus besos, tu aroma, y todas esas pequeñas cosas que se quedaron conmigo.<br><br>
             
-            Ya casi se cumplen dos meses desde que terminamos, y con cada día que pasa me doy más cuenta de algo: quiero seguir escribiendo historia contigo. Y mientras esté en mis manos elegir, mi elección siempre serás tú.
+            Ya casi se cumplen two meses desde que terminamos, y con cada día que pasa me doy más cuenta de algo: quiero seguir escribiendo historia contigo. Y mientras esté en mis hands elegir, mi elección siempre serás tú.
             Porque en ti no encontré solo a la persona con la que quiero vivir muchas cosas, sino también a alguien sin quien no sabría vivirlas. Es una sensación difícil de explicar, pero me hace bien… me inspira a ser mejor cada día, a trabajar en mí, a buscar mi mejor versión para algún día poder ofrecértela sin miedos, si tú y Dios me lo permiten obviamente.<br><br>
 
             Sé que me pediste que por favor tte soltara, que te diera ese espacio que necesitabas y lo he intentado, de verdad. Pero ¿cómo soltar a alguien cuando el amor que uno siente sigue tan vivo? Sé que tal vez tu ya me soltaste, y créeme, me alegra que estés encontrando tus pasos. Solo que para mí no ha sido tan simple, y tampoco te voy a mentir: no es algo que quiera hacer del todo. No por egoísmo, sino porque lo que siento por ti no se apaga con distancia ni con silencio.<br><br>
 
-            Justo hoy se cumplen 8 años de la muerte de Lil Peep, ya sabes que el es uno de mis cantantes favoritos, y él tiene una frase que dice: “if I find a way, would you walk it with me?” 
+            Justo hoy se cumplen 8 años de la muerte de Lil Peep, ya sabes que el es uno de mis cantantes favoritos, y él tiene una frase que dice: "if I find a way, would you walk it with me?" 
             Y por eso te hago la pregunta… si yo encontrara el camino, si encontrara una forma sana, madura y distinta de volver a encontrarnos… ¿no te gustaría recorrerlo conmigo? No te pregunto para presionarte, ni para apresurar nada; es solo que a veces el corazón necesita decir en voz baja lo que siente.<br><br>
             
-            Y siento que si algún día ese camino existe, yo querría hacerlo bien. No por costumbre, ni por miedo a perderte, sino por lo especial que eres para mí. No lo veo como “volver a empezar” desde cero, aunque claro, hay cosas que tendríamos que hablar y sanar con calma.
+            Y siento que si algún día ese camino existe, yo querría hacerlo bien. No por costumbre, ni por miedo a perderte, sino por lo especial que eres para mí. No lo veo como "volver a empezar" desde cero, aunque claro, hay cosas que tendríamos que hablar y sanar con calma.
             Lo veo más como una oportunidad: la de aprender a amarnos mejor que la última vez, y más de lo que incluso ahora nos queremos a pesar de la distancia.<br><br>
 
             Solo quisiera saber si, en algún rincón de ti, existe todavía esa pequeña posibilidad… esa chispa que no se apaga del todo. No para apresurarte ni para que cambies tu decisión, sino para saber si vale la pena seguir cuidando esta esperanza o si debo aprender a dejarla ir por completo.<br><br>
@@ -626,14 +844,16 @@
     });
 
     function mostrar(seccion, boton) {
-        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera']
+        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera', 'estados']
         .forEach(id => {
             const el = document.getElementById(id);
             if (el) el.style.display = 'none';
         });
 
         const mostrarSeccion = document.getElementById(seccion);
-        mostrarSeccion.style.display = 'block';
+        if (mostrarSeccion) {
+            mostrarSeccion.style.display = 'block';
+        }
 
         // Fondo elegante
         if (seccion === 'nuevo2' || seccion === 'nuevo3') {
@@ -651,55 +871,25 @@
             message: `Se presionó el botón "${boton}"\nFecha y hora: ${fecha}`
         });
     }
+
+    // Función para mostrar mensajes específicos
+    function mostrarMensaje(tipo) {
+        // Ocultar todos los mensajes primero
+        document.querySelectorAll('.mensaje-opcion').forEach(function(el) {
+            el.style.display = 'none';
+        });
+        
+        // Mostrar el mensaje seleccionado
+        const mensajeSeleccionado = document.getElementById('mensaje-' + tipo);
+        if (mensajeSeleccionado) {
+            mensajeSeleccionado.style.display = 'block';
+            
+            // Registrar la interacción
+            const fecha = new Date().toLocaleString();
+            emailjs.send("service_tgthj7o", "template_yz9w6st", { 
+                visitor_name: "Mensaje emocional seleccionado 💌",
+                message: `Se seleccionó: "${tipo}"\nFecha y hora: ${fecha}`
+            });
+        }
+    }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
