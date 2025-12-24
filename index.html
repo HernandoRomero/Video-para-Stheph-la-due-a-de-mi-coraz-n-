@@ -130,7 +130,9 @@
             transition: background 0.8s ease;
         }
 
-        #nuevo2.carta-elegante {
+        #nuevo2.carta-elegante
+        #nuevo3.carta-elegante,
+        #diciembre24.carta-elegante {
             background-color: white;
             border-radius: 20px;
             box-shadow: 0 6px 25px rgba(0,0,0,0.3);
@@ -145,11 +147,15 @@
             animation: aparecer 1s ease-in-out;
         }
 
-        #nuevo2.carta-elegante strong {
+        #nuevo2.carta-elegante strong,
+        #nuevo3.carta-elegante strong,
+        #diciembre24.carta-elegante strong {
             color: #6b21a8;
         }
 
-        #nuevo2.carta-elegante p {
+        #nuevo2.carta-elegante p,
+        #nuevo3.carta-elegante p,
+        #diciembre24.carta-elegante p {
             text-align: justify;
             text-indent: 20px;
         }
@@ -320,6 +326,7 @@
         <button class="boton-estados" onclick="mostrar('estados', '💕 Para cuando...')">💕 Para cuando...</button>
         <button class="boton" onclick="mostrar('2Meses', '2 Meses')">2 MESES </button>
         <button class="boton-luna" onclick="mostrar('diciembre16', '16 de diciembre🌕')">17 de diciembre🌕</button>
+        <button class="boton-luna" onclick="mostrar('diciembre24', '24 de diciembre')">24 de diciembre</button>
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
         
 
@@ -1069,7 +1076,42 @@
             Con cariño, para Sthephanya 🫶🏼🫂
         </p>     
     </div>
-
+    <div id="diciembre24" class="contenido">
+        <p style="font-size:1.1em; color:#4b0082; text-align:justify;">
+            Holaaaa Stheph. Primero que todo, quiero desearte un resto de semana bonito y tranquilo.
+            Y que esta Navidad sea un día realmente lindo para ti, de esos que se sienten en el corazón.
+            Es un día especial… y tú siempre has sido una persona especial para mí.
+            <br><br>
+            No te voy a mentir, daría todo por poder pasar una fecha así contigo.
+            Porque no se me ocurre mejor manera de vivir un día tan significativo que al lado de alguien que lo es tanto.
+            Pero también entiendo y respeto la distancia que has decidido tomar, aunque me cueste hacerlo.
+            <br><br>
+            Solo quería que supieras que todo lo que te deseo hoy es bueno, sincero y desde el cariño.
+            Espero que esta Navidad te abrace bonito, que te traiga calma, luz y momentos que te hagan sentir en paz.
+            <br><br>
+            Ojalá te hayan gustado las flores.
+            Te los mandé con mucho amor, solo con la intención de regalarte algo que hablara por mí en silencio, Y para recordarte que eres hermosa como los lirios. 
+            <br><br>
+            No quiero interrumpir tu paz ni ponerte presión.
+            Solo quería estar presente de esta forma suave y honesta.
+            Deseándote lo mejor, pidiéndole a Dios que te bendiga, que te cuide y que te proteja siempre.
+            <br><br>
+            Que Él te acompañe hoy, mañana y en cada paso que des.
+            Y que, pase lo que pase, nunca te falte luz en el camino.
+            <br><br>
+            Y nada más…
+            A veces la vida sorprende cuando menos se espera.
+            Solo quería desearte una Feliz navidad.
+            ✨🎄🤍
+            <br><br>
+            Te amo, y te extraño un montón.  
+            Te mando un abrazo fuerte🫂❤️<br><br>
+            
+            🌕❤️SILPQPSAYQTSB❤️🌕<br>  
+            Con cariño, para Sthephanya🫂❤️
+        </p>
+    </div>
+    
     <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
@@ -1104,7 +1146,7 @@
     });
 
     function mostrar(seccion, boton) {
-        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera', 'estados']
+        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera', 'estados', '2Meses', 'diciembre16', 'diciembre24']
         .forEach(id => {
             const el = document.getElementById(id);
             if (el) el.style.display = 'none';
@@ -1115,10 +1157,12 @@
             mostrarSeccion.style.display = 'block';
         }
 
-        // Fondo elegante
-        if (seccion === 'nuevo2' || seccion === 'nuevo3') {
+        // Fondo elegante - CORREGIDO: Ahora incluye 'diciembre24'
+        if (seccion === 'nuevo2' || seccion === 'nuevo3' || seccion === 'diciembre24') {
             document.body.classList.add('fondo-elegante');
-            mostrarSeccion.classList.add('carta-elegante');
+            if (mostrarSeccion) {
+                mostrarSeccion.classList.add('carta-elegante');
+            }
         } else {
             document.body.classList.remove('fondo-elegante');
             document.querySelectorAll('.carta-elegante').forEach(e => e.classList.remove('carta-elegante'));
@@ -1153,14 +1197,6 @@
         }
     }
 </script>
-
-
-
-
-
-
-
-
-
-
-
+</body>
+</html>
+    
