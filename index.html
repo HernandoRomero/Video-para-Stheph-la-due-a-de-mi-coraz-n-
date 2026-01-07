@@ -1149,46 +1149,113 @@
         </p>
     </div>
     <div id="SM" class="contenido" style="
-        background: linear-gradient(135deg, #e6f0ff, #d1e3ff);
+        background: #f8f8f8;
         border-radius: 20px;
         padding: 30px;
         margin: 20px auto;
         max-width: 800px;
         box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        border-left: 5px solid #4b6cb7;
+        border: 2px solid #CCCCCC;
         font-family: 'Georgia', serif;
-        color: #1a237e;
+        color: #000000;
         line-height: 1.7;
         display: none;
+        position: relative;
+        overflow: hidden;
     ">
-        <h2 style="text-align:center; color:#1a237e; margin-bottom:20px; border-bottom: 2px solid #7986cb; padding-bottom:10px;">
-            🌊 Santa Marta 🌊
-        </h2>
+        <!-- Fondo simple con líneas como la imagen -->
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 29px,
+                    #E0E0E0 29px,
+                    #E0E0E0 30px
+                );
+            opacity: 0.6;
+            z-index: 0;
+            pointer-events: none;
+        "></div>
         
-        <p style="font-size:1.1em; text-align:justify;">
-            Holaaaa Stheph.<br><br>
+        <!-- Contenido sobre el fondo -->
+        <div style="position: relative; z-index: 1;">
+            <h2 style="
+                text-align:center; 
+                color:#000000; 
+                margin-bottom:20px; 
+                padding-bottom:10px;
+                border-bottom: 2px solid #888888;
+                background: #f8f8f8;
+                padding: 10px;
+                border-radius: 5px;
+            ">
+                🌊 Santa Marta 🌊
+            </h2>
             
-            Esto solo es para desearte que tengas un lindo viaje. Espero que Santa Marta te reciba con días que se sientan ligeros, con momentos que te hagan desconectarte un poco de todo y con instantes que te hagan sonreír mucho.<br><br>
-            
-            Que cada paisaje, cada brisa, te regalen mucha felicidad y momentos que se queden siempre contigo. Si vas al mar, ojalá lo disfrutes mucho, que te tomes el tiempo de observarlo, de sentir la brisa y dejar que te regale mucha tranquilidad. Espero también que puedas ver muchos atardeceres lindos... aunque dudo que encuentres uno más bonito que tú.<br><br>
-            
-            Desde la distancia, quiero que sepas que estaré pendiente, para acompañarte si lo necesitas o simplemente estar ahí. Deseo de corazón que este viaje te haga bien, disfruta mucho este tiempo para ti, que vuelvas con el corazón contento, la mente tranquila y con esa luz tuya mucho más encendida.<br><br>
-            
-            Que Dios te bendiga, te cuide y te proteja siempre.<br><br>
-            
-            <strong>PSDT:</strong> En realidad esta carta la hice a mano y mi intención era dártela antes de que te fueras, pero ajá, tú me dijiste el lunes en la noche que te ibas y el martes se me ocurrió la idea. Entre que salí en la tarde del martes y no pensé que me fuera a demorar y que luego tú te quedaste mimida y cuando te despertaste te ocupaste y eso, pues me dio un poquito de pena ir a molestarte y al final no te la entregué. Si gustas cuando vengas te la puedo entregar, y si no pues no pasa nada, ya la viste por acá.<br><br>
-            
-            <strong style="display:block; text-align:center;">TQMMM ❤️</strong><br><br>
-    
-            <span style="display:block; text-align:center;">
-                Te mando un abrazo fuerte y cuídate mucho 🫂❤️<br><br>
+            <p style="
+                font-size:1.1em; 
+                text-align:justify; 
+                color:#000000;
+                margin-bottom: 20px;
+                background: rgba(248, 248, 248, 0.8);
+                padding: 15px;
+                border-radius: 5px;
+            ">
+                Holaaaa Stheph.<br><br>
                 
-                🌊❤️ 29/06/2025 2:22 AM ❤️🌊<br>
-                Con mucho amor para Sthephanya 🫂❤️
-            </span>
-        </p>
-    </div>
-    
+                Esto solo es para desearte que tengas un lindo viaje. Espero que Santa Marta te reciba con días que se sientan ligeros, con momentos que te hagan desconectarte un poco de todo y con instantes que te hagan sonreír mucho.<br><br>
+                
+                Que cada paisaje, cada brisa, te regalen mucha felicidad y momentos que se queden siempre contigo. Si vas al mar, ojalá lo disfrutes mucho, que te tomes el tiempo de observarlo, de sentir la brisa y dejar que te regale mucha tranquilidad. Espero también que puedas ver muchos atardeceres lindos... aunque dudo que encuentres uno más bonito que tú.<br><br>
+                
+                Desde la distancia, quiero que sepas que estaré pendiente, para acompañarte si lo necesitas o simplemente estar ahí. Deseo de corazón que este viaje te haga bien, disfruta mucho este tiempo para ti, que vuelvas con el corazón contento, la mente tranquila y con esa luz tuya mucho más encendida.<br><br>
+                
+                Que Dios te bendiga, te cuide y te proteja siempre.<br><br>
+                
+                <strong style="color:#000000;">PSDT:</strong> En realidad esta carta la hice a mano y mi intención era dártela antes de que te fueras, pero ajá, tú me dijiste el lunes en la noche que te ibas y el martes se me ocurrió la idea. Entre que salí en la tarde del martes y no pensé que me fuera a demorar, luego tú te quedaste mimida y cuando te despertaste te ocupaste, y eso pues me dio un poquito de pena ir a molestarte y al final no te la entregué. Si gustas cuando vengas te la puedo entregar, y si no pues no pasa nada, ya la viste por acá.<br><br>
+            </p>
+            
+            <!-- Sección final centrada -->
+            <div style="
+                text-align:center; 
+                margin-top:20px; 
+                padding:20px; 
+                border-top: 2px solid #888888;
+                background: rgba(248, 248, 248, 0.8);
+                border-radius: 5px;
+            ">
+                <strong style="
+                    font-size:1.2em; 
+                    color:#000000; 
+                    display:block; 
+                    margin-bottom:15px;
+                ">
+                    TQMMM ❤️<br><br>
+                    Te mando un abrazo fuerte y cuídate mucho 🫂❤️
+                </strong>
+                    
+                    
+                    <div style="
+                        font-family: 'Courier New', monospace;
+                        background: rgba(255,255,255,0.8);
+                        padding: 15px;
+                        border-radius: 8px;
+                        margin: 15px auto;
+                        display: inline-block;
+                        border: 1px solid #CCCCCC;
+                    ">
+                        🌊❤️ 29/06/2025 2:22 AM ❤️🌊<br>
+                        Con mucho amor para Sthephanya 🫂❤️
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
@@ -1276,4 +1343,5 @@
 </script>
 </body>
 </html>
+
 
