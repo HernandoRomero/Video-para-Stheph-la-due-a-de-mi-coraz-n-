@@ -334,6 +334,7 @@
         <button class="boton-luna" onclick="mostrar('diciembre16', '16 de diciembre🌕')">17 de diciembre🌕</button>
         <button class="boton-luna" onclick="mostrar('diciembre24', '24 de diciembre')">24 de diciembre</button>
         <button class="boton-luna" onclick="mostrar('diciembre31', '31 de diciembre')">31 de diciembre❤️</button>
+        <button class="boton" onclick="mostrar('SM', 'SM')">SM🌊</button>
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
         
 
@@ -519,6 +520,7 @@
         <div id="proximamente" class="contenido">
             <p style="text-align:center; font-size:1.3em; color:#6b21a8; font-weight:bold;">
                 Estoy cansado de pensarte y no verte, tú no?<br>
+                ARE YOU FEELING ME???
             </p>
         </div>
 
@@ -1146,6 +1148,47 @@
             Con mucho amor para, para Sthephanya🫂❤️
         </p>
     </div>
+    <div id="SM" class="contenido" style="
+        background: linear-gradient(135deg, #e6f0ff, #d1e3ff);
+        border-radius: 20px;
+        padding: 30px;
+        margin: 20px auto;
+        max-width: 800px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        border-left: 5px solid #4b6cb7;
+        font-family: 'Georgia', serif;
+        color: #1a237e;
+        line-height: 1.7;
+        display: none;
+    ">
+        <h2 style="text-align:center; color:#1a237e; margin-bottom:20px; border-bottom: 2px solid #7986cb; padding-bottom:10px;">
+            🌊 Santa Marta 🌊
+        </h2>
+        
+        <p style="font-size:1.1em; text-align:justify;">
+            Holaaaa Stheph.<br><br>
+            
+            Esto solo es para desearte que tengas un lindo viaje. Espero que Santa Marta te reciba con días que se sientan ligeros, con momentos que te hagan desconectarte un poco de todo y con instantes que te hagan sonreír mucho.<br><br>
+            
+            Que cada paisaje, cada brisa, te regalen mucha felicidad y momentos que se queden siempre contigo. Si vas al mar, ojalá lo disfrutes mucho, que te tomes el tiempo de observarlo, de sentir la brisa y dejar que te regale mucha tranquilidad. Espero también que puedas ver muchos atardeceres lindos... aunque dudo que encuentres uno más bonito que tú.<br><br>
+            
+            Desde la distancia, quiero que sepas que estaré pendiente, para acompañarte si lo necesitas o simplemente estar ahí. Deseo de corazón que este viaje te haga bien, disfruta mucho este tiempo para ti, que vuelvas con el corazón contento, la mente tranquila y con esa luz tuya mucho más encendida.<br><br>
+            
+            Que Dios te bendiga, te cuide y te proteja siempre.<br><br>
+            
+            <strong>PSDT:</strong> En realidad esta carta la hice a mano y mi intención era dártela antes de que te fueras, pero ajá, tú me dijiste el lunes en la noche que te ibas y el martes se me ocurrió la idea. Entre que salí en la tarde del martes y no pensé que me fuera a demorar y que luego tú te quedaste mimida y cuando te despertaste te ocupaste y eso, pues me dio un poquito de pena ir a molestarte y al final no te la entregué. Si gustas cuando vengas te la puedo entregar, y si no pues no pasa nada, ya la viste por acá.<br><br>
+            
+            <strong style="display:block; text-align:center;">TQMMM ❤️</strong><br><br>
+    
+            <span style="display:block; text-align:center;">
+                Te mando un abrazo fuerte y cuídate mucho 🫂❤️<br><br>
+                
+                🌊❤️ 29/06/2025 2:22 AM ❤️🌊<br>
+                Con mucho amor para Sthephanya 🫂❤️
+            </span>
+        </p>
+    </div>
+    
     <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
@@ -1180,7 +1223,7 @@
     });
 
     function mostrar(seccion, boton) {
-        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera', 'estados', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31']
+        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera', 'estados', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'SM']
         .forEach(id => {
             const el = document.getElementById(id);
             if (el) el.style.display = 'none';
@@ -1233,3 +1276,4 @@
 </script>
 </body>
 </html>
+
