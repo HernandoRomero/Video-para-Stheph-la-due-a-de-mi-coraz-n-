@@ -330,7 +330,6 @@
         <button class="boton" onclick="mostrar('SM', 'SM')">SM🌊</button>
         <button class="boton" onclick="mostrar('13 de enero', '13 de enero')">💌</button>
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
-        
 
         <div id="video" class="contenido">
             <iframe width="800" height="450"
@@ -468,7 +467,7 @@
                 Deja que esa alegría te recorra completica, que te llene el pecho y te recuerde lo lejos que has llegado.
                 <br><br>
 
-                Me alegra imaginarte sonriendo, porque al hacerlo no puedo evitar sonreir yo también, tambien me alegra que estes encontrando cosas que te hacen bien, rodeada de momentos bonitos y que te suman.
+                Me alegra imaginarte sonriendo, porque al hacerito no puedo evitar sonreir yo también, tambien me alegra que estes encontrando cosas que te hacen bien, rodeada de momentos bonitos y que te suman.
                 Tú te mereces eso: días ligeros, risas sinceras, calma en el alma.
                 <br><br>
 
@@ -1053,7 +1052,7 @@
             No porque te idealice, ni porque te tenga cerca, sino porque incluso en la distancia sigues siendo tú, y eso para mí sigue significando mucho.
             <br><br>
             Tal vez mis palabras hoy no tengan el mismo peso que antes, lo sé.
-            Aun así, quiero decirte algo desde la honestidad:
+            Aun así, quero decirte algo desde la honestidad:
             yo quiero estar contigo.
             Y no es por apego, ni por costumbre, ni por miedo a soltar.
             Quiero estar contigo porque te elijo.
@@ -1213,7 +1212,7 @@
             <br><br>
             Lo que sigue no nace desde la impulsividad, sino desde haber pensado mucho, haber llorado y haberme escuchado con sinceridad. Sé que has elegido tomar distancia y he intentado respetarla lo mejor que he podido. Pero también sería injusto conmigo fingir que no siento nada cuando lo que siento por ti sigue muy vivo.
             <br><br>
-            No te escribo esto para presionarte ni para quitarte paz, sé que tienes muchas cosas en la cabeza. Lo hago porque sentí que debía ser honesto como siempre he trattado de serlo. El amor que siento por ti no se ha ido; incluso con la distancia, sigue intacto y ha crecido. No porque no pueda vivir sin ti (porque ya lo he hecho), sino porque, aun pudiendo, te sigo eligiendo.
+            No te escribo esto para presionarte ni para quitarte paz, sé que tienes muchas cosas en la cabeza. Lo hago porque sentí que debía ser honesto como siempre he tratado de serlo. El amor que siento por ti no se ha ido; incluso con la distancia, sigue intacto y ha crecido. No porque no pueda vivir sin ti (porque ya lo he hecho), sino porque, aun pudiendo, te sigo eligiendo.
             <br><br>
             Sé que tengo mucho por aprender, muchas cosas por corregir y que quedaron experiencias pendientes. Y aun así, quiero aprenderlas contigo, vivirlas contigo. No desde el apego ni el capricho, sino desde la elección consciente. Porque contigo la vida es mucho más bonita, más plena.
             <br><br>
@@ -1234,6 +1233,7 @@
         </div>
     </div>
 </div>
+
     <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
@@ -1268,6 +1268,7 @@
     });
 
     function mostrar(seccion, boton) {
+        // Lista actualizada con '13 de enero' incluido
         ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera', 'estados', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'SM', '13 de enero']
         .forEach(id => {
             const el = document.getElementById(id);
@@ -1279,7 +1280,7 @@
             mostrarSeccion.style.display = 'block';
         }
 
-        // Fondo elegante - CORREGIDO: Ahora incluye 'diciembre24' y 'diciembre31'
+        // Fondo elegante
         if (seccion === 'nuevo2' || seccion === 'nuevo3' || seccion === 'diciembre24' || seccion === 'diciembre31') {
             document.body.classList.add('fondo-elegante');
             if (mostrarSeccion) {
