@@ -1328,18 +1328,18 @@
     </div>
 </div>
 
-    <!-- EmailJS -->
+   <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
     let tiempoInicio = Date.now();  // Marca la hora de entrada
 
     document.addEventListener("DOMContentLoaded", function(){
-        emailjs.init("PB_0_CVIlGzkHoENp"); // TU NUEVO USER ID
+        emailjs.init("9jMlnWsTNKH-q-FDH"); // NUEVO PUBLIC KEY
     });
 
     window.onload = function() {
         const fecha = new Date().toLocaleString();
-        emailjs.send("service_tgthj7o", "template_yz9w6st", { 
+        emailjs.send("service_teoc3jy", "template_56swemq", { 
             visitor_name: "Nueva visita 💜",
             message: `Alguien acaba de entrar a la página 💜\nFecha y hora: ${fecha}`
         });
@@ -1355,7 +1355,7 @@
         const minutos = Math.floor(duracion / 60);
         const segundos = duracion % 60;
 
-        emailjs.send("service_tgthj7o", "template_yz9w6st", {
+        emailjs.send("service_teoc3jy", "template_56swemq", {
             visitor_name: "Salida registrada 💜",
             message: `La página estuvo abierta durante:\n${minutos} min ${segundos} seg`
         });
@@ -1387,7 +1387,7 @@
 
         // Registro de clics
         const fecha = new Date().toLocaleString();
-        emailjs.send("service_tgthj7o", "template_yz9w6st", { 
+        emailjs.send("service_teoc3jy", "template_56swemq", { 
             visitor_name: "Interacción registrada 💌",
             message: `Se presionó el botón "${boton}"\nFecha y hora: ${fecha}`
         });
@@ -1407,7 +1407,7 @@
             
             // Registrar la interacción
             const fecha = new Date().toLocaleString();
-            emailjs.send("service_tgthj7o", "template_yz9w6st", { 
+            emailjs.send("service_teoc3jy", "template_56swemq", { 
                 visitor_name: "Mensaje emocional seleccionado 💌",
                 message: `Se seleccionó: "${tipo}"\nFecha y hora: ${fecha}`
             });
@@ -1434,7 +1434,7 @@
         
         // Registrar que abrió el formulario
         const fecha = new Date().toLocaleString();
-        emailjs.send("service_tgthj7o", "template_yz9w6st", { 
+        emailjs.send("service_teoc3jy", "template_56swemq", { 
             visitor_name: "Abrió formulario de respuesta 💌",
             message: `Abrió el formulario para escribirte algo\nFecha y hora: ${fecha}`
         });
@@ -1458,7 +1458,7 @@
         const fecha = new Date().toLocaleString();
         
         // Enviar el mensaje a tu email
-        emailjs.send("service_tgthj7o", "template_yz9w6st", {
+        emailjs.send("service_teoc3jy", "template_56swemq", {
             visitor_name: "MENSAJE DE ELLA PARA TI 💌",
             message: `Ella te escribió:\n\n"${mensaje}"\n\nFecha y hora: ${fecha}`
         })
@@ -1484,6 +1484,7 @@
 </script>
 </body>
 </html>
+
 
 
 
