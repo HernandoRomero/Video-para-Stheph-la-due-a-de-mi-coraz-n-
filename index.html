@@ -326,6 +326,7 @@
         <button class="boton-luna" onclick="mostrar('diciembre24', '24 de diciembre')">24 de diciembre</button>
         <button class="boton-luna" onclick="mostrar('diciembre31', '31 de diciembre')">31 de diciembre❤️</button>
         <button class="boton" onclick="mostrar('mensaje-corazon', 'Desde el corazón 💌')">19 de Enero 💌</button>
+        <button class="boton" onclick="mostrar('respuesta', 'Tu respuesta 💌')">Tu respuesta 💌</button>
         <button class="boton" onclick="mostrarFormularioRespuesta()">✍️ ¿Quieres decirme algo?</button>
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
 
@@ -1274,6 +1275,48 @@
     </div>
 </div>
 
+<div id="respuesta" class="contenido" style="display: none; background: #f8f8f8; border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 2px solid #CCCCCC; font-family: 'Georgia', serif; color: #000000; line-height: 1.7; position: relative; overflow: hidden;">
+    <!-- Fondo simple con líneas -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 29px, #E0E0E0 29px, #E0E0E0 30px); opacity: 0.6; z-index: 0; pointer-events: none;"></div>
+    
+    <!-- Contenido sobre el fondo -->
+    <div style="position: relative; z-index: 1;">
+        <h2 style="text-align:center; color:#000000; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #888888; background: #f8f8f8; padding: 10px; border-radius: 5px;">
+            💌 Tu respuesta 💌
+        </h2>
+        
+        <p style="font-size:1.1em; text-align:justify; color:#000000; margin-bottom: 20px; background: rgba(248, 248, 248, 0.8); padding: 15px; border-radius: 5px;">
+            Holaaaa<br><br>
+            
+            Gracias por tomarte el tiempo de escribirme con tanta honestidad. Valoro mucho que me hables así.<br><br>
+            
+            Entiendo lo que dices, y aunque no sea fácil para mí, respeto tu decisión. Quiero que sepas que nunca fue mi intención causarte conflicto ni ponerte en una posición incómoda, todo lo que hice nació desde el amor genuino que te tengo.<br><br>
+            
+            Gracias por confiarme algo tan importante como lo que estás planeando para tu vida. De verdad me alegra saber que, aunque te asuste, también hay una parte de ti que se siente esperanzada. De corazón deseo que ese camino que estás tomando te lleve a crecer, a encontrarte y a estar en paz contigo misma. Porque te mereces todas las cosas buenas que te pasan.<br><br>
+            
+            También quiero que sepas que entiendo por qué decidiste volver a tomar distancia. Si eso es lo que necesitas para cuidarte y ser coherente contigo, lo respeto completamente, aunque me duela.<br><br>
+            
+            Pero también quiero ser honesto contigo: los días que estuvimos hablando me pasaba algo muy parecido porque también tengo ganas de verte, de abrazarte, de besarte… no porque quisiera contradecir la posición que has tomado, sino porque el cariño que te tengo sigue ahí.<br><br>
+            
+            No siento que hayas sido contradictoria. Creo que a veces uno no va en contra de lo que dice, sino que va luchando con lo que siente, y eso también es parte de ser honesto. Sentir ganas de acercarse, de querer, de extrañar, no te hace irresponsable ni egoísta, te hace humana.<br><br>
+            
+            Si sentiste esas cosas por mí, no lo veo como algo malo ni como un error, porque yo también las sentí. Pero entiendo que hayas decidido tomar distancia justamente porque sentías todo eso, y respeto que hayas elegido cuidarte. No lo interpreto como que quieras jugar conmigo o algo asi, supongo que pensaste que sentir algo no siempre significa que sea el momento de actuar sobre eso.<br><br>
+            
+            Obviamente yo también estoy sintiendo y pensando muchas cosas, y quisiera hablarlas o que nos sentáramos a hablar sobre todo eso, pero si sientes que no es momento de hacerlo, lo respeto.<br><br>
+        </p>
+        
+        <!-- Sección final centrada -->
+        <div style="text-align:center; margin-top:20px; padding:20px; border-top: 2px solid #888888; background: rgba(248, 248, 248, 0.8); border-radius: 5px;">
+            <p style="text-align:center; margin-top:10px; color:#000000; font-style:italic; line-height: 1.6;">
+                Dios te bendiga y te proteja siempre, espero que tu familia también esté bien. Tqm 🫶🏽<br><br>
+                
+                Con todo mi cariño,<br>
+                Para Sthephanya 🫂❤️
+            </p>
+        </div>
+    </div>
+</div>
+
 <!-- FORMULARIO PARA QUE ELLA TE ESCRIBA -->
 <div id="formulario-respuesta" class="contenido" style="display: none; background: linear-gradient(135deg, #f5e1ff, #e0c3fc); border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 600px; box-shadow: 0 4px 25px rgba(0,0,0,0.25);">
     <h2 style="color: #4b0082; text-align: center; margin-bottom: 20px;">💌 Escribe lo que sientas</h2>
@@ -1363,7 +1406,7 @@
 
     function mostrar(seccion, boton) {
         // Ocultar todos los contenidos incluyendo el formulario de respuesta
-        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera', 'estados', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'SM', '13 de enero', 'mensaje-corazon', 'formulario-respuesta']
+        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera', 'estados', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'SM', '13 de enero', 'mensaje-corazon', 'respuesta', 'formulario-respuesta']
         .forEach(id => {
             const el = document.getElementById(id);
             if (el) el.style.display = 'none';
@@ -1417,7 +1460,7 @@
     // FUNCIONES PARA EL FORMULARIO DE RESPUESTA
     function mostrarFormularioRespuesta() {
         // Ocultar todos los contenidos primero
-        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera', 'estados', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'SM', '13 de enero', 'mensaje-corazon']
+        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera', 'estados', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'SM', '13 de enero', 'mensaje-corazon', 'respuesta']
         .forEach(id => {
             const el = document.getElementById(id);
             if (el) el.style.display = 'none';
@@ -1484,7 +1527,3 @@
 </script>
 </body>
 </html>
-
-
-
-
