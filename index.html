@@ -90,82 +90,6 @@
             display: none;
         }
 
-        /* --- Estilo del mensaje especial --- */
-        .especial {
-            background: linear-gradient(135deg, #f5e1ff, #e0c3fc);
-            border-radius: 20px;
-            padding: 25px;
-            color: #3b0764;
-            font-size: 1.1em;
-            text-align: justify;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.25);
-            line-height: 1.6em;
-            animation: aparecer 0.8s ease-in-out;
-        }
-
-        .boton-especial {
-            background-color: #9333ea;
-            color: #fff;
-            font-weight: bold;
-            border: none;
-            border-radius: 15px;
-            padding: 12px 25px;
-            margin: 10px;
-            font-size: 1.1em;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            transition: 0.3s;
-        }
-
-        .boton-especial:hover {
-            background-color: #6d28d9;
-            transform: scale(1.05);
-        }
-        
-        /* --- Estilo especial para la carta "Posiblemente el último" --- */
-        body.fondo-elegante {
-            background: #f5f5f5 url('textura-elegante.png') repeat;
-            background-size: 200px;
-            color: #222;
-            transition: background 0.8s ease;
-        }
-
-        /* CORRECCIÓN: Agregar comas entre los selectores */
-        #nuevo2.carta-elegante,
-        #nuevo3.carta-elegante,
-        #diciembre24.carta-elegante,
-        #diciembre31.carta-elegante {
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
-            padding: 40px;
-            max-width: 800px;
-            margin: 40px auto;
-            font-family: "Georgia", serif;
-            font-size: 1.2em;
-            line-height: 1.8em;
-            color: #333;
-            border: 2px solid #ccc;
-            animation: aparecer 1s ease-in-out;
-        }
-
-        /* CORRECCIÓN: Agregar comas entre los selectores */
-        #nuevo2.carta-elegante strong,
-        #nuevo3.carta-elegante strong,
-        #diciembre24.carta-elegante strong,
-        #diciembre31.carta-elegante strong {
-            color: #6b21a8;
-        }
-
-        /* CORRECCIÓN: Agregar comas entre los selectores */
-        #nuevo2.carta-elegante p,
-        #nuevo3.carta-elegante p,
-        #diciembre24.carta-elegante p,
-        #diciembre31.carta-elegante p {
-            text-align: justify;
-            text-indent: 20px;
-        }
-        
         /* 🌙 Diseño especial para el botón y la carta del 5 de noviembre */
         .boton-luna {
             background: linear-gradient(90deg, #1e1e2f, #3b3b58);
@@ -223,95 +147,118 @@
             font-size: 1.8em;
         }
 
-        /* --- Estilo para el nuevo botón y sus opciones --- */
-        .boton-estados {
-            background-color: #e879f9;
-            color: white;
-            border: none;
-            border-radius: 15px;
-            padding: 12px 25px;
-            margin: 10px;
-            font-size: 1.1em;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            transition: 0.3s;
-        }
-
-        .boton-estados:hover {
-            background-color: #c026d3;
-            transform: scale(1.05);
-        }
-
-        .contenido-estados {
-            background: linear-gradient(135deg, #f0e6ff, #e9d5ff);
+        /* --- Estilo para la nueva sección con foto decorada de Snoopy --- */
+        .foto-snoopy-decorada {
+            width: 90%;
+            max-width: 350px;
+            height: auto;
             border-radius: 20px;
-            padding: 25px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f9e6ff, #e0c3fc);
+            box-shadow: 
+                0 0 0 10px #d8b4fe,
+                0 0 0 15px #a855f7,
+                0 10px 25px rgba(0,0,0,0.3);
+            margin: 25px auto;
+            display: block;
+            position: relative;
+            transition: transform 0.5s ease;
+        }
+        
+        .foto-snoopy-decorada:hover {
+            transform: scale(1.03);
+        }
+        
+        .foto-snoopy-decorada::before {
+            content: "✨";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-size: 24px;
+            animation: brillar 2s infinite;
+        }
+        
+        .foto-snoopy-decorada::after {
+            content: "✨";
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            font-size: 24px;
+            animation: brillar 2s infinite 1s;
+        }
+        
+        @keyframes brillar {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .mensaje-dia-bonito {
+            font-size: 1.4em;
             color: #4b0082;
-            font-size: 1.1em;
             text-align: center;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.25);
-            line-height: 1.6em;
-            animation: aparecer 0.8s ease-in-out;
-            margin-top: 20px;
-        }
-
-        .boton-opcion {
-            background-color: #a855f7;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 10px 15px;
-            margin: 8px;
-            font-size: 0.95em;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: 0.3s;
-            display: inline-block;
-            width: 180px;
-        }
-
-        .boton-opcion:hover {
-            background-color: #7e22ce;
-            transform: scale(1.05);
-        }
-
-        /* --- NUEVO ESTILO PARA LOS MENSAJES EMOCIONALES (15 de septiembre) --- */
-        .mensaje-opcion {
-            background-color: rgba(255, 255, 255, 0.9);
+            margin: 20px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 230, 255, 0.9));
             border-radius: 15px;
-            padding: 20px;
-            margin-top: 20px;
-            color: #4b0082;
-            font-size: 1.1em;
-            text-align: justify;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            display: none;
-            border-left: 5px solid #a855f7;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             font-family: 'Georgia', serif;
-            line-height: 1.7;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        .contenido-snoopy {
+            background: linear-gradient(135deg, #f8f0ff, #e9d8fd);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            border: 3px solid #d8b4fe;
             position: relative;
             overflow: hidden;
         }
-
-        .mensaje-opcion::before {
+        
+        .contenido-snoopy::before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), rgba(126, 34, 206, 0.05));
-            z-index: -1;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, #a855f7, #7e22ce, #a855f7);
+        }
+        
+        /* Estilo para cartas elegantes */
+        body.fondo-elegante {
+            background: #f5f5f5 url('textura-elegante.png') repeat;
+            background-size: 200px;
+            color: #222;
+            transition: background 0.8s ease;
         }
 
-        .mensaje-opcion p:first-child {
-            font-weight: bold;
-            color: #6b21a8;
+        .carta-elegante {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 800px;
+            margin: 40px auto;
+            font-family: "Georgia", serif;
             font-size: 1.2em;
-            margin-bottom: 15px;
-            text-align: center;
-            border-bottom: 1px solid #e9d5ff;
-            padding-bottom: 10px;
+            line-height: 1.8em;
+            color: #333;
+            border: 2px solid #ccc;
+            animation: aparecer 1s ease-in-out;
+        }
+        
+        .carta-elegante strong {
+            color: #6b21a8;
+        }
+
+        .carta-elegante p {
+            text-align: justify;
+            text-indent: 20px;
+            color: #333;
         }
                 
     </style>
@@ -320,13 +267,19 @@
     <div class="contenedor">
         <h1>💜 PARA MI CACHETONA 💜</h1>
 
+        <!-- SOLO 7 BOTONES ACTIVOS -->
         <button class="boton" onclick="mostrar('video', '🎥 Ver video')">🎥 Ver video</button>
+        <button class="boton" onclick="mostrar('2Meses', '2 Meses')">2 MESES</button>
+        <button class="boton-luna" onclick="mostrar('diciembre16', '16 de diciembre🌕')">17 de diciembre🌕</button>
         <button class="boton-luna" onclick="mostrar('diciembre24', '24 de diciembre')">24 de diciembre</button>
         <button class="boton-luna" onclick="mostrar('diciembre31', '31 de diciembre')">31 de diciembre❤️</button>
         <button class="boton" onclick="mostrar('mensaje-corazon', 'Desde el corazón 💌')">19 de Enero 💌</button>
-        <button class="boton" onclick="mostrar('respuesta', 'Tu respuesta 💌')">Tu respuesta </button>
+        <button class="boton" onclick="mostrar('respuesta', 'Tu respuesta 💌')">Tu respuesta 💌</button>
+        <button class="boton" onclick="mostrar('dia-bonito', '✨ Un día bonito')">✨</button>
         <button class="boton" onclick="mostrarFormularioRespuesta()">✍️ ¿Quieres decirme algo?</button>
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
+
+        <!-- CONTENIDO DE LOS 7 BOTONES ACTIVOS -->
 
         <div id="video" class="contenido">
             <iframe width="800" height="450"
@@ -347,163 +300,378 @@
             </div>
         </div>
 
-        <div id="mensaje" class="contenido">
+        <div id="2Meses" class="contenido" style="display: none; background: #f8f8f8; border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 2px solid #CCCCCC; font-family: 'Georgia', serif; color: #000000; line-height: 1.7; position: relative; overflow: hidden;">
+            <!-- Fondo simple con líneas -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 29px, #E0E0E0 29px, #E0E0E0 30px); opacity: 0.6; z-index: 0; pointer-events: none;"></div>
+            
+            <!-- Contenido sobre el fondo -->
+            <div style="position: relative; z-index: 1;">
+                <h2 style="text-align:center; color:#000000; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #888888; background: #f8f8f8; padding: 10px; border-radius: 5px;">
+                    Carta – 61 días sin ti
+                </h2>
+                
+                <p style="font-size:1.1em; text-align:justify; color:#000000; margin-bottom: 20px; background: rgba(248, 248, 248, 0.8); padding: 15px; border-radius: 5px;">
+                    Hola Stheph,<br><br>
+                    Hoy se cumplen dos meses desde que tomamos caminos distintos.<br>
+                    Exactamente 61 días.<br><br>
+                    Y me impresiona cómo el tiempo juega con uno:<br>
+                    ha pasado rápido… pero al mismo tiempo tan lento.<br>
+                    Rápido, porque los días siguen su curso sin detenerse por nada.<br>
+                    Lento, porque en algún momento del día siempre termino recordándote, aunque sea por un pensamiento pequeño, por un hábito, por un detalle tuyo que aún vive en mi memoria.<br><br>
+                    No voy a negar que todavía te extraño.<br>
+                    Sería mentir si dijera que tu ausencia aún no la siento en el corazón, Pero también he respetado lo que decidiste.<br>
+                    Y sé que cuando tomas una decisión, la sostienes, aunque por dentro estés librando tus propias batallas.<br><br>
+                    Yo no estoy escribiendo esto para cambiar lo que sientes ni para pedirte nada.<br>
+                    No busco presionarte.<br>
+                    Solo quiero dejarte algo sincero, algo que refleje lo que han sido estos 61 días para mí:<br>
+                    un proceso de entender, de soltar un poquito, de agradecer… y sí, también de extrañarte.<br><br>
+                    A veces pienso que Dios nos pone pausas que duelen, pero que enseñan.<br>
+                    Y en esta pausa créeme que he aprendido muchas cosas, una de ellas es que el amor real no desaparece de un día para otro.<br>
+                    Solo se acomoda, se vuelve más silencioso, más respetuoso, más humilde.<br>
+                    Y desde ese mismo amor es que te escribo hoy.<br><br>
+                    Todo lo que vivimos tuvo valor, tuvo verdad, tuvo amor.<br>
+                    Y eso no lo borra ninguna distancia, ningún silencio, ningún adiós.<br>
+                    Tal vez algún día esta carta no duela, sino que simplemente nos haga sonreír.<br>
+                    Porque lo vivido no se reniega: se honra.<br><br>
+                    Sé que estos dos meses para ti también han sido un camino.<br>
+                    Sé que has intentado encontrar tranquilidad, claridad, orden… y lo último que quiero es quitarte esa paz que tanto te has esforzado por construir.<br>
+                    Solo quiero que sepas algo, sin presiones, sin expectativas, sin buscar cambiar nada de lo que hoy decides:<br>
+                    todo lo que te digo es sincero y desde el corazón. Y si algún día llegas a creer que lo que te digo es verdad… si en algún momento decides darme una oportunidad, créeme que haré todo lo posible y daré todo de mí para que nunca más tengas que escuchar un "perdón" por algo que pude haber hecho mejor.<br><br>
+                    Porque sí, han pasado 61 días… 61 amaneceres donde a veces todo se siente rápido, y otras veces pesado.<br>
+                    61 días en los que no ha habido uno solo donde no me acuerde de ti, aunque sea por un instante.<br>
+                    No lo niego: todavía te extraño.<br>
+                    Pero sigo respetando lo que decidiste, aunque me duela, aunque quisiera que fuera distinto.<br><br>
+                    
+                    Antes de cerrar esta carta, quiero dejarte esto:<br><br>
+                    
+                    <strong>61 razones para amarte.</strong><br>
+                    No son para presionarte ni nada de eso.<br>
+                    Son solo un reflejo de lo que has significado para mí y de lo que aún significa tenerte presente, incluso en la distancia.<br><br>
+                    
+                    1. Por tu Esencia y Forma de Ser<br><br>
+                    2. Tu risa contagiosa, capaz de alegrar mi día más gris.<br><br>
+                    3. La tenacidad con la que persigues tus sueños, sin importar los obstáculos.<br><br>
+                    4. La curiosidad infinita que tienes por aprender cosas nuevas.<br><br>
+                    5. Tu capacidad para encontrar belleza en lo simple: un atardecer, una canción.<br><br>
+                    6. La paz que transmite tu voz cuando hablas con calma.<br><br>
+                    7. Tu integridad: cómo siempre tratas de hacer lo correcto, incluso cuando es difícil.<br><br>
+                    8. La fuerza interior que descubrí en ti, incluso en momentos complicados.<br><br>
+                    9. Tu sentido del humor único, que a veces solo nosotros dos entendíamos.<br><br>
+                    10. Tu autenticidad: nunca tratas de ser alguien que no eres.<br><br>
+                    11. Me hacías sentir que podía ser completamente yo, sin máscaras.<br><br>
+                    12. La seguridad que sentía simplemente con tener tu mano en la mía.<br><br>
+                    13. Cómo lograbas calmarme en mis momentos difíciles.<br><br>
+                    14. La admiración que despiertas en mí, haciéndome querer ser una mejor persona.<br><br>
+                    15. La confianza que depositas en mí, incluso cuando yo dudaba de mí mismo.<br><br>
+                    16. Por nuestra conexión.<br><br>
+                    17. El sentimiento de hogar que me daba tu presencia, sin importar dónde estuviéramos.<br><br>
+                    18. La emoción que sentía cada vez que te veía después de un tiempo apartados.<br><br>
+                    19. Sigo sin imaginarme cómo vivir sin ti.<br><br>
+                    20. La tranquilidad de poder guardar silencio a tu lado, sin que fuera incómodo.<br><br>
+                    21. Cuando veíamos TikTok y siempre había una canción que nos hacía cantar al tiempo.<br><br>
+                    22. Nuestros domingos juntos.<br><br>
+                    23. La forma en que tus ojos brillan cuando hablas de lo que te apasiona.<br><br>
+                    24. El olor de tu perfume, que aún recuerdo.<br><br>
+                    25. Tus gestos torpes cuando estabas nerviosa.<br><br>
+                    26. Cómo cantabas por lo bajo sin darte cuenta.<br><br>
+                    27. Tu forma de abrazarme.<br><br>
+                    28. Los mensajes de buenos días o buenas noches que esperaba cada día.<br><br>
+                    29. Porque tenemos un gusto musical muy parecido.<br><br>
+                    30. Aprendí a ser más amoroso.<br><br>
+                    31. Me ayudaste a entender que está bien ser vulnerable y pedir ayuda.<br><br>
+                    32. Gracias a ti conocí una parte de mí mismo que no sabía que existía.<br><br>
+                    33. Porque en los últimos dos meses, cada cosa bonita que he visto, mi primer pensamiento ha sido "quisiera contárselo".<br><br>
+                    34. Porque tu nombre sigue siendo la palabra más dulce que conozco.<br><br>
+                    35. Porque el amor que siento por ti no tiene un interruptor de apagado; simplemente es.<br><br>
+                    36. Porque creo que las almas se reconocen, y la mía reconoce a la tuya.<br><br>
+                    37. Porque incluso en la distancia, tu esencia ha seguido dando forma a mis días.<br><br>
+                    38. Porque el mundo es un lugar mejor sabiendo que tú existes.<br><br>
+                    39. Porque mi corazón, por alguna razón que solo él entiende, todavía late a tu ritmo.<br><br>
+                    40. Por la manera en que fruncías el ceño al ver algo que no te gustaba.<br><br>
+                    41. Porque eres fuerte incluso cuando sientes que no puedes.<br><br>
+                    42. Porque Dios puso algo especial en ti.<br><br>
+                    43. Por el sonido de tu respiración cuando te apoyabas en mi hombro.<br><br>
+                    44. Por la forma en que siempre te preocupabas por mí genuinamente.<br><br>
+                    45. Por ese gesto de jugar con tu anillo o collar cuando estabas pensando o cuando estabas nerviosa.<br><br>
+                    46. Por cómo tu abrazo no era solo un contacto, era un refugio donde el mundo exterior dejaba de existir.<br><br>
+                    47. Por tu forma de caminar, que reconocería entre mil en una multitud.<br><br>
+                    48. Porque incluso cuando estabas cansada, seguías siendo luz.<br><br>
+                    49. Porque aprendí que el amor también se escribe en minúsculas: en un "Me avisas cuando llegues" al salir.<br><br>
+                    50. Porque jamás te conformas con ser menos de lo que puedes ser.<br><br>
+                    51. Porque me enseñaste que la ternura es una forma de valentía.<br><br>
+                    52. Por el brillo particular que tenían tus ojos cuando me veías.<br><br>
+                    53. Porque en tus silencios nunca había vacío, solo compañía.<br><br>
+                    54. Por tu mirada: en ella podía ver todo un océano de sentimientos, pensamientos y sueños.<br><br>
+                    55. Por tu valentía para ser vulnerable conmigo, mostrándome partes que no todos ven.<br><br>
+                    56. Por la manera en que mi mano buscaba la tuya automáticamente, como si fuera su lugar natural.<br><br>
+                    57. Por tu capacidad para sorprenderme, incluso en las cosas más pequeñas y cotidianas.<br><br>
+                    58. Porque contigo, el concepto de "hogar" dejó de ser un lugar y se convirtió en una persona: tú.<br><br>
+                    59. Porque en tu sonrisa encontraba mi lugar en el mundo.<br><br>
+                    60. Porque estos dos meses no han logrado que mi corazón entienda que ya no eres mi rutina. Al contrario, han grabado tu importancia más profundamente.<br><br>
+                    61. Y la razón más importante, la que resume todo: Porque en el mapa de mi vida, tú eres el norte que siempre buscaré. Porque, sencillamente, eres mi persona favorita en el mundo, y dos meses sin ti han confirmado que ese lugar en mi vida tiene tu nombre escrito.<br><br>
+                    
+                    <strong>Y una más de regalo:</strong><br>
+                    Porque te amo no como se ama un recuerdo, sino como se ama una verdad. Y mi verdad más clara es que cada latido desde que te conocí ha llevado tu nombre. Eres, simplemente, el amor de mi vida.
+                </p>
+                
+                <!-- Sección final centrada -->
+                <div style="text-align:center; margin-top:20px; padding:20px; border-top: 2px solid #888888; background: rgba(248, 248, 248, 0.8); border-radius: 5px;">
+                    <p style="text-align:center; margin-top:20px; color:#000000; font-style:italic;">
+                        Con cariño,<br>
+                        Para Sthephanya 🫶🏼
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="diciembre16" class="contenido contenido-luna">
+            <h2>🌙 17 DE DICIEMBRE 🌙</h2>
             <p>
-                Holaaa Stheph, ojalá hoy empieces el día con calma en el corazón y con la certeza de que todo lo que estás viviendo tiene un propósito, incluso si ahora no lo entiendes del todo.
-                Sé que últimamente te has sentido en decadencia, con mucho estrés y cargada por el ritmo del día a día. Pero también sé que dentro de ti hay una fortaleza enorme, una que siempre te ha ayudado a salir adelante incluso cuando sientes que no puedes más.
-            </p>
-            <p>
-                A veces la vida solo nos está pidiendo que respiremos, que bajemos el ritmo y recordemos que no tenemos que cargar con todo solos.
-                Y ahí es donde entra Dios. Él siempre está, esperando que le entregues tus cargas, tus miedos y tus días difíciles.
-            </p>
-            <p>
-                Si tienes un tiempito hoy, y como es miércoles, podrías pasar por la iglesia (aunque no es necesario, porque igual puedes hablar con Él desde tu casa). Pero créeme, a veces estar ahí, en silencio, te llena de una paz distinta, esa que solo Dios sabe dar.
-            </p>
-            <p>
-                (Y si pudiera, te acompañaría… pero bueno, ando cojo JAJAJAJA. Así que por lo menos te acompaño en espíritu).
-            </p>
-            <p>
-                De verdad, pídele a Dios que te dé calma, porque Él escucha, siempre.
-                Y aunque ahora todo parezca pesado, pronto vas a ver cómo todo empieza a acomodarse.
-                Tú eres fuerte, lo has sido siempre, aunque sé que a veces te agota serlo todo el tiempo. Pero también tienes derecho a descansar, a soltar y dejarte cuidar.
-            </p>
-            <p>
-                Empieza el día con fe, con esperanza y con la certeza de que todo va a estar bien.
-                Porque lo va a estar.
-                Recuerda que eres luz, y aunque a veces no lo veas, Dios sigue obrando en ti. Espero tengas un día lindo como tus ojitos 🌷
+                Holaaa Stheph, 
+                Estos días he estado pensando un poco mas de lo normal.
+                Ya casi se cumplen tres meses desde que tomamos caminos distintos, y aunque el tiempo ha pasado, hay sentimientos que no se han ido… al contrario, han crecido en silencio.
+                <br><br> 
+                
+                Sé que has tomado distancia y quiero que sepas algo muy importante:
+                lo último que quiero es interrumpir tu paz, confundirte o hacerte sentir presionada.
+                Por eso he guardado tanto silencio. No porque no quiera verte ni hablarte… sino porque no quiero sofocarte, ni que sientas que no respeto tu proceso. 
+                <br><br>
+                
+                Pero siendo honesto conmigo mismo, ya me cansa fingir que no te pienso,
+                que no me nace escribirte,
+                que no me gustaría verte aunque sea un momento. La verdad es que si quiero... Y mucho
+                No sé si tú te sientes igual, y no te escribo esperando una respuesta inmediata ni una decisión.
+                Solo te escribo desde la verdad y lo quue siento.
+                <br><br>
+                
+                Con el paso de los días estoy más seguro de algo:
+                quiero estar contigo.
+                Quiero cuidarte, consentirte, darte todo el amor que tengo,
+                si algún día me lo permites.
+                Y entiendo que esto no se demuestra solo con palabras…
+                sé que se demuestra con hechos, con cambios reales, con constancia.
+                <br><br> 
+            
+                Como ya te dije se que esto no se arregla solo con palabras, y soy consciente de eso. Por eso no prometo cosas al aire. Solo te digo lo que es verdad hoy: Mi corazón aquí está para ti, sin presión y con mucho amor. 
+                <br><br>
+            
+                No te prometo perfección, pero sí intención.
+                No te prometo que no habrá dificultades, pero sí que he aprendido. <br><br>
+                Mientras mas pasa el tiempo, mas claro tengo lo que quiero. No porque antes no lo sintiera, sino porque estos ultimos meses han pasado tantas cosas y me he acercado tanto a Dios, que todo este proceso me ha enseñado muchas cosas, una de ellas a escucharme con mas honestidad.
+                Y si Dios nos da la oportunidad, no seria para prometer palabras bonitas ni nada de eso, sino para demostrar con actos y con mucho amor... del que cuida, no que duela.
+                <br><br>
+            
+                No te escribo para pedirte nada hoy.
+                Solo para que sepas que aquí hay alguien que te quiere demasiado. con calma, con respeto, y con la certeza de que lo que siente no se ha debilitado ni con la distancia.
+                <br><br>  
+                
+                Si decides no responder, lo entenderé.
+                Si decides guardar esto para otro momento, también.
+                Solo quería ser sincero contigo y conmigo... sin ruido, sin presión, sin miedo.
+                <br><br>
+                
+                Cuídate mucho.
+                Siempre te deseo paz, desde aqui te mando todo mi amor y deseo que tu luz nunca se apague.
+                <br><br>  
+
+                Dios te bendiga y te cuide siempre.
+                Te quiero mucho más de lo que imaginas, y te extraño un montón.  
+                Te mando un abracito enorme🫂❤️<br><br>
+            
+                🌕❤️SILPQPSAYQTSB❤️🌕<br>  
+                Con cariño, para Sthephanya 🫶🏼🫂
+            </p>     
+        </div>
+
+        <div id="diciembre24" class="contenido">
+            <p style="font-size:1.1em; color:#4b0082; text-align:justify;">
+                Holaaaa Stheph. Primero que todo, quiero desearte un resto de semana bonito y tranquilo.
+                Y que esta Navidad sea un día realmente lindo para ti, de esos que se sienten en el corazón.
+                Es un día especial… y tú siempre has sido una persona especial para mí.
+                <br><br>
+                No te voy a mentir, daría todo por poder pasar una fecha así contigo.
+                Porque no se me ocurre mejor manera de vivir un día tan significativo que al lado de alguien que lo es tanto.
+                Pero también entiendo y respeto la distancia que has decidido tomar, aunque me cueste hacerlo.
+                <br><br>
+                Solo quería que supieras que todo lo que te deseo hoy es bueno, sincero y desde el cariño.
+                Espero que esta Navidad te abrace bonito, que te traiga calma, luz y momentos que te hagan sentir en paz.
+                <br><br>
+                Ojalá te hayan gustado las flores.
+                Te los mandé con mucho amor, solo con la intención de regalarte algo que hablara por mí en silencio, Y para recordarte que eres hermosa como los lirios. 
+                <br><br>
+                No quiero interrumpir tu paz ni ponerte presión.
+                Solo quería estar presente de esta forma suave y honesta.
+                Deseándote lo mejor, pidiéndole a Dios que te bendiga, que te cuide y que te proteja siempre.
+                <br><br>
+                Que Él te acompañe hoy, mañana y en cada paso que des.
+                Y que, pase lo que pase, nunca te falte luz en el camino.
+                <br><br>
+                Y nada más…
+                A veces la vida sorprende cuando menos se espera.
+                Solo quería desearte una Feliz navidad.
+                ✨🎄🤍
+                <br><br>
+                Te amo, y te extraño un montón.  
+                Te mando un abrazo fuerte🫂❤️<br><br>
+                
+                🌕❤️SILPQPSAYQTSB❤️🌕<br>  
+                Con cariño, para Sthephanya🫂❤️
             </p>
         </div>
 
-        <div id="estados" class="contenido contenido-estados">
-            <p style="font-size:1.2em; font-weight:bold; margin-bottom:20px;">
-                <h2>🌙💜 Aquí te dejo unos mensajes con mucho cariño. 
-                No son para leer todos a la vez…
-                Cuando sientas algo fuerte en el corazón, abre solo el mensaje que te hable en ese momento.
-                son para acompañarte, de a poquito, justo cuando lo necesites. Ojalá cada uno te abrace en el instante perfecto. 💜🌙</h2>
-                 
+        <div id="diciembre31" class="contenido">
+            <p style="font-size:1.1em; color:#4b0082; text-align:justify;">
+                Holaaaa Stheph. En este final del 2025 quería decirte algo con el corazón tranquilo y sincero.
+                <br><br>
+                Gracias…
+                Gracias por los momentos, por las risas, por lo vivido, por lo bonito que compartimos.
+                Nada de eso fue en vano, y nada de eso se ha borrado con el tiempo. Al contrario, con los días he entendido más su valor.
+                <br><br>
+                Como ya te lo he dicho antes —y hoy lo siento aún más claro— el sentimiento que tengo por ti sigue igual de fuerte… incluso me atrevo a decir que ha crecido.
+                No porque te idealice, ni porque te tenga cerca, sino porque incluso en la distancia sigues siendo tú, y eso para mí sigue significando mucho.
+                <br><br>
+                Tal vez mis palabras hoy no tengan el mismo peso que antes, lo sé.
+                Aun así, quero decirte algo desde la honestidad:
+                yo quero estar contigo.
+                Y no es por apego, ni por costumbre, ni por miedo a soltar.
+                Quiero estar contigo porque te elijo.
+                Porque tu risa me hace feliz.
+                Porque tus ojos siguen iluminándome como el sol ilumina a la tierra todos los días.
+                Porque quiero la oportunidad de hacerte feliz y de amarte más que ahora, amarte como mereces ser amada.
+                <br><br>
+                No te prometo perfección, porque el único perfecto es Dios.
+                Pero sí te prometo presencia.
+                Estar para ti en los días buenos y en los no tan buenos.
+                En la calma y en la tempestad.
+                En la salud y en la enfermedad.
+                Prometo intención, cuidado, respeto y crecimiento.
+                <br><br>
+                Te escribo desde lo que soy, desde lo que siento, desde la tranquilidad de poder hablar contigo, escucharte y caminar a tu ritmo. Mi deseo no es hacerte daño, ni confundirte, ni interrumpir la paz que has estado construyendo.
+                Al contrario: si Dios y tu corazón nos dan otra oportunidad, quero ser un lugar seguro para ti, no una carga; una calma, no una tormenta.
+                <br><br>
+                No te escribo desde la urgencia ni desde la presión.
+                <br><br>
+                Mi intención no es hacerte daño ni interrumpir tu paz mental, sino cuidarla, respetarla y, si algún día me lo permites, ser parte de ella.
+                <br><br>
+                Solo quería que supieras que aquí estoy, con el mismo cariño, con más conciencia y con un amor que no busca exigirte nada… solo ser honesto.
+                <br><br>
+                Te amo, y te extraño un montón.  
+                Te mando un abrazo fuerte🫂❤️<br><br>
+                
+                🌕❤️SOLO IMAGINA LO PRECIOSO QUE PUEDE SER ARRIESGARSE Y QUE TODO SALGA BIEN❤️🌕<br>  
+                Con mucho amor para, para Sthephanya🫂❤️
             </p>
-            
-            <button class="boton-opcion" onclick="mostrarMensaje('triste')">Si te sientes triste</button>
-            <button class="boton-opcion" onclick="mostrarMensaje('ansiosa')">Si te sientes ansiosa</button>
-            <button class="boton-opcion" onclick="mostrarMensaje('extrañas')">Si me extrañas</button>
-            <button class="boton-opcion" onclick="mostrarMensaje('sola')">Si te sientes sola</button>
-            <button class="boton-opcion" onclick="mostrarMensaje('feliz')">Cuando estés feliz</button>
-            <button class="boton-opcion" onclick="mostrarMensaje('nocpuedes')">Cuando sientas que no puedes más</button>
-            
-            <div id="mensaje-extrañas" class="mensaje-opcion">
-                <p>💜 Si me extrañas...</p>
-                <p>
-                Holaaa Stheph
-                Si por alguna razón del mundo hoy me extrañas un poquito, quiero que sepas algo:
-                yo también te llevo en mi corazón, aunque estemos tomando caminos diferentes por ahora.
-                <br><br>
-                Ojalá en ese instante en que tu mente se vaya hacia mí, te llegue también la calma, el recuerdo bonito, la certeza de que lo que vivimos fue real y especial.
-                <br><br>
-                No te sientas triste por extrañar. Extrañar también es una forma de haber amado… y de seguir amando.
-                Y si alguna vez ese pensamiento te hace sonreír, créeme que desde aquí también sonrío.
-                <br><br>
-                Y sí te lo preguntas, SI… yo también te extraño, cada día, cada hora, cada minuto. Tu recuerdo está conmigo en todo momento, y aunque la distancia nos separe físicamente, en mi corazón siempre estás cerca. Eres mi pensamiento favorito, mi razón para sonreír incluso en los días difíciles. Te extraño tanto como el mar extraña a la luna, con esa fuerza que mueve las mareas.
-                <br><br>
-                Pero a pesar de que te extraño sigo respetando tu espacio, tu proceso y tu tiempo.
-                Aun así, desde la distancia, te sigo deseando cosas buenas, lindas, sinceras… porque lo que siento por ti siempre me va a nacer en forma de cariño, no de presión.
-                <br><br>
-                Te mando un abrazo fuerte y un beso en esos cachetes hermosos🫂🫶🏼.</p>
-            </div>
-            
-            <div id="mensaje-triste" class="mensaje-opcion">
-                <p>💜 Si te sientes triste...</p>
-                Holaaaa
-                <br><br>
-                Si estás estas leyendi esto supongo que estas un poquito triste, o el día te pesa un poquito más de lo normal, quiero que sepas que no estás sola.
-                Incluso en esta distancia, sigo deseando que tu corazón encuentre luz y descanso.
-                <br><br>
-                Respira hondo, mi cachetona.
-                Todo pasa. Todo se ordena, aun cuando ahora parezca que nada encaja.
-                <br><br>
-                Y aunque no pueda estar ahí para apoyarte o abrazarte, aférrate a Dios y pídele que te arrope con su paz y estoy seguro que lo hará y te brindara lla calma que necesitas.
-                Pero aun así, desde este lado, te mando mi cariño aunque sea en silencio, con la esperanza de que te llegue como un susurro suave en el momento que más lo necesites.
-                <br><br>
-                Tú puedes con este día, incluso con los días que parecen más largos.
-                Yo creo en eso… siempre he creído en ti. Quiero que sepas que no estás sola en esto. Los días grises pasan, y aunque ahora sientas que la tristeza te abraza fuerte, quiero recordarte que eres más fuerte de lo que crees. Permítete sentir, pero no te quedes ahí. Recuerda todas las veces que has superado momentos difíciles y saliste adelante. Estoy seguro que esta vez no sera la excepción.</p>
-            </div>
-            
-            <div id="mensaje-ansiosa" class="mensaje-opcion">
-                <p>💜 Si te sientes ansiosa...</p>
-                <p>Se que tal vez en este momento tu pecho está inquieto o tu mente se acelera, ojalá al leer esto y te devuelva un poquito de paz.
-                Recuerda que no tienes que cargar el mundo en un solo día.
-                Ve despacio, una cosa a la vez.
-                <br><br>
-                Tú eres fuerte, más de lo que crees. Yo lo vi, yo lo sé.
-                Pon una mano en tu corazón y escucha tu respiración. Toma un momento para cerrar los ojos y relajarte. La ansiedad es solo una visita temporal, no se quedará para siempre. Recuerda que eres capaz de manejar lo que venga, porque tienes una fuerza interior increíble. Confía en el proceso y en que todo va a estar bien. 
-                Estás aquí, estás a salvo. Dios también está contigo, incluso en esos momentos en los que sientes que todo se te viene encima.
-                <br><br>
+        </div>
 
-                Te quiero un montón y estoy orgulloso de ti.
-                Sé que ahora no estás pasando por el mejor momento, pero también sé que Dios nos pone pequeños baches para recordarnos de qué estamos hechos… y tú estás hecha de fuerza, de coraje y de una ternura que sostiene más de lo que imaginas.
-                <br><br>
-
-                Y aunque no hablemos, siempre estoy deseándote lo mejor y pidiéndole a Dios que te acompañe, que te abrace en esos segundos difíciles que no se ven pero sí se sienten.
-                Que Dios te sostenga hoy más fuerte que nunca, que te dé calma en el pecho y luz en la mente.
-                <br><br>
-
-                Respira…
-                Tú puedes con esto. No estás sola, nunca lo has estado.🫂</p>
-            </div>
+        <div id="mensaje-corazon" class="contenido" style="display: none; background: #f8f8f8; border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 2px solid #CCCCCC; font-family: 'Georgia', serif; color: #000000; line-height: 1.7; position: relative; overflow: hidden;">
+            <!-- Fondo simple con líneas -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 29px, #E0E0E0 29px, #E0E0E0 30px); opacity: 0.6; z-index: 0; pointer-events: none;"></div>
             
-            <div id="mensaje-sola" class="mensaje-opcion">
-                <p>💜 Si te sientes sola...</p>
-                <p>Holaaa. Si estas leyendo esto es porqu seguramente la soledad toco tu puerta, pero quiero que sepas que nunca estás realmente sola. Aunque físicamente no pueda estar contigo en este momento, mi corazón está a tu lado. Piensa en todas las personas que te queremos. Eres amada más de lo que imaginas, y esta sensación de soledad es solo temporal. Recuerda que siempre pienso en ti,incluso en el silencio... incluso en la distancia.
-                <br><br>
-                Asi que cuando te sientas solita y sin ganas de nada, recuerda quete quiero con todo mi corazón y siempre estaré para ti en cada paso, en cada caida, en cada comienzo. o simplemente para lo que necesites.🫶🏼
+            <!-- Contenido sobre el fondo -->
+            <div style="position: relative; z-index: 1;">
+                <h2 style="text-align:center; color:#000000; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #888888; background: #f8f8f8; padding: 10px; border-radius: 5px;">
+                    💌 Desde el corazón 💌
+                </h2>
+                
+                <p style="font-size:1.1em; text-align:justify; color:#000000; margin-bottom: 20px; background: rgba(248, 248, 248, 0.8); padding: 15px; border-radius: 5px;">
+                    Holaaa Stheph<br><br>
+                    
+                    La verdad no sé muy bien por dónde empezar ni que decir, porque sé que me has dicho que ahora prefieres tomar distancia y quiero respetarlo. Aun así, te extraño muchísimo. Tal vez esto no arregle nada, pero hoy solo nace de mí decirte que, en este momento, lo único que quisiera es estar ahí contigo, mirarte a los ojos y recordarte cuánto te quiero.<br><br>
+                    
+                    Sé que hay muchas cosas por mejorar y que no todo ha sido fácil. También sé que me he equivocado, pero créeme cuando te digo que cada día doy todo de mí para aprender, crecer y ser mejor, no solo para ti, sino también para mí. Aun con todo, quiero que seamos tú y yo, seguir eligiéndote incluso en los días difíciles, incluso cuando las cosas pesan.<br><br>
+                    
+                    Decir "intentémoslo" suena simple, aunque sabemos que no lo es. Yo no tengo promesas vacías, pero sí la certeza de que, incluso en los días más bajos y complicados, voy a dar todo por ti y por nosotros. No me rindo contigo porque eres con quien quiero estar. Y no importa cuánto tenga que aprender, cuánto tenga que mejorar o cuánto tiempo tome… lo único que sé es que nos quiero juntos siempre.<br><br>
+                    
+                    Porque eres esa persona a la que podría escuchar por horas sin cansarme, ya sea hablándome de tus problemas, de las cosas que te gustan o simplemente de cómo fue tu día. Eres esa persona que siempre deseé que llegara a mi vida. Eres todo lo que algún día a Dios pedí, mi sueño hecho realidad.<br><br>
+
+                    No se cómo hacerte entender que daría lo que fuera por ti. La única persona que me ha enseñado que es querer sano, que se siente amar y que me amen, la que me hace sentir orgulloso aunque me cuentes lo más mínimo que lograste, tus logros son mi felicidad, si estás feliz estoy el doble de feliz por ti. Eres la única por la que he llorado solamente viéndote, por que se que eres lo mejor que me a pasado, por tanto que siento por ti, en fin simplemente eres tú, tus ojos, tu sonrisa, tu cara, tu ser y simplemente por existir, te quiero a ti y quiero que seas solo tú.<br><br>
+                    
+                    Te amo, y no lo digo a la ligera ni como simples palabras. Te lo digo solo con la verdad de lo que siento y desde la decisión consciente de seguir eligiendote, aún cuando el camino no es fácil.<br><br>
+                    
+                    Eso es todo lo que hoy quería decirte, sin ruido, sin presiones ni nada, solo con el corazón en la mano.<br><br>
+                    
+                    Espero estes bien y en caso de que no sea asi solo deseo que todo mejore pronto. Recuerda que si me necesitas aquí estoy siempre para ti. <br><br>
+
+                    Dios te bendiga y te proteja siempre❤️<br><br>
                 </p>
+                
+                <!-- Sección final centrada -->
+                <div style="text-align:center; margin-top:20px; padding:20px; border-top: 2px solid #888888; background: rgba(248, 248, 248, 0.8); border-radius: 5px;">
+                    <p style="text-align:center; margin-top:10px; color:#000000; font-style:italic; line-height: 1.6;">
+                        Con todo mi amor <br><br>  
+                        Para Sthephanya 🫂❤️
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="respuesta" class="contenido" style="display: none; background: #f8f8f8; border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 2px solid #CCCCCC; font-family: 'Georgia', serif; color: #000000; line-height: 1.7; position: relative; overflow: hidden;">
+            <!-- Fondo simple con líneas -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 29px, #E0E0E0 29px, #E0E0E0 30px); opacity: 0.6; z-index: 0; pointer-events: none;"></div>
+            
+            <!-- Contenido sobre el fondo -->
+            <div style="position: relative; z-index: 1;">
+                <h2 style="text-align:center; color:#000000; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #888888; background: #f8f8f8; padding: 10px; border-radius: 5px;">
+                    💌 Tu respuesta 💌
+                </h2>
+                
+                <p style="font-size:1.1em; text-align:justify; color:#000000; margin-bottom: 20px; background: rgba(248, 248, 248, 0.8); padding: 15px; border-radius: 5px;">
+                    Holaaaa<br><br>
+                    
+                    Gracias por tomarte el tiempo de escribirme con tanta honestidad. Valoro mucho que me hables así.<br><br>
+                    
+                    Entiendo lo que dices, y aunque no sea fácil para mí, respeto tu decisión. Quiero que sepas que nunca fue mi intención causarte conflicto ni ponerte en una posición incómoda, todo lo que hice nació desde el amor genuino que te tengo.<br><br>
+                    
+                    Gracias por confiarme algo tan importante como lo que estás planeando para tu vida. De verdad me alegra saber que, aunque te asuste, también hay una parte de ti que se siente esperanzada. De corazón deseo que ese camino que estás tomando te lleve a crecer, a encontrarte y a estar en paz contigo misma. Porque te mereces todas las cosas buenas que te pasan.<br><br>
+                    
+                    También quiero que sepas que entiendo por qué decidiste volver a tomar distancia. Si eso es lo que necesitas para cuidarte y ser coherente contigo, lo respeto completamente, aunque me duela.<br><br>
+                    
+                    Pero también quiero ser honesto contigo: los días que estuvimos hablando me pasaba algo muy parecido porque también tengo ganas de verte, de abrazarte, de besarte… no porque quisiera contradecir la posición que has tomado, sino porque el cariño que te tengo sigue ahí.<br><br>
+                    
+                    No siento que hayas sido contradictoria. Creo que a veces uno no va en contra de lo que dice, sino que va luchando con lo que siente, y eso también es parte de ser honesto. Sentir ganas de acercarse, de querer, de extrañar, no te hace irresponsable ni egoísta, te hace humana.<br><br>
+                    
+                    Si sentiste esas cosas por mí, no lo veo como algo malo ni como un error, porque yo también las sentí. Pero entiendo que hayas decidido tomar distancia justamente porque sentías todo eso, y respeto que hayas elegido cuidarte. No lo interpreto como que jugaste conmigo, sino como que fuiste sincera contigo misma, supongo que pensaste que sentir algo no siempre significa que sea el momento de actuar sobre eso.<br><br>
+                    
+                    Obviamente yo también estoy sintiendo y pensando muchas cosas, y quisiera hablarlas o que nos sentáramos a hablar sobre todo eso, pero si sientes que no es momento de hacerlo, lo respeto.<br><br>
+                </p>
+                
+                <!-- Sección final centrada -->
+                <div style="text-align:center; margin-top:20px; padding:20px; border-top: 2px solid #888888; background: rgba(248, 248, 248, 0.8); border-radius: 5px;">
+                    <p style="text-align:center; margin-top:10px; color:#000000; font-style:italic; line-height: 1.6;">
+                        Dios te bendiga y te proteja siempre, espero que tu familia también esté bien. Tqm 🫶🏽<br><br>
+                        
+                        Con todo mi cariño,<br>
+                        Para Sthephanya 🫂❤️
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NUEVA SECCIÓN CON FOTO DECORADA DE SNOOPY -->
+        <div id="dia-bonito" class="contenido contenido-snoopy" style="display: none;">
+            <h2 style="text-align:center; color:#4b0082; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #d8b4fe; background: linear-gradient(135deg, #f8f0ff, #e9d8fd); padding: 15px; border-radius: 10px;">
+                ✨ Para que tengas un día hermoso ✨
+            </h2>
+            
+            <div class="mensaje-dia-bonito">
+                💜 Espero que hoy tengas un día tan lindo y especial como tú lo eres 💜<br><br>
+                Que cada momento esté lleno de alegría, paz y cosas buenas. 
+                Tú mereces toda la felicidad del mundo, y más.
             </div>
             
-            <div id="mensaje-feliz" class="mensaje-opcion">
-                <p>💜 Cuando estés feliz...</p>
-                <p>Hola Stheph, si en este momento estás feliz, quédate ahí un ratito más.
-                Deja que esa alegría te recorra completica, que te llene el pecho y te recuerde lo lejos que has llegado.
-                <br><br>
-
-                Me alegra imaginarte sonriendo, porque al hacerito no puedo evitar sonreir yo también, tambien me alegra que estes encontrando cosas que te hacen bien, rodeada de momentos bonitos y que te suman.
-                Tú te mereces eso: días ligeros, risas sinceras, calma en el alma.
-                <br><br>
-
-                Ojalá esta felicidad que sientes hoy te siga acompañando mañana… y pasado… y en todos esos días donde vuelves a encontrarte contigo misma.
-                Tienes una luz que, cuando se enciende, ilumina más de lo que te imaginas.
-                <br><br>
-                Y aunque la vida nos tenga en caminos distintos, desde aquí me alegro por ti, de verdad.
-                De corazón te deseo más motivos para reír, más paz en tus pasos y más bendiciones que te sorprendan cuando menos lo esperas.
-                <br><br>
-
-                Disfruta este momento.<br><br>
-                La felicidad también es un regalo de Dios, y tú siempre has sabido hacerlo brillar❤️🌞.</p>
+            <img src="snoopys.png" alt="Snoopy 💜" class="foto-snoopy-decorada">
+            
+            <div class="mensaje-dia-bonito" style="font-size:1.2em; margin-top:20px;">
+                Recuerda que eres increíble, fuerte y capaz de todo lo que te propongas.<br>
             </div>
             
-            <div id="mensaje-nocpuedes" class="mensaje-opcion">
-                <p>💜 Cuando sientas que no puedes más...</p>
-                <p>Si hoy sientes que no puedes más, quédate quieta un momento.
-                No es debilidad, no es falla, es el alma pidiendo un respiro.
-                Estás cargando más de lo que cualquiera ve, y aun así sigues avanzando. Eso ya habla de tu valentía.
-                <br><br>
-
-                Si el cansancio te pesa en los hombros, suelta un poquito.
-                Respira despacio, deja que tu cuerpo se recupere y permite que tu corazón descanse.
-                No tienes que poder con todo en un solo día. No estás hecha para la perfección, estás hecha para la vida, y en la vida también hay que tomar pausas.
-                <br><br>
-
-                Dios conoce tus luchas, incluso esas que callas.
-                Él sabe cuándo te cuesta, cuándo te quiebras por interior y cuándo sonríes por fuera mientras te sientes agotada.
-                Pídele que te sostenga hoy con más fuerza, que te dé calma donde hay ruido y esperanza donde te duela.
-                <br><br>
-
-                Y aunque ya no esté acompañando tu camino como antes, créeme:
-                te deseo luz, fortaleza y claridad para seguir adelante.
-                Ojalá la vida te haga más liviano aquello que ahora te pesa tanto.
-                <br><br>
-
-                Descansa, respira y vuelve a ti.
-                Tú puedes con esto y con más.
-                Siempre has podido, incluso cuando creías que no. Asi que recuerda, eres más fuerte de lo que crees. Has llegado hasta aquí a pesar de todo, y se que a veces cansa ser fuerte todo el tiempo, pero eso demuestra tu increíble capacidad de resistencia. No tienes que cargar con todo solita, entregale todas tus cargas a Dios. Tómate un descanso si lo necesitas, pero no te rindas. Los momentos más difíciles suelen preceder a los mayores triunfos.❤️🌝</p>
+            <div style="text-align:center; margin-top:30px; padding:20px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 230, 255, 0.9)); border-radius: 15px; border: 2px dashed #a855f7;">
+                <p style="color:#4b0082; font-size:1.1em; font-style:italic; line-height: 1.6;">
+                    "Que tu día esté lleno de pequeños momentos que te hagan sonreír,<br>
+                    de pensamientos bonitos y de la certeza de que eres amada."<br><br>
+                    
+                    💜 Te quiero mucho 💜
+                </p>
             </div>
         </div>
 
@@ -515,861 +683,62 @@
                 - TE EXTRAÑO MUCHO
             </p>
         </div>
-
-        <div id="especial" class="contenido especial">
-            <p>
-                Ha pasado un mes… pero sinceramente se ha sentido como un año.<br><br>
-                Un mes en el que te he extrañado más de lo que pensé que podría extrañar a alguien.
-                Y aunque sé que cuando tomaste la decisión de terminar fue porque sentías que lo que estaba pasando con la relación no era lo que realmente querías y lo respeto.
-                De corazón, lo respeto.
-                <br><br>
-                También entiendo que lo hiciste por cuidar tu corazón, ese corazón que nunca tuve la intención de dañar. Y por cuidar tu paz, que también importa.
-                <br><br>
-                Sé que cometí errores, y que en muchos momentos no estuve a la altura de lo que merecías.
-                Hoy lo entiendo, lo acepto y trabajo cada día para no repetirlos. Obvio no soy perfecto, y me falta mucho por aprender, pero quiero que sepas que si decides abrir tu corazón hacia mí otra vez, no lo apuñalaré ni lo haré dudar.
-                Todo lo contrario: quiero cuidarlo, protegerlo y amarlo más de lo que lo hice antes.
-                <br><br>
-                Quiero ser esa calma que te dé seguridad,
-                esa presencia que sume en tus días,
-                y no alguien que te quite la paz.
-                <br><br>
-                He pensado mucho en lo que fui, en lo que hice mal, y también en lo que no hice.
-                <br><br>
-                Sé que tuve muchas fallas, y por eso todavía me siento culpable.
-                Pero también había cosas tuyas que no me gustaban, y aun así, nunca se me pasó por la cabeza la idea de terminar.
-                Porque siempre quise seguir caminando contigo, incluso cuando las cosas se ponían difíciles.
-                <br><br>
-                No lo digo como reclamo, lo digo desde la paz.
-                Porque entiendo que cada quien actúa según lo que siente en ese momento.
-                <br><br>
-                Estos días he pensado mucho.
-                Me he dado cuenta de que nos faltó comunicación, tanto como pareja como de mi parte hacia ti.
-                Me guardé cosas, me callé otras. Y ahora entiendo que no siempre está bien cargar con todo uno solo.
-                <br><br>
-                Créeme que he estado trabajando en eso.
-                En crecer, en sanar, en entender.
-                No solo por lo que nos pasó, sino por mí.
-                Porque si uno no cambia por dentro, las historias se repiten.
-                <br><br>
-                Sé que no puedo cambiar lo que hice en el pasado, pero sí puedo controlar lo que hago en el presente.
-                Y eso es lo que estoy intentando hacer:
-                mejorar, aprender, y convertirme en alguien que no solo hable de amor, sino que lo demuestre con hechos, con paciencia y con empatía.
-                Porque entendí que amar no es solo decirlo,
-                es cuidar, escuchar, respetar y construir.
-                <br><br>
-                Esto que me pasó con la fractura me hizo pensar mucho. Gracias a Dios fue eso y no algo más grave.
-                Y no es por ser exagerado, pero me hizo entender que pueden pasar cosas cuando menos lo esperamos, que hoy estamos y quizá mañana no. Esta pausa forzada me obligó a frenar, a pensar y a reflexionar sobre lo que realmente importa. Y entre todo eso, entendí que tengo que hacer las cosas antes de que ya no haya reversa.
-                <br><br>
-                Sé que por mis cosas, por lo que pasaba por mi mente, no me di cuenta —o me di cuenta muy tarde— de lo que debía hacer.
-                Ya no quiero más eso en mi vida.
-                Quiero hacer las cosas bien, y hacerlas bien contigo. Solo espero que algún día Dios y tú me lo permitan.
-                <br><br>
-                Tal vez ahora no sea la mejor versión de mí, pero estoy trabajando cada día para serlo. Para sanar, crecer y corregir lo que alguna vez dañé sin querer.
-                Y por si todavía te lo preguntas o algún día la vida te hace preguntarte si yo estaría dispuesto a intentarlo otra vez…
-                quiero que sepas que la respuesta siempre será sí.
-                <br><br>
-                Sí, pero haciéndolo bien.
-                Con paciencia, con amor, con comunicación
-                y con Dios guiándonos, porque solo Él sabe lo que hay en nuestros corazones.
-                <br><br>
-                A pesar de todo esto, sigo pensando que eres la mujer que quiero para mi vida.
-                Te quiero demasiado. Y como una vez te lo dije: contigo quiero todo, y sin ti nada.
-                <br><br>
-                Quiero que sepas que todo lo que alguna vez te dije "los te quiero, los te amo, los te extraño" fue real. Cada palabra.
-                <br><br>
-                Puede que me encuentre un poco agotado emocionalmente, pero aun así quería escribirte, porque todavía hay algo en mí que no sabe ni quiere decir adiós.
-                <br><br>
-                Lo siento si molesto, de verdad, nunca será mi intención hacerlo.
-                Quisiera tener la fuerza que tú tienes para no escribirme, para ignorarme y para seguir.
-                Pero espero que me entiendas al no dejarte ir.
-                <br><br>
-                La verdad me está costando,
-                porque yo me imaginaba una vida contigo, no una vida sin ti.
-                <br><br>
-                Tal vez por eso me aferro tanto,
-                porque cada plan, cada sueño y cada día que pensaba en el futuro, siempre te incluía a ti.
-                También porque siento que hubo muchas cosas que nos faltaron por vivir.
-                <br><br>
-                Pero aun así te doy gracias por todo lo vivido,
-                por lo aprendido, y por haber sido mi lugar bonito y seguro.
-                <br><br>
-                Y no te hablo desde la nostalgia, sino desde el amor que sigue aquí: intacto, paciente y con fe. Porque contigo tengo mis intenciones claras.
-                Y aunque no sé qué está pasando por tu mente en este momento,
-                solo quiero que sepas que quiero luchar por esto contigo,
-                porque creo que aún vale la pena intentarlo.
-                Si decides darme una nueva oportunidad, prometo dar lo mejor de mí,
-                para que tú también puedas sentirte en paz y dar lo mejor de ti y tengamos la certeza de que esta vez nuestro "Love Affair" será para siempre.
-                Y si no… lo entiendo, de verdad.
-                <br><br>
-                Porque pase lo que pase...
-                <br><br>
-                <strong>Te amo, amor de mi vida 💜</strong>
-            </p>
-        </div>
-        <div id="nuevo" class="contenido">
-        <p style="font-size:1.2em; color:#4b0082; text-align:justify;">
-            </p>
-            Holaaa Stheph <br><br>
-
-            Esta carta es solo para decirte que te extraño mucho.<br><br>
+        
+        <!-- FORMULARIO PARA QUE ELLA TE ESCRIBA -->
+        <div id="formulario-respuesta" class="contenido" style="display: none; background: linear-gradient(135deg, #f5e1ff, #e0c3fc); border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 600px; box-shadow: 0 4px 25px rgba(0,0,0,0.25);">
+            <h2 style="color: #4b0082; text-align: center; margin-bottom: 20px;">💌 Escribe lo que sientas</h2>
             
-            Te lo digo por acá porque, como me dejas de responder en WhatsApp y tampoco me contestaste la carta anterior pues supongo que no quieres hablar conmigo, por lo tanto sigo desahogándome y diciendo lo que pienso en el momento por este medio.<br><br>
+            <p style="color: #4b0082; text-align: center; margin-bottom: 20px;">
+                Si hay algo que quieras expresar o si te nace decirme algo, aquí puedes hacerlo. 
+                Lo que escribas me llegará directamente a mí. 
+            </p>
             
-            Solo quiero decirte que te quiero demasiado ❤️, a pesar de la distancia o del silencio.
-            No sé qué estés pensando o sintiendo en este momento, pero ojalá la vida te esté tratando bien y te este dando la paz que te mereces.
-            <br><br>
-            Sigo aquí(Sentado porque por obvias razones no puedo mantenerme en pie JAJAJAJJAJAJAJAJAJAJ😭), con el mismo cariño de siempre, recordándote con mucho amor y deseándarte lo mejor, siempre.🫂
-            <br><br>
-            Y aunque no hablemos, te llevo presente en cada pensamiento bonito del día. Espero pases buena noche y ten mando un abrazo, pero no un abrazo normal.<br><br> 
-            Te acuerdas cuando me abrazabas y yo te lo devolvia mas fuerte que no te queria ni soltar?<br><br>
-            Bueno, uno de esos❤️<br><br>
-        </p>
-    </div>
-    <div id="nuevo2" class="contenido">
-    <p style="font-size:1.1em; color:#4b0082; text-align:justify;">
-        Que loco, hoy se cumple exactamente un mes desde que nos dejamos.
-        Y sinceramente, ha sido un mes en el que he aprendido muchas cosas… pero como ya te dije también ha sido uno en el que te he extrañado más de lo que imaginé que se podía extrañar a alguien.
-        <br><br>
-        Me hubiese gustado que las cosas no se tornaran así, pero bueno, solo Dios sabe por qué todo se dio de esa manera.
-        Aun así, no ha pasado ni un solo día sin que piense en ti, como lo hago desde el dia en que conectamos.
-        Tampoco ha pasado un día sin que le pida a Dios por ti, por tu bienestar, por tu paz y porque la vida te sonría.
-        <br><br>
-        Obviamente quiero estar contigo.
-        Quiero que luchemos para que las cosas se nos den, porque te quiero demasiado y porque creo que lo nuestro vale la pena.
-        Pero también entiendo si prefieres guardar distancia.
-        <br><br>
-        Tú sabes que no soy una mala persona, y si me dieras la oportunidad de intentar las cosas otra vez, no te fallaría.
-        Por que se que no soy perfecto y que en mivida hhe cometido errores, sí, pero también he aprendido de ellos.
-        Y aunque sé que las palabras no bastan, estoy seguro de que si los dos lo intentamos, podemos llegar lejos, porque el amor que sentimos fue y sigue siendo real.
-        <br><br>
-        Desde ese 10 de junio en que te conocí, jamás imaginé que iba a tener una conexión tan bonita con alguien.
-        <br><br>
-        Aunque tengo mucho que aprender, quiero hacerlo contigo.
-        Sé que tengo cosas por corregir, pero quiero corregirlas contigo.
-        Y aunque todavía no he llegado a mi mejor versión, quiero que seas tú quien la disfrute, porque aún estoy enamorado de ti.
-        <br><br>
-        Y aunque eres demasiado hermosa,
-        no me enamoré solo de tu físico:
-        me enamoré de tu forma de pensar,
-        de cómo ves la vida de un modo distinto,
-        de tu esencia, de tu forma de sentir y de amar.
-        En fin… me enamoré de STHEPHANYA❤️.
-        <br><br>
-        No sé qué estés pensando ahora, ni qué lugar ocupo en tu vida, solo te pdo que pienses lo que te digo en esta carta.
-        Y si sientes que no vale la pena intentarlo, solo te pido que por favor me lo hagas saber.
-        Que yo haré todo lo posible por seguir adelante y sacarte de mi mente, aunque me cueste.
-        <br><br>
-        Pase lo que pase, quiero que sepas que te quiero con el alma, y que aunque la vida siga su curso, siempre vas a ser alguien especial para mí.
-        Te deseo lo mejor del mundo, de verdad.
-        <br><br>
-        Y si este es el final, me quedo tranquilo sabiendo que todo lo que sentimos fue sincero y que si algún día el destino quiere, volverá a cruzar nuestros caminos.
-        <br><br>
-        Te mando un beso y abrazo fuerte mi cielo🫂❤️
-        <br><br>
-    </p>
-    </div>
-
-    <div id="nuevo3" class="contenido">
-            <p>
-                02/11/2025<br><br>
-                Holaaa de nuevo, me imagino que ya viste las otras cartas, y aunque no me las respondas ni digas nada, yo sé que de alguna forma te llegan al corazón, porque yo las escribo con todo el mio. Pero bueno… aquí voy con otro nuevo.  
-                <br><br>
-                Hoy fue un día en el que me desperté con toda la actitud, con ganas de que fuera un buen día, pero fue inevitable que en el transcurso del día llegara tu recuerdo una y otra vez.  
-                Me vinieron a la mente los momentos lindos que vivimos, las risas, las conversaciones, las miradas… y con eso también llegó una tristeza que no sé ni cómo estoy disimulando, porque la verdad es que aún te quiero con toda mi alma.  
-                <br><br>
-                Sé que todo esto está siendo difícil, tanto para ti como para mí.  
-                Por eso quiero que sepas que mi intención no es sonar insistente ni agobiarte, solo ser sincero.  
-                Le he pedido mucho a Dios que, si lo nuestro ya no tiene más historia que escribir, entonces me quite ese deseo del corazón de seguir juntos, que nos ayude a soltar en paz.  
-                Pero te cuento algo: no sé si tú ya no sientes lo mismo por mí, pero por lo menos a mí, ese deseo no se me ha ido.  
-                Sigue ahí, vivo, fuerte, y cada día me recuerda cuánto vales y cuánto deseo hacer las cosas bien contigo.  
-                <br><br>
-                Obviamente, sé que no todo se soluciona con palabras.  
-                También hay que demostrar, construir y sanar.  
-                Y eso es lo que quiero hacer, porque no quiero perderte.  
-                Y aunque no lo digas, algo dentro de mí me dice que tú, en el fondo, tampoco quieres eso.  
-                <br><br>
-                Si es así, solo te pido una cosa:(que sé que no es fácil) pero permítete quererme sin miedo.  
-                Permítete creer que sí puede salir bien, que sí puede ser diferente esta vez.  
-                Yo lo haré también, sin reservas, con el corazón abierto, porque estoy convencido de que cuando Dios une dos caminos con tanta conexión desde el principio, no es por casualidad, sino porque hay un propósito.  
-                <br><br>
-                Y mientras Dios se encarga de mostrarnos cuál es, yo seguiré pidiéndole a el que te cuide, que te dé calma y que te regale claridad para tomar las decisiones correctas en tu vida, pero sobre todo, que te llene de amor y serenidad.  
-                <br><br>
-                Porque aunque no estemos juntos ahora, mi cariño por ti sigue siendo el mismo: limpio, profundo y lleno de fe.  
+            <textarea 
+                id="mensaje-para-mi" 
+                placeholder="Escribe lo que quieras decirme..."
+                style="
+                    width: 100%;
+                    height: 150px;
+                    padding: 15px;
+                    border-radius: 10px;
+                    border: 2px solid #a855f7;
+                    font-family: 'Georgia', serif;
+                    font-size: 1em;
+                    color: #4b0082;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    resize: vertical;
+                    box-sizing: border-box;
+                    margin-bottom: 20px;
+                "
+            ></textarea>
+            
+            <div style="text-align: center;">
+                <button 
+                    class="boton" 
+                    onclick="enviarMensajeParaMi()"
+                    style="background-color: #9333ea; padding: 12px 30px; font-size: 1.1em;"
+                >
+                    Enviar mensaje 💜
+                </button>
+                
+                <button 
+                    class="boton" 
+                    onclick="ocultarFormulario()"
+                    style="background-color: #888; margin-left: 10px;"
+                >
+                    Cancelar
+                </button>
+            </div>
+            
+            <div id="mensaje-enviado" style="display: none; text-align: center; margin-top: 20px; padding: 15px; background-color: #d1f7c4; border-radius: 10px; color: #0a5c36; border: 2px solid #4CAF50;">
+                <p style="font-size: 1.2em; font-weight: bold;">
+                    ✅ ¡Mensaje enviado!<br>
+                    Gracias por compartirlo conmigo 💜
                 </p>
-                TE QUIERO CON TODO MI CORAZÓN MI CACHETONA❤️
-            </p>
-        
-    </div>
-    <div id="noviembre5" class="contenido contenido-luna">
-    <h2>🌙 4 de Noviembre 🌙</h2>
-            Holaaa, soy yo otra vez.
-            <br><br> 
-            
-            Tú dirás que sí soy cansón, pero bueno… no puedo evitar escribirte, aunque solo sea por aquí. 
-            La verdad es que te he extrañado tanto, que a veces siento que cada día sin ti pesa un poquito más que el anterior. Es una mezcla entre querer escribirte y contenerme, entre respetar tu silencio y gritarle al mundo cuánto te pienso.  
-            <br><br>
-            
-            Espero que no creas que por mi silencio dejé de extrañarte, porque si supieras cuánto pienso en ti, entenderías que simplemente estoy tratando de respetar la distancia que decidiste tomar. Pero la verdad… me muero por saber cómo estás, cómo te sientes, qué cosas te han hecho sonreír últimamente, o si no te encuentras muy bien.
-            <br><br>
-            
-            No sabes cuánto deseo poder correr hacia tus brazos (aunque sea en muletas JAJAJA), abrazarte tan fuerte que el tiempo se detenga por un momento y que te quedes conmigo, porque si te soy sincero no quiero que te vayas. Porque extraño tu voz, tus gestos, y esa forma tuya de hacer que incluso los días más pesados se sientan livianos.
-            <br><br>
-            
-            Hace un rato estaba sentado acá en el patio y, adivina… la luna está casi llena. Fue imposible no recordarte. Cerré los ojos y volví a ese día en el tercer piso, cuando nos besamos por primera vez. Me acuerdo de lo nervioso que me sentía antes de acercarme, de la sonrisa que se te dibujó después, y de cómo tus cachetes se pusieron rojos iluminados por la luz que entraba de luna. Si no estás leyendo esto muy tarde, sal a mirar la luna. Tal vez, solo tal vez, nos conecte por un instante, y recuerdes ese momento tan bonito como yo lo hice. 🌕❤️ 
-            <br><br>
-            
-            Y ahora que lo pienso… ¿recuerdas el último día que nos vimos? Ese día te dije que abrazaras a Snoopy, porque a lo mejor yo necesitaba el abrazo. Bueno, hoy es uno de esos días. Así que, si no es mucha molestia, abrázalo por favor. Estoy seguro de que ese abrazo me llegará hasta aquí, aunque no lo creas.
-            <br><br>  
-            
-            De corazón, espero que estés bien, y si no lo estás, deseo que pronto lo estés. Tu sabes que siempre te mando toda mi mejor energía, todo mi cariño, incluso desde la distancia.
-            <br><br>  
-            
-            Y por favor, no pienses que el hecho de no hablarte significa que no te extraño o que no te quiero. Porque lo hago, y mucho(demasiado diría yo). Solo estoy te estoy respetando como ya te dije y esperando a que algún día podamos volver a hablarnos sin miedo ni barreras.
-            <br><br>  
-            
-            Mientras tanto, quiero que sepas que siempre hay alguien aquí, pensándote, queriéndote, deseándarte lo mejor y esperando que la vida te sonría bonito todos los días.
-            <br><br>  
-            
-            Te quiero más de lo que imaginas, y te extraño todavía más.  
-            Te mando un abracito enorme, como el del otro día 🫂❤️<br><br>
-        </p>
-    </div>
-
-    </div>
-        <div id="15 DE NOVIEMBRE" class="contenido" style="
-        display:none;
-        max-width: 750px; 
-        margin: 40px auto; 
-        background: #ffffffcc;
-        backdrop-filter: blur(6px);
-        padding: 30px; 
-        border-radius: 18px; 
-        box-shadow: 0 0 18px rgba(0,0,0,0.15);
-        color: #3b0066;
-        font-family: 'Georgia', serif;
-        line-height: 1.6;
-    ">
-        <h2 style="text-align:center; color:#5e0099; margin-bottom:15px;">
-            💌 Para ti
-        </h2>
-    
-        <p style="font-size:1.2em; text-align:justify; color:#2e004d;">
-        </p>
-        <h2>🌙 15 de Noviembre 🌙</h2>
-            Hola Stheph,<br><br>
-            Primero que todo, espero de corazón que estés muy bien. Y si por algún motivo no lo estás, deseo que todo mejore pronto, que encuentres calma y que cada día te sientas un poquito más tranquila contigo misma.<br><br>
-            
-            Como habrás notado he tratado de respetar al maximo tu espacio, y creeme que hago lo mejor que puedo. Aunque sinceramente me sobran las ganas de llamarte, escribirte o hasta irme asi enmuletado a tu casa, no mentiras JAJAJAJAJA. No lo hago, no porque no quiera, sino por el respeto y el amor tan grande que te tengo.
-            TE EXTRAÑO MUCHO. Y aunque siento que le he tratado de darle el mejor manejo a la situación, hay momentos en los que simplemente no puedo evitar recordarte… tus abrazos, que me daban una paz que no te imaginas; cuando nos tomábamos de la mano, tus besos, tu aroma, y todas esas pequeñas cosas que se quedaron conmigo.<br><br>
-            
-            Ya casi se cumplen two meses desde que terminamos, y con cada día que pasa me doy más cuenta de algo: quiero seguir escribiendo historia contigo. Y mientras esté en mis hands elegir, mi elección siempre serás tú.
-            Porque en ti no encontré solo a la persona con la que quiero vivir muchas cosas, sino también a alguien sin quien no sabría vivirlas. Es una sensación difícil de explicar, pero me hace bien… me inspira a ser mejor cada día, a trabajar en mí, a buscar mi mejor versión para algún día poder ofrecértela sin miedos, si tú y Dios me lo permiten obviamente.<br><br>
-
-            Sé que me pediste que por favor tte soltara, que te diera ese espacio que necesitabas y lo he intentado, de verdad. Pero ¿cómo soltar a alguien cuando el amor que uno siente sigue tan vivo? Sé que tal vez tu ya me soltaste, y créeme, me alegra que estés encontrando tus pasos. Solo que para mí no ha sido tan simple, y tampoco te voy a mentir: no es algo que quiera hacer del todo. No por egoísmo, sino porque lo que siento por ti no se apaga con distancia ni con silencio.<br><br>
-
-            Justo hoy se cumplen 8 años de la muerte de Lil Peep, ya sabes que el es uno de mis cantantes favoritos, y él tiene una frase que dice: "if I find a way, would you walk it with me?" 
-            Y por eso te hago la pregunta… si yo encontrara el camino, si encontrara una form<br><br>
-            sana, madura y distinta de volver a encontrarnos… ¿no te gustaría recorrerlo conmigo? No te pregunto para presionarte, ni para apresurar nada; es solo que a veces el corazón necesita decir en voz baja lo que siente.<br><br>
-            
-            Y siento que si algún día ese camino existe, yo querría hacerlo bien. No por costumbre, ni por miedo a perderte, sino por lo especial que eres para mí. No lo veo como "volver a empezar" desde cero, aunque claro, hay cosas que tendríamos que hablar y sanar con calma.
-            Lo veo más como una oportunidad: la de aprender a amarnos mejor que la última vez, y más de lo que incluso ahora nos queremos a pesar de la distancia.<br><br>
-
-            Solo quisiera saber si, en algún rincón de ti, existe todavía esa pequeña posibilidad… esa chispa que no se apaga del todo. No para apresurarte ni para que cambies tu decisión, sino para saber si vale la pena seguir cuidando esta esperanza o si debo aprender a dejarla ir por completo.<br><br>
-            
-            No niego que a veces quisiera buscarte, hablarte, si quiera para saber cómo estás, pero entiendo que tomaste una decisión, y por amor (no por resignación) debo respetarla. Porque supongo que el amor también se demuestra cuando uno sabe dar espacio, incluso si duele.<br><br>
-            
-            Otra cosita, no quiero ser entrometido ni nada por el estilo, pero la última vez que te vi estabas un poquito pálida, no te noté muy bien. Solo espero que lo que sea que tengas o que la situación que estés pasando se vaya pronto, porque no me gusta verte apagada. Tú siempre has sido luz, y el mundo se nota distinto cuando no estás brillando.<br><br>
-            
-            Que Dios te bendiga y te proteja siempre.
-            Te quiero (aunque me ignores).
-            Y te mando un abrazote, de esos largos, fuertes y con todo el cariño del mundo.❤️<br><br>
-
-            PSDT: Se que no tienes casi tiempo pero aparta la cita medica por favor, hazlo por tu salud😡. Cuídate mucho, y está pendiente porque a lo mejor te cae un pequeño detalle por ahí. ¿o quien sabe?👀
-        </p>
-    
-        <p style="text-align:center; margin-top:20px; color:#4b0082; font-style:italic;">
-            Con cariño,<br>
-            Yo 🫶🏼
-        </p>
-    </div>
-    
-    <div id="gerbera" style="display:none; 
-    padding: 25px; 
-    margin-top: 20px;
-    background: #fff7fb;
-    border-radius: 18px;
-    box-shadow: 0 0 15px rgba(255,150,190,0.4);
-    border: 2px solid #ffb6d5;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Georgia', serif;
-    color: #5a0031;
-    line-height: 1.8;
-">
-    
-    <h2 style="text-align:center; color:#d6006b;">🌼 Carta de las Gerberas 🌼</h2>
-
-    Holaaaa Stheph,<br><br>
-    Espero que hoy estés bien, y si por algun motivo no es así, deseo de corazón que Dios te dé la paz y la fuerza que necesitas para que todo empiece a mejorar pronto.<br><br>
-    
-    Si estás leyendo esto, imagino que ya te llegaron las flores…
-    Las envié con muchísimo amor. Y con la intención de regalarte un momento bonito en medio de la semana. No sé si lo logré, pero si sé que lo hice desde el corazón. Solo quería dejarte un gesto bonito, algo que te recordara lo ESPECIAL que eres.<br><br>
-    
-    Ojalá te hayan gustado tanto como a mí me gusto la idea de intentar hacerte sonreir aunque sea un poquito, porque aunque no estemos cerca, con solo recordar tu sonrisa aún me ilumina y me llena el alma de una forma que no sé ni explicar.<br><br>
-    Y ojalá también puedas tomarte esta semana con calma. Sé que a veces el alma se cansa, pero también creo que vienen bendiciones grandes y que lo mejor es recibirlas con el corazón tranquilo y dispuesto. Dios siempre tiene formas lindas de sorprendernos, incluso cuando no lo vemos venir.<br><br>
-    
-    Solo quiero que te vaya bien, que encuentres luz en lo que hoy parece confuso, y que todo lo bueno llegue a ti en el momento perfecto.<br><br>
-    
-    Te quiero mucho❤️,<br>
-    y te mando un abrazo largo, fuerte y lleno de buena energía🫶🏼🫂<br><br>   
-</div>
-<div id="2Meses" class="contenido" style="display: none; background: #f8f8f8; border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 2px solid #CCCCCC; font-family: 'Georgia', serif; color: #000000; line-height: 1.7; position: relative; overflow: hidden;">
-    <!-- Fondo simple con líneas -->
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 29px, #E0E0E0 29px, #E0E0E0 30px); opacity: 0.6; z-index: 0; pointer-events: none;"></div>
-    
-    <!-- Contenido sobre el fondo -->
-    <div style="position: relative; z-index: 1;">
-        <h2 style="text-align:center; color:#000000; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #888888; background: #f8f8f8; padding: 10px; border-radius: 5px;">
-            Carta – 61 días sin ti
-        </h2>
-        
-        <p style="font-size:1.1em; text-align:justify; color:#000000; margin-bottom: 20px; background: rgba(248, 248, 248, 0.8); padding: 15px; border-radius: 5px;">
-            Hola Stheph,<br><br>
-            Hoy se cumplen dos meses desde que tomamos caminos distintos.<br>
-            Exactamente 61 días.<br><br>
-            Y me impresiona cómo el tiempo juega con uno:<br>
-            ha pasado rápido… pero al mismo tiempo tan lento.<br>
-            Rápido, porque los días siguen su curso sin detenerse por nada.<br>
-            Lento, porque en algún momento del día siempre termino recordándote, aunque sea por un pensamiento pequeño, por un hábito, por un detalle tuyo que aún vive en mi memoria.<br><br>
-            No voy a negar que todavía te extraño.<br>
-            Sería mentir si dijera que tu ausencia aún no la siento en el corazón, Pero también he respetado lo que decidiste.<br>
-            Y sé que cuando tomas una decisión, la sostienes, aunque por dentro estés librando tus propias batallas.<br><br>
-            Yo no estoy escribiendo esto para cambiar lo que sientes ni para pedirte nada.<br>
-            No busco presionarte.<br>
-            Solo quiero dejarte algo sincero, algo que refleje lo que han sido estos 61 días para mí:<br>
-            un proceso de entender, de soltar un poquito, de agradecer… y sí, también de extrañarte.<br><br>
-            A veces pienso que Dios nos pone pausas que duelen, pero que enseñan.<br>
-            Y en esta pausa créeme que he aprendido muchas cosas, una de ellas es que el amor real no desaparece de un día para otro.<br>
-            Solo se acomoda, se vuelve más silencioso, más respetuoso, más humilde.<br>
-            Y desde ese mismo amor es que te escribo hoy.<br><br>
-            Todo lo que vivimos tuvo valor, tuvo verdad, tuvo amor.<br>
-            Y eso no lo borra ninguna distancia, ningún silencio, ningún adiós.<br>
-            Tal vez algún día esta carta no duela, sino que simplemente nos haga sonreír.<br>
-            Porque lo vivido no se reniega: se honra.<br><br>
-            Sé que estos dos meses para ti también han sido un camino.<br>
-            Sé que has intentado encontrar tranquilidad, claridad, orden… y lo último que quiero es quitarte esa paz que tanto te has esforzado por construir.<br>
-            Solo quiero que sepas algo, sin presiones, sin expectativas, sin buscar cambiar nada de lo que hoy decides:<br>
-            todo lo que te digo es sincero y desde el corazón. Y si algún día llegas a creer que lo que te digo es verdad… si en algún momento decides darme una oportunidad, créeme que haré todo lo posible y daré todo de mí para que nunca más tengas que escuchar un "perdón" por algo que pude haber hecho mejor.<br><br>
-            Porque sí, han pasado 61 días… 61 amaneceres donde a veces todo se siente rápido, y otras veces pesado.<br>
-            61 días en los que no ha habido uno solo donde no me acuerde de ti, aunque sea por un instante.<br>
-            No lo niego: todavía te extraño.<br>
-            Pero sigo respetando lo que decidiste, aunque me duela, aunque quisiera que fuera distinto.<br><br>
-            
-            Antes de cerrar esta carta, quiero dejarte esto:<br><br>
-            
-            <strong>61 razones para amarte.</strong><br>
-            No son para presionarte ni nada de eso.<br>
-            Son solo un reflejo de lo que has significado para mí y de lo que aún significa tenerte presente, incluso en la distancia.<br><br>
-            
-            1. Por tu Esencia y Forma de Ser<br><br>
-            2. Tu risa contagiosa, capaz de alegrar mi día más gris.<br><br>
-            3. La tenacidad con la que persigues tus sueños, sin importar los obstáculos.<br><br>
-            4. La curiosidad infinita que tienes por aprender cosas nuevas.<br><br>
-            5. Tu capacidad para encontrar belleza en lo simple: un atardecer, una canción.<br><br>
-            6. La paz que transmite tu voz cuando hablas con calma.<br><br>
-            7. Tu integridad: cómo siempre tratas de hacer lo correcto, incluso cuando es difícil.<br><br>
-            8. La fuerza interior que descubrí en ti, incluso en momentos complicados.<br><br>
-            9. Tu sentido del humor único, que a veces solo nosotros dos entendíamos.<br><br>
-            10. Tu autenticidad: nunca tratas de ser alguien que no eres.<br><br>
-            11. Me hacías sentir que podía ser completamente yo, sin máscaras.<br><br>
-            12. La seguridad que sentía simplemente con tener tu mano en la mía.<br><br>
-            13. Cómo lograbas calmarme en mis momentos difíciles.<br><br>
-            14. La admiración que despiertas en mí, haciéndome querer ser una mejor persona.<br><br>
-            15. La confianza que depositas en mí, incluso cuando yo dudaba de mí mismo.<br><br>
-            16. Por nuestra conexión.<br><br>
-            17. El sentimiento de hogar que me daba tu presencia, sin importar dónde estuviéramos.<br><br>
-            18. La emoción que sentía cada vez que te veía después de un tiempo apartados.<br><br>
-            19. Sigo sin imaginarme cómo vivir sin ti.<br><br>
-            20. La tranquilidad de poder guardar silencio a tu lado, sin que fuera incómodo.<br><br>
-            21. Cuando veíamos TikTok y siempre había una canción que nos hacía cantar al tiempo.<br><br>
-            22. Nuestros domingos juntos.<br><br>
-            23. La forma en que tus ojos brillan cuando hablas de lo que te apasiona.<br><br>
-            24. El olor de tu perfume, que aún recuerdo.<br><br>
-            25. Tus gestos torpes cuando estabas nerviosa.<br><br>
-            26. Cómo cantabas por lo bajo sin darte cuenta.<br><br>
-            27. Tu forma de abrazarme.<br><br>
-            28. Los mensajes de buenos días o buenas noches que esperaba cada día.<br><br>
-            29. Porque tenemos un gusto musical muy parecido.<br><br>
-            30. Aprendí a ser más amoroso.<br><br>
-            31. Me ayudaste a entender que está bien ser vulnerable y pedir ayuda.<br><br>
-            32. Gracias a ti conocí una parte de mí mismo que no sabía que existía.<br><br>
-            33. Porque en los últimos dos meses, cada cosa bonita que he visto, mi primer pensamiento ha sido "quisiera contárselo".<br><br>
-            34. Porque tu nombre sigue siendo la palabra más dulce que conozco.<br><br>
-            35. Porque el amor que siento por ti no tiene un interruptor de apagado; simplemente es.<br><br>
-            36. Porque creo que las almas se reconocen, y la mía reconoce a la tuya.<br><br>
-            37. Porque incluso en la distancia, tu esencia ha seguido dando forma a mis días.<br><br>
-            38. Porque el mundo es un lugar mejor sabiendo que tú existes.<br><br>
-            39. Porque mi corazón, por alguna razón que solo él entiende, todavía late a tu ritmo.<br><br>
-            40. Por la manera en que fruncías el ceño al ver algo que no te gustaba.<br><br>
-            41. Porque eres fuerte incluso cuando sientes que no puedes.<br><br>
-            42. Porque Dios puso algo especial en ti.<br><br>
-            43. Por el sonido de tu respiración cuando te apoyabas en mi hombro.<br><br>
-            44. Por la forma en que siempre te preocupabas por mí genuinamente.<br><br>
-            45. Por ese gesto de jugar con tu anillo o collar cuando estabas pensando o cuando estabas nerviosa.<br><br>
-            46. Por cómo tu abrazo no era solo un contacto, era un refugio donde el mundo exterior dejaba de existir.<br><br>
-            47. Por tu forma de caminar, que reconocería entre mil en una multitud.<br><br>
-            48. Porque incluso cuando estabas cansada, seguías siendo luz.<br><br>
-            49. Porque aprendí que el amor también se escribe en minúsculas: en un "Me avisas cuando llegues" al salir.<br><br>
-            50. Porque jamás te conformas con ser menos de lo que puedes ser.<br><br>
-            51. Porque me enseñaste que la ternura es una forma de valentía.<br><br>
-            52. Por el brillo particular que tenían tus ojos cuando me veías.<br><br>
-            53. Porque en tus silencios nunca había vacío, solo compañía.<br><br>
-            54. Por tu mirada: en ella podía ver todo un océano de sentimientos, pensamientos y sueños.<br><br>
-            55. Por tu valentía para ser vulnerable conmigo, mostrándome partes que no todos ven.<br><br>
-            56. Por la manera en que mi mano buscaba la tuya automáticamente, como si fuera su lugar natural.<br><br>
-            57. Por tu capacidad para sorprenderme, incluso en las cosas más pequeñas y cotidianas.<br><br>
-            58. Porque contigo, el concepto de "hogar" dejó de ser un lugar y se convirtió en una persona: tú.<br><br>
-            59. Porque en tu sonrisa encontraba mi lugar en el mundo.<br><br>
-            60. Porque estos dos meses no han logrado que mi corazón entienda que ya no eres mi rutina. Al contrario, han grabado tu importancia más profundamente.<br><br>
-            61. Y la razón más importante, la que resume todo: Porque en el mapa de mi vida, tú eres el norte que siempre buscaré. Porque, sencillamente, eres mi persona favorita en el mundo, y dos meses sin ti han confirmado que ese lugar en mi vida tiene tu nombre escrito.<br><br>
-            
-            <strong>Y una más de regalo:</strong><br>
-            Porque te amo no como se ama un recuerdo, sino como se ama una verdad. Y mi verdad más clara es que cada latido desde que te conocí ha llevado tu nombre. Eres, simplemente, el amor de mi vida.
-        </p>
-        
-        <!-- Sección final centrada -->
-        <div style="text-align:center; margin-top:20px; padding:20px; border-top: 2px solid #888888; background: rgba(248, 248, 248, 0.8); border-radius: 5px;">
-            <p style="text-align:center; margin-top:20px; color:#000000; font-style:italic;">
-                Con cariño,<br>
-                Para Sthephanya 🫶🏼
-            </p>
-        </div>
-    </div>
-</div>
-    <div id="diciembre16" class="contenido contenido-luna">
-    <h2>🌙 17 DE DICIEMBRE 🌙</h2>
-            Holaaa Stheph, 
-            Estos días he estado pensando un poco mas de lo normal.
-            Ya casi se cumplen tres meses desde que tomamos caminos distintos, y aunque el tiempo ha pasado, hay sentimientos que no se han ido… al contrario, han crecido en silencio.
-            <br><br> 
-            
-            Sé que has tomado distancia y quiero que sepas algo muy importante:
-            lo último que quiero es interrumpir tu paz, confundirte o hacerte sentir presionada.
-            Por eso he guardado tanto silencio. No porque no quiera verte ni hablarte… sino porque no quiero sofocarte, ni que sientas que no respeto tu proceso. 
-            <br><br>
-            
-            Pero siendo honesto conmigo mismo, ya me cansa fingir que no te pienso,
-            que no me nace escribirte,
-            que no me gustaría verte aunque sea un momento. La verdad es que si quiero... Y mucho
-            No sé si tú te sientes igual, y no te escribo esperando una respuesta inmediata ni una decisión.
-            Solo te escribo desde la verdad y lo quue siento.
-            <br><br>
-            
-            Con el paso de los días estoy más seguro de algo:
-            quiero estar contigo.
-            Quiero cuidarte, consentirte, darte todo el amor que tengo,
-            si algún día me lo permites.
-            Y entiendo que esto no se demuestra solo con palabras…
-            sé que se demuestra con hechos, con cambios reales, con constancia.
-            <br><br> 
-        
-            Como ya te dije se que esto no se arregla solo con palabras, y soy consciente de eso. Por eso no prometo cosas al aire. Solo te digo lo que es verdad hoy: Mi corazón aquí está para ti, sin presión y con mucho amor. 
-            <br><br>
-        
-            No te prometo perfección, pero sí intención.
-            No te prometo que no habrá dificultades, pero sí que he aprendido. <br><br>
-            Mientras mas pasa el tiempo, mas claro tengo lo que quiero. No porque antes no lo sintiera, sino porque estos ultimos meses han pasado tantas cosas y me he acercado tanto a Dios, que todo este proceso me ha enseñado muchas cosas, una de ellas a escucharme con mas honestidad.
-            Y si Dios nos da la oportunidad, no seria para prometer palabras bonitas ni nada de eso, sino para demostrar con actos y con mucho amor... del que cuida, no que duela.
-            <br><br>
-        
-            No te escribo para pedirte nada hoy.
-            Solo para que sepas que aquí hay alguien que te quiere demasiado. con calma, con respeto, y con la certeza de que lo que siente no se ha debilitado ni con la distancia.
-            <br><br>  
-            
-            Si decides no responder, lo entenderé.
-            Si decides guardar esto para otro momento, también.
-            Solo quería ser sincero contigo y conmigo... sin ruido, sin presión, sin miedo.
-            <br><br>
-            
-            Cuídate mucho.
-            Siempre te deseo paz, desde aqui te mando todo mi amor y deseo que tu luz nunca se apague.
-            <br><br>  
-
-            Dios te bendiga y te cuide siempre.
-            Te quiero mucho más de lo que imaginas, y te extraño un montón.  
-            Te mando un abracito enorme🫂❤️<br><br>
-        
-            🌕❤️SILPQPSAYQTSB❤️🌕<br>  
-            Con cariño, para Sthephanya 🫶🏼🫂
-        </p>     
-    </div>
-    <div id="diciembre24" class="contenido">
-        <p style="font-size:1.1em; color:#4b0082; text-align:justify;">
-            Holaaaa Stheph. Primero que todo, quiero desearte un resto de semana bonito y tranquilo.
-            Y que esta Navidad sea un día realmente lindo para ti, de esos que se sienten en el corazón.
-            Es un día especial… y tú siempre has sido una persona especial para mí.
-            <br><br>
-            No te voy a mentir, daría todo por poder pasar una fecha así contigo.
-            Porque no se me ocurre mejor manera de vivir un día tan significativo que al lado de alguien que lo es tanto.
-            Pero también entiendo y respeto la distancia que has decidido tomar, aunque me cueste hacerlo.
-            <br><br>
-            Solo quería que supieras que todo lo que te deseo hoy es bueno, sincero y desde el cariño.
-            Espero que esta Navidad te abrace bonito, que te traiga calma, luz y momentos que te hagan sentir en paz.
-            <br><br>
-            Ojalá te hayan gustado las flores.
-            Te los mandé con mucho amor, solo con la intención de regalarte algo que hablara por mí en silencio, Y para recordarte que eres hermosa como los lirios. 
-            <br><br>
-            No quiero interrumpir tu paz ni ponerte presión.
-            Solo quería estar presente de esta forma suave y honesta.
-            Deseándote lo mejor, pidiéndole a Dios que te bendiga, que te cuide y que te proteja siempre.
-            <br><br>
-            Que Él te acompañe hoy, mañana y en cada paso que des.
-            Y que, pase lo que pase, nunca te falte luz en el camino.
-            <br><br>
-            Y nada más…
-            A veces la vida sorprende cuando menos se espera.
-            Solo quería desearte una Feliz navidad.
-            ✨🎄🤍
-            <br><br>
-            Te amo, y te extraño un montón.  
-            Te mando un abrazo fuerte🫂❤️<br><br>
-            
-            🌕❤️SILPQPSAYQTSB❤️🌕<br>  
-            Con cariño, para Sthephanya🫂❤️
-        </p>
-    </div>
-    <div id="diciembre31" class="contenido">
-        <p style="font-size:1.1em; color:#4b0082; text-align:justify;">
-            Holaaaa Stheph. En este final del 2025 quería decirte algo con el corazón tranquilo y sincero.
-            <br><br>
-            Gracias…
-            Gracias por los momentos, por las risas, por lo vivido, por lo bonito que compartimos.
-            Nada de eso fue en vano, y nada de eso se ha borrado con el tiempo. Al contrario, con los días he entendido más su valor.
-            <br><br>
-            Como ya te lo he dicho antes —y hoy lo siento aún más claro— el sentimiento que tengo por ti sigue igual de fuerte… incluso me atrevo a decir que ha crecido.
-            No porque te idealice, ni porque te tenga cerca, sino porque incluso en la distancia sigues siendo tú, y eso para mí sigue significando mucho.
-            <br><br>
-            Tal vez mis palabras hoy no tengan el mismo peso que antes, lo sé.
-            Aun así, quero decirte algo desde la honestidad:
-            yo quero estar contigo.
-            Y no es por apego, ni por costumbre, ni por miedo a soltar.
-            Quiero estar contigo porque te elijo.
-            Porque tu risa me hace feliz.
-            Porque tus ojos siguen iluminándome como el sol ilumina a la tierra todos los días.
-            Porque quiero la oportunidad de hacerte feliz y de amarte más que ahora, amarte como mereces ser amada.
-            <br><br>
-            No te prometo perfección, porque el único perfecto es Dios.
-            Pero sí te prometo presencia.
-            Estar para ti en los días buenos y en los no tan buenos.
-            En la calma y en la tempestad.
-            En la salud y en la enfermedad.
-            Prometo intención, cuidado, respeto y crecimiento.
-            <br><br>
-            Te escribo desde lo que soy, desde lo que siento, desde la tranquilidad de poder hablar contigo, escucharte y caminar a tu ritmo. Mi deseo no es hacerte daño, ni confundirte, ni interrumpir la paz que has estado construyendo.
-            Al contrario: si Dios y tu corazón nos dan otra oportunidad, quiero ser un lugar seguro para ti, no una carga; una calma, no una tormenta.
-            <br><br>
-            No te escribo desde la urgencia ni desde la presión.
-            <br><br>
-            Mi intención no es hacerte daño ni interrumpir tu paz mental, sino cuidarla, respetarla y, si algún día me lo permites, ser parte de ella.
-            <br><br>
-            Solo quería que supieras que aquí estoy, con el mismo cariño, con más conciencia y con un amor que no busca exigirte nada… solo ser honesto.
-            <br><br>
-            Te amo, y te extraño un montón.  
-            Te mando un abrazo fuerte🫂❤️<br><br>
-            
-            🌕❤️SOLO IMAGINA LO PRECIOSO QUE PUEDE SER ARRIESGARSE Y QUE TODO SALGA BIEN❤️🌕<br>  
-            Con mucho amor para, para Sthephanya🫂❤️
-        </p>
-    </div>
-    <div id="SM" class="contenido" style="
-        background: #f8f8f8;
-        border-radius: 20px;
-        padding: 30px;
-        margin: 20px auto;
-        max-width: 800px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        border: 2px solid #CCCCCC;
-        font-family: 'Georgia', serif;
-        color: #000000;
-        line-height: 1.7;
-        display: none;
-        position: relative;
-        overflow: hidden;
-    ">
-        <!-- Fondo simple con líneas como la imagen -->
-        <div style="
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 29px,
-                    #E0E0E0 29px,
-                    #E0E0E0 30px
-                );
-            opacity: 0.6;
-            z-index: 0;
-            pointer-events: none;
-        "></div>
-        
-        <!-- Contenido sobre el fondo -->
-        <div style="position: relative; z-index: 1;">
-            <h2 style="
-                text-align:center; 
-                color:#000000; 
-                margin-bottom:20px; 
-                padding-bottom:10px;
-                border-bottom: 2px solid #888888;
-                background: #f8f8f8;
-                padding: 10px;
-                border-radius: 5px;
-            ">
-                🌊 Santa Marta 🌊
-            </h2>
-            
-            <p style="
-                font-size:1.1em; 
-                text-align:justify; 
-                color:#000000;
-                margin-bottom: 20px;
-                background: rgba(248, 248, 248, 0.8);
-                padding: 15px;
-                border-radius: 5px;
-            ">
-                Holaaaa Stheph.<br><br>
-                
-                Esto solo es para desearte que tengas un lindo viaje. Espero que Santa Marta te reciba con días que se sientan ligeros, con momentos que te hagan desconectarte un poco de todo y con instantes que te hagan sonreír mucho.<br><br>
-                
-                Que cada paisaje, cada brisa, te regalen mucha felicidad y momentos que se queden siempre contigo. Si vas al mar, ojalá lo disfrutes mucho, que te tomes el tiempo de observarlo, de sentir la brisa y dejar que te regale mucha tranquilidad. Espero también que puedas ver muchos atardeceres lindos... aunque dudo que encuentres uno más bonito que tú.<br><br>
-                
-                Desde la distancia, quiero que sepas que estaré pendiente, para acompañarte si lo necesitas o simplemente estar ahí. Deseo de corazón que este viaje te haga bien, disfruta mucho este tiempo para ti, que vuelvas con el corazón contento, la mente tranquila y con esa luz tuya mucho más encendida.<br><br>
-                
-                Que Dios te bendiga, te cuide y te proteja siempre.<br><br>
-                
-                <strong style="color:#000000;">PSDT:</strong> En realidad esta carta la hice a mano y mi intención era dártela antes de que te fueras, pero ajá, tú me dijiste que te ibas el lunes en la noche y el martes se me ocurrió la idea. Entre que salí en la tarde del martes (no pensé que me fuera a demorar), luego cuando te despertaste te ocupaste un poco y eso, pues me dio un poquito de pena ir a molestarte y al final no te la entregué. Si quieres cuando vengas te la puedo entregar, y si no pues no pasa nada, ya la viste por acá.<br><br>
-            </p>
-            
-            <!-- Sección final centrada -->
-            <div style="
-                text-align:center; 
-                margin-top:20px; 
-                padding:20px; 
-                border-top: 2px solid #888888;
-                background: rgba(248, 248, 248, 0.8);
-                border-radius: 5px;
-            ">
-                <strong style="
-                    font-size:1.2em; 
-                    color:#000000; 
-                    display:block; 
-                    margin-bottom:15px;
-                ">
-                    TQMMM ❤️<br><br>
-                    Te mando un abrazo fuerte y cuídate mucho 🫂❤️
-                </strong>
-                    
-                    
-                    <div style="
-                        font-family: 'Courier New', monospace;
-                        background: rgba(255,255,255,0.8);
-                        padding: 15px;
-                        border-radius: 8px;
-                        margin: 15px auto;
-                        display: inline-block;
-                        border: 1px solid #CCCCCC;
-                    ">
-                        🌊❤️ 29/06/2025 2:22 AM ❤️🌊<br>
-                        Con mucho amor para Sthephanya 🫂❤️
-                    </div>
-                </div>
             </div>
         </div>
-        <div id="13 de enero" class="contenido" style="display: none; background: #f8f8f8; border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 2px solid #CCCCCC; font-family: 'Georgia', serif; color: #000000; line-height: 1.7; position: relative; overflow: hidden;">
-    <!-- Fondo simple con líneas -->
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 29px, #E0E0E0 29px, #E0E0E0 30px); opacity: 0.6; z-index: 0; pointer-events: none;"></div>
-    
-    <!-- Contenido sobre el fondo -->
-    <div style="position: relative; z-index: 1;">
-        <h2 style="text-align:center; color:#000000; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #888888; background: #f8f8f8; padding: 10px; border-radius: 5px;">
-            💌 13 de enero 💌
-        </h2>
-        
-        <p style="font-size:1.1em; text-align:justify; color:#000000; margin-bottom: 20px; background: rgba(248, 248, 248, 0.8); padding: 15px; border-radius: 5px;">
-            Holaaa Stheph.
-            <br><br> 
-            Antes que nada quiero decirte algo pequeño. Anoche me quedé dormido y el celular se apagó; cuando lo puse a cargar y prendió tuve un problema con la copia de seguridad porque tengo iCloud lleno, así que no me aparecen los mensajes antes de las 9. El último que veo de nuestro chat es el de las 9:04 pm cuando me dijiste "sí, un poco", no me sale ni el último mensaje que te dejé.
-            Si después de eso me respondiste algo y no contesté, perdón de verdad, no fue por falta de interés.
-            <br><br>
-            Ahora sí, con calma y desde el corazón.
-            <br><br>
-            Primero quiero pedirte perdón por todo lo que te haya hecho daño. Sé que decirlo no borra ni cambia nada, pero sentía que debía hacerlo con honestidad.
-            <br><br>
-            Lo que sigue no nace desde la impulsividad, sino desde haber pensado mucho, haber llorado y haberme escuchado con sinceridad. Sé que has elegido tomar distancia y he intentado respetarla lo mejor que he podido. Pero también sería injusto conmigo fingir que no siento nada cuando lo que siento por ti sigue muy vivo.
-            <br><br>
-            No te escribo esto para presionarte ni para quitarte paz, sé que tienes muchas cosas en la cabeza. Lo hago porque sentí que debía ser honesto como siempre he tratado de serlo. El amor que siento por ti no se ha ido; incluso con la distancia, sigue intacto y ha crecido. No porque no pueda vivir sin ti (porque ya lo he hecho), sino porque, aun pudiendo, te sigo eligiendo.
-            <br><br>
-            Sé que tengo mucho por aprender, muchas cosas por corregir y que quedaron experiencias pendientes. Y aun así, quiero aprenderlas contigo, vivirlas contigo. No desde el apego ni el capricho, sino desde la elección consciente. Porque contigo la vida es mucho más bonita, más plena.
-            <br><br>
-            No te prometo perfección, porque nadie lo es. Pero sí puedo prometerte intención, compromiso y esfuerzo real. Sé que suena fácil aunque no lo es, que requeriría mucho trabajo, paciencia y voluntad de ambos. Pero si de verdad sientes lo mismo que yo, me gustaría intentarlo con Dios por delante, con respeto y con amor del bueno, del que construye.
-            <br><br>
-            Si en lo más profundo de tu corazón sientes lo mismo, podemos hablarlo con calma, sin prisa ni presión. Y si no es así, también lo entenderé. Solo necesitaba decir lo que siento desde la verdad.
-            <br><br>
-        </p>
-        
-        <!-- Sección final centrada -->
-        <div style="text-align:center; margin-top:20px; padding:20px; border-top: 2px solid #888888; background: rgba(248, 248, 248, 0.8); border-radius: 5px;">
-            <p style="text-align:center; margin-top:10px; color:#000000; font-style:italic; line-height: 1.6;">
-                Te mando un abrazo fuerte 🫂❤️<br><br>
-                
-                🌕❤️SOLO IMAGINA LO PRECIOSO QUE PUEDE SER ARRIESGARSE Y QUE TODO SALGA BIEN❤️🌕<br>  
-                Desde mi corazón para Sthephanya 🫂❤️
-            </p>
-        </div>
-    </div>
-</div>
 
-<div id="mensaje-corazon" class="contenido" style="display: none; background: #f8f8f8; border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 2px solid #CCCCCC; font-family: 'Georgia', serif; color: #000000; line-height: 1.7; position: relative; overflow: hidden;">
-    <!-- Fondo simple con líneas -->
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 29px, #E0E0E0 29px, #E0E0E0 30px); opacity: 0.6; z-index: 0; pointer-events: none;"></div>
-    
-    <!-- Contenido sobre el fondo -->
-    <div style="position: relative; z-index: 1;">
-        <h2 style="text-align:center; color:#000000; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #888888; background: #f8f8f8; padding: 10px; border-radius: 5px;">
-            💌 Desde el corazón 💌
-        </h2>
-        
-        <p style="font-size:1.1em; text-align:justify; color:#000000; margin-bottom: 20px; background: rgba(248, 248, 248, 0.8); padding: 15px; border-radius: 5px;">
-            Holaaa Stheph<br><br>
-            
-            La verdad no sé muy bien por dónde empezar ni que decir, porque sé que me has dicho que ahora prefieres tomar distancia y quiero respetarlo. Aun así, te extraño muchísimo. Tal vez esto no arregle nada, pero hoy solo nace de mí decirte que, en este momento, lo único que quisiera es estar ahí contigo, mirarte a los ojos y recordarte cuánto te quiero.<br><br>
-            
-            Sé que hay muchas cosas por mejorar y que no todo ha sido fácil. También sé que me he equivocado, pero créeme cuando te digo que cada día doy todo de mí para aprender, crecer y ser mejor, no solo para ti, sino también para mí. Aun con todo, quiero que seamos tú y yo, seguir eligiéndote incluso en los días difíciles, incluso cuando las cosas pesan.<br><br>
-            
-            Decir "intentémoslo" suena simple, aunque sabemos que no lo es. Yo no tengo promesas vacías, pero sí la certeza de que, incluso en los días más bajos y complicados, voy a dar todo por ti y por nosotros. No me rindo contigo porque eres con quien quiero estar. Y no importa cuánto tenga que aprender, cuánto tenga que mejorar o cuánto tiempo tome… lo único que sé es que nos quiero juntos siempre.<br><br>
-            
-            Porque eres esa persona a la que podría escuchar por horas sin cansarme, ya sea hablándome de tus problemas, de las cosas que te gustan o simplemente de cómo fue tu día. Eres esa persona que siempre deseé que llegara a mi vida. Eres todo lo que algún día a Dios pedí, mi sueño hecho realidad.<br><br>
-
-            No se cómo hacerte entender que daría lo que fuera por ti. La única persona que me ha enseñado que es querer sano, que se siente amar y que me amen, la que me hace sentir orgulloso aunque me cuentes lo más mínimo que lograste, tus logros son mi felicidad, si estás feliz estoy el doble de feliz por ti. Eres la única por la que he llorado solamente viéndote, por que se que eres lo mejor que me a pasado, por tanto que siento por ti, en fin simplemente eres tú, tus ojos, tu sonrisa, tu cara, tu ser y simplemente por existir, te quiero a ti y quiero que seas solo tú.<br><br>
-            
-            Te amo, y no lo digo a la ligera ni como simples palabras. Te lo digo solo con la verdad de lo que siento y desde la decisión consciente de seguir eligiendote, aún cuando el camino no es fácil.<br><br>
-            
-            Eso es todo lo que hoy quería decirte, sin ruido, sin presiones ni nada, solo con el corazón en la mano.<br><br>
-            
-            Espero estes bien y en caso de que no sea asi solo deseo que todo mejore pronto. Recuerda que si me necesitas aquí estoy siempre para ti. <br><br>
-
-            Dios te bendiga y te proteja siempre❤️<br><br>
-        </p>
-        
-        <!-- Sección final centrada -->
-        <div style="text-align:center; margin-top:20px; padding:20px; border-top: 2px solid #888888; background: rgba(248, 248, 248, 0.8); border-radius: 5px;">
-            <p style="text-align:center; margin-top:10px; color:#000000; font-style:italic; line-height: 1.6;">
-                Con todo mi amor <br><br>  
-                Para Sthephanya 🫂❤️
-            </p>
-        </div>
     </div>
-</div>
-
-<div id="respuesta" class="contenido" style="display: none; background: #f8f8f8; border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 2px solid #CCCCCC; font-family: 'Georgia', serif; color: #000000; line-height: 1.7; position: relative; overflow: hidden;">
-    <!-- Fondo simple con líneas -->
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 29px, #E0E0E0 29px, #E0E0E0 30px); opacity: 0.6; z-index: 0; pointer-events: none;"></div>
-    
-    <!-- Contenido sobre el fondo -->
-    <div style="position: relative; z-index: 1;">
-        <h2 style="text-align:center; color:#000000; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #888888; background: #f8f8f8; padding: 10px; border-radius: 5px;">
-            💌 Tu respuesta 💌
-        </h2>
-        
-        <p style="font-size:1.1em; text-align:justify; color:#000000; margin-bottom: 20px; background: rgba(248, 248, 248, 0.8); padding: 15px; border-radius: 5px;">
-            Holaaaa<br><br>
-            
-            Gracias por tomarte el tiempo de escribirme con tanta honestidad. Valoro mucho que me hables así.<br><br>
-            
-            Entiendo lo que dices, y aunque no sea fácil para mí, respeto tu decisión. Quiero que sepas que nunca fue mi intención causarte conflicto ni ponerte en una posición incómoda, todo lo que hice nació desde el amor genuino que te tengo.<br><br>
-            
-            Gracias por confiarme algo tan importante como lo que estás planeando para tu vida. De verdad me alegra saber que, aunque te asuste, también hay una parte de ti que se siente esperanzada. De corazón deseo que ese camino que estás tomando te lleve a crecer, a encontrarte y a estar en paz contigo misma. Porque te mereces todas las cosas buenas que te pasan.<br><br>
-            
-            También quiero que sepas que entiendo por qué decidiste volver a tomar distancia. Si eso es lo que necesitas para cuidarte y ser coherente contigo, lo respeto completamente, aunque me duela.<br><br>
-            
-            Pero también quiero ser honesto contigo: los días que estuvimos hablando me pasaba algo muy parecido porque también tengo ganas de verte, de abrazarte, de besarte… no porque quisiera contradecir la posición que has tomado, sino porque el cariño que te tengo sigue ahí.<br><br>
-            
-            No siento que hayas sido contradictoria. Creo que a veces uno no va en contra de lo que dice, sino que va luchando con lo que siente, y eso también es parte de ser honesto. Sentir ganas de acercarse, de querer, de extrañar, no te hace irresponsable ni egoísta, te hace humana.<br><br>
-            
-            Si sentiste esas cosas por mí, no lo veo como algo malo ni como un error, porque yo también las sentí. Pero entiendo que hayas decidido tomar distancia justamente porque sentías todo eso, y respeto que hayas elegido cuidarte. No lo interpreto como que quieras jugar conmigo o algo asi, supongo que pensaste que sentir algo no siempre significa que sea el momento de actuar sobre eso.<br><br>
-            
-            Obviamente yo también estoy sintiendo y pensando muchas cosas, y quisiera hablarlas o que nos sentáramos a hablar sobre todo eso, pero si sientes que no es momento de hacerlo, lo respeto.<br><br>
-        </p>
-        
-        <!-- Sección final centrada -->
-        <div style="text-align:center; margin-top:20px; padding:20px; border-top: 2px solid #888888; background: rgba(248, 248, 248, 0.8); border-radius: 5px;">
-            <p style="text-align:center; margin-top:10px; color:#000000; font-style:italic; line-height: 1.6;">
-                Dios te bendiga y te proteja siempre, espero que tu familia también esté bien. Tqm 🫶🏽<br><br>
-                
-                Con todo mi cariño,<br>
-                Para Sthephanya 🫂❤️
-            </p>
-        </div>
-    </div>
-</div>
-
-<!-- FORMULARIO PARA QUE ELLA TE ESCRIBA -->
-<div id="formulario-respuesta" class="contenido" style="display: none; background: linear-gradient(135deg, #f5e1ff, #e0c3fc); border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 600px; box-shadow: 0 4px 25px rgba(0,0,0,0.25);">
-    <h2 style="color: #4b0082; text-align: center; margin-bottom: 20px;">💌 Escribe lo que sientas</h2>
-    
-    <p style="color: #4b0082; text-align: center; margin-bottom: 20px;">
-        Si hay algo que quieras expresar o si te nace decirme algo, aquí puedes hacerlo. 
-        Lo que escribas me llegará directamente a mí. 
-    </p>
-    
-    <textarea 
-        id="mensaje-para-mi" 
-        placeholder="Escribe lo que quieras decirme..."
-        style="
-            width: 100%;
-            height: 150px;
-            padding: 15px;
-            border-radius: 10px;
-            border: 2px solid #a855f7;
-            font-family: 'Georgia', serif;
-            font-size: 1em;
-            color: #4b0082;
-            background-color: rgba(255, 255, 255, 0.9);
-            resize: vertical;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-        "
-    ></textarea>
-    
-    <div style="text-align: center;">
-        <button 
-            class="boton" 
-            onclick="enviarMensajeParaMi()"
-            style="background-color: #9333ea; padding: 12px 30px; font-size: 1.1em;"
-        >
-            Enviar mensaje 💜
-        </button>
-        
-        <button 
-            class="boton" 
-            onclick="ocultarFormulario()"
-            style="background-color: #888; margin-left: 10px;"
-        >
-            Cancelar
-        </button>
-    </div>
-    
-    <div id="mensaje-enviado" style="display: none; text-align: center; margin-top: 20px; padding: 15px; background-color: #d1f7c4; border-radius: 10px; color: #0a5c36; border: 2px solid #4CAF50;">
-        <p style="font-size: 1.2em; font-weight: bold;">
-            ✅ ¡Mensaje enviado!<br>
-            Gracias por compartirlo conmigo 💜
-        </p>
-    </div>
-</div>
 
    <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -1405,20 +774,20 @@
     });
 
     function mostrar(seccion, boton) {
-        // Ocultar todos los contenidos incluyendo el formulario de respuesta
-        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera', 'estados', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'SM', '13 de enero', 'mensaje-corazon', 'respuesta', 'formulario-respuesta']
-        .forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.style.display = 'none';
-        });
+    // Ocultar todos los contenidos incluyendo el formulario de respuesta
+    ['video', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'mensaje-corazon', 'respuesta', 'proximamente', 'dia-bonito', 'formulario-respuesta']
+    .forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+    });
 
         const mostrarSeccion = document.getElementById(seccion);
         if (mostrarSeccion) {
             mostrarSeccion.style.display = 'block';
         }
 
-        // Fondo elegante
-        if (seccion === 'nuevo2' || seccion === 'nuevo3' || seccion === 'diciembre24' || seccion === 'diciembre31') {
+        // Fondo elegante para cartas especiales
+        if (seccion === 'diciembre24' || seccion === 'diciembre31') {
             document.body.classList.add('fondo-elegante');
             if (mostrarSeccion) {
                 mostrarSeccion.classList.add('carta-elegante');
@@ -1436,31 +805,10 @@
         });
     }
 
-    // Función para mostrar mensajes específicos
-    function mostrarMensaje(tipo) {
-        // Ocultar todos los mensajes primero
-        document.querySelectorAll('.mensaje-opcion').forEach(function(el) {
-            el.style.display = 'none';
-        });
-        
-        // Mostrar el mensaje seleccionado
-        const mensajeSeleccionado = document.getElementById('mensaje-' + tipo);
-        if (mensajeSeleccionado) {
-            mensajeSeleccionado.style.display = 'block';
-            
-            // Registrar la interacción
-            const fecha = new Date().toLocaleString();
-            emailjs.send("service_teoc3jy", "template_56swemq", { 
-                visitor_name: "Mensaje emocional seleccionado 💌",
-                message: `Se seleccionó: "${tipo}"\nFecha y hora: ${fecha}`
-            });
-        }
-    }
-
     // FUNCIONES PARA EL FORMULARIO DE RESPUESTA
     function mostrarFormularioRespuesta() {
         // Ocultar todos los contenidos primero
-        ['video', 'mensaje', 'proximamente', 'especial', 'nuevo', 'nuevo2', 'nuevo3', 'noviembre5', '15 DE NOVIEMBRE', 'gerbera', 'estados', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'SM', '13 de enero', 'mensaje-corazon', 'respuesta']
+        ['video', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'mensaje-corazon', 'respuesta', 'dia-bonito']
         .forEach(id => {
             const el = document.getElementById(id);
             if (el) el.style.display = 'none';
@@ -1527,7 +875,3 @@
 </script>
 </body>
 </html>
-
-
-
-
