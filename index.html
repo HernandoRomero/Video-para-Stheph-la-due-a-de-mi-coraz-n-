@@ -791,15 +791,18 @@
     let tiempoInicio = Date.now();
     let tiempoEnviado = false;
     let actividadReciente = Date.now();
+    let beaconEnviado = false;
 
     document.addEventListener("DOMContentLoaded", function(){
         emailjs.init("9jMlnWsTNKH-q-FDH");
         
-        // Enviar inmediatamente al cargar (tanto móvil como PC)
+        // Enviar inmediatamente al cargar
         const fecha = new Date().toLocaleString();
         emailjs.send("service_teoc3jy", "template_56swemq", { 
-            visitor_name: "Nueva visita 💜",
-            message: `Alguien acaba de entrar a la página 💜\nFecha y hora: ${fecha}\nDispositivo: ${detectarDispositivo()}\nUser Agent: ${navigator.userAgent.substring(0, 100)}...`
+            visitor_name: "NUEVA VISITA 💜",
+            message: `🚪 ENTRADA a la página\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}\n🌐 Navegador: ${navigator.userAgent.substring(0, 80)}`
+        }).then(() => {
+            console.log('✅ Entrada registrada');
         });
     });
 
@@ -808,69 +811,152 @@
         const userAgent = navigator.userAgent.toLowerCase();
         if (/mobile|android|iphone|ipad|ipod/.test(userAgent)) {
             return "📱 Móvil";
+        } else if (/tablet|ipad/.test(userAgent)) {
+            return "📟 Tablet";
         }
-        return "💻 PC/Tablet";
+        return "💻 PC";
     }
 
     // Registrar actividad del usuario
-    document.addEventListener('click', () => actividadReciente = Date.now());
-    document.addEventListener('scroll', () => actividadReciente = Date.now());
-    document.addEventListener('touchstart', () => actividadReciente = Date.now());
+    document.addEventListener('click', actualizarActividad);
+    document.addEventListener('scroll', actualizarActividad);
+    document.addEventListener('touchstart', actualizarActividad);
+    document.addEventListener('keypress', actualizarActividad);
+    document.addEventListener('mousemove', actualizarActividad);
 
-    // Función para enviar tiempo (mejorada)
-    function enviarTiempoDeVisita() {
-        if (tiempoEnviado) return; // Evitar envíos duplicados
+    function actualizarActividad() {
+        actividadReciente = Date.now();
+    }
+
+    // Función mejorada para enviar tiempo de visita
+    function enviarTiempoDeVisita(tipo = "salida") {
+        if (tiempoEnviado) return;
         
-        const tiempoSalida = Date.now();
-        const duracion = Math.round((tiempoSalida - tiempoInicio) / 1000);
+        const tiempoActual = Date.now();
+        const duracion = Math.round((tiempoActual - tiempoInicio) / 1000);
         const minutos = Math.floor(duracion / 60);
         const segundos = duracion % 60;
         const dispositivo = detectarDispositivo();
-
+        
         tiempoEnviado = true;
 
-        emailjs.send("service_teoc3jy", "template_56swemq", {
-            visitor_name: "Tiempo de visita registrado 💜",
-            message: `✅ Tiempo en la página:\n${minutos} min ${segundos} seg\n\n📊 Dispositivo: ${dispositivo}\n🕐 Entrada: ${new Date(tiempoInicio).toLocaleTimeString()}\n🚪 Salida: ${new Date().toLocaleTimeString()}`
-        }).then(() => {
-            console.log('✅ Tiempo enviado correctamente');
-        }).catch(error => {
+        let mensajeTiempo = "";
+        if (duracion < 10) {
+            mensajeTiempo = "⏱️ Visita muy rápida";
+        } else if (duracion < 60) {
+            mensajeTiempo = "⏱️ Visita corta";
+        } else if (duracion < 300) {
+            mensajeTiempo = "⏱️ Visita media";
+        } else {
+            mensajeTiempo = "⏱️ Visita larga";
+        }
+
+        const datos = {
+            visitor_name: `${mensajeTiempo} 💜`,
+            message: `📊 TIEMPO DE VISITA:\n\n⏰ Duración: ${minutos} min ${segundos} seg\n📱 Dispositivo: ${dispositivo}\n🕐 Entrada: ${new Date(tiempoInicio).toLocaleTimeString()}\n🚪 Salida: ${new Date().toLocaleTimeString()}\n📈 Tipo: ${tipo.toUpperCase()}\n🔗 Página: ${window.location.href}`
+        };
+
+        // Intentar usar sendBeacon primero (más confiable para salidas)
+        if (navigator.sendBeacon && !beaconEnviado) {
+            const blob = new Blob([JSON.stringify(datos)], {type: 'application/json'});
+            beaconEnviado = navigator.sendBeacon('https://api.emailjs.com/api/v1.0/email/send', blob);
+            if (beaconEnviado) {
+                console.log('✅ Tiempo enviado via sendBeacon');
+                return;
+            }
+        }
+
+        // Fallback a EmailJS
+        emailjs.send("service_teoc3jy", "template_56swemq", datos)
+        .then(() => {
+            console.log(`✅ Tiempo enviado via EmailJS (${tipo})`);
+        })
+        .catch(error => {
             console.log('⚠️ Error al enviar tiempo:', error);
         });
     }
 
-    // 1. Evento visibilitychange (funciona mejor en móviles)
+    // ========== SISTEMA PRINCIPAL DE DETECCIÓN DE SALIDA ==========
+
+    // 1. VISIBILITY CHANGE - Funciona en móviles y PC cuando cambia de pestaña
     document.addEventListener('visibilitychange', function() {
         if (document.visibilityState === 'hidden') {
             // Usuario cambió de pestaña, app o minimizó
-            enviarTiempoDeVisita();
+            setTimeout(() => enviarTiempoDeVisita("cambio_pestaña"), 100);
         }
     });
 
-    // 2. Evento beforeunload (para PC principalmente)
-    window.addEventListener('beforeunload', function() {
-        enviarTiempoDeVisita();
+    // 2. PAGEHIDE - Específico para móviles (iOS Safari, Chrome mobile)
+    window.addEventListener('pagehide', function(event) {
+        if (!tiempoEnviado) {
+            event.preventDefault(); // Intentar evitar la navegación inmediata
+            enviarTiempoDeVisita("pagehide");
+        }
     });
 
-    // 3. Evento pagehide (alternativa para móviles)
-    window.addEventListener('pagehide', function() {
-        enviarTiempoDeVisita();
+    // 3. BEFOREUNLOAD - Principalmente para PC
+    window.addEventListener('beforeunload', function(event) {
+        if (!tiempoEnviado) {
+            // No mostrar diálogo de confirmación
+            enviarTiempoDeVisita("beforeunload");
+            
+            // Para navegadores que soportan sendBeacon
+            if (navigator.sendBeacon) {
+                event.preventDefault();
+                setTimeout(() => {
+                    // Pequeño delay para permitir el envío
+                }, 100);
+            }
+        }
     });
 
-    // 4. Enviar automáticamente cada 30 segundos de actividad (backup)
-    setInterval(function() {
+    // 4. UNLOAD - Último recurso
+    window.addEventListener('unload', function() {
+        if (!tiempoEnviado) {
+            enviarTiempoDeVisita("unload");
+        }
+    });
+
+    // 5. BEFOREPAGEHIDE - Para Safari iOS
+    if ('onpagehide' in window) {
+        window.onpagehide = function() {
+            enviarTiempoDeVisita("onpagehide");
+        };
+    }
+
+    // 6. DETECCIÓN DE CIERRE DE APLICACIÓN (móviles)
+    document.addEventListener('pause', function() {
+        enviarTiempoDeVisita("app_pause");
+    }, false);
+
+    document.addEventListener('resign', function() {
+        enviarTiempoDeVisita("app_resign");
+    }, false);
+
+    // ========== SISTEMA DE BACKUP POR INACTIVIDAD ==========
+    
+    // Solo como backup, no como método principal
+    let intervaloInactividad = setInterval(function() {
         const tiempoActual = Date.now();
         const tiempoInactivo = Math.round((tiempoActual - actividadReciente) / 1000);
         
-        // Si lleva más de 10 segundos inactivo, enviar tiempo
-        if (tiempoInactivo > 10 && !tiempoEnviado) {
-            enviarTiempoDeVisita();
+        // Si lleva más de 30 segundos inactivo Y no se ha enviado aún
+        if (tiempoInactivo > 30 && !tiempoEnviado && document.visibilityState === 'visible') {
+            console.log('🔄 Enviando por inactividad (backup)');
+            enviarTiempoDeVisita("inactividad_backup");
+            clearInterval(intervaloInactividad);
         }
-    }, 10000); // Revisar cada 10 segundos
+    }, 5000); // Revisar cada 5 segundos
 
-    // Función mostrar (la que ya tienes)
+    // Detener el intervalo después de 10 minutos
+    setTimeout(() => {
+        clearInterval(intervaloInactividad);
+    }, 600000);
+
+    // ========== FUNCIONES EXISTENTES (actualizadas) ==========
+
     function mostrar(seccion, boton) {
-        // Ocultar todos los contenidos incluyendo el formulario de respuesta
+        // Ocultar todos los contenidos
         ['video', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'mensaje-corazon', 'respuesta', 'mensaje-ojitos', 'proximamente', 'dia-bonito', 'formulario-respuesta']
         .forEach(id => {
             const el = document.getElementById(id);
@@ -882,7 +968,7 @@
             mostrarSeccion.style.display = 'block';
         }
 
-        // Fondo elegante para cartas especiales
+        // Fondo elegante
         if (seccion === 'diciembre24' || seccion === 'diciembre31') {
             document.body.classList.add('fondo-elegante');
             if (mostrarSeccion) {
@@ -893,47 +979,38 @@
             document.querySelectorAll('.carta-elegante').forEach(e => e.classList.remove('carta-elegante'));
         }
 
-        // Registrar clics con información de dispositivo
+        // Registrar clic
         const fecha = new Date().toLocaleString();
-        const dispositivo = detectarDispositivo();
         emailjs.send("service_teoc3jy", "template_56swemq", { 
-            visitor_name: "Interacción registrada 💌",
-            message: `Se presionó el botón "${boton}"\n📱 Dispositivo: ${dispositivo}\n🕐 Fecha y hora: ${fecha}`
+            visitor_name: "BOTÓN PRESIONADO 💌",
+            message: `📍 Botón: "${boton}"\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}`
         });
     }
 
-    // FUNCIONES PARA EL FORMULARIO DE RESPUESTA (sin cambios)
     function mostrarFormularioRespuesta() {
-        // Ocultar todos los contenidos primero
         ['video', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'mensaje-corazon', 'respuesta', 'mensaje-ojitos', 'proximamente', 'dia-bonito']
         .forEach(id => {
             const el = document.getElementById(id);
             if (el) el.style.display = 'none';
         });
         
-        // Mostrar formulario
         const formulario = document.getElementById('formulario-respuesta');
         if (formulario) {
             formulario.style.display = 'block';
-            // Limpiar campos anteriores
             document.getElementById('mensaje-para-mi').value = '';
             document.getElementById('mensaje-enviado').style.display = 'none';
         }
         
-        // Registrar que abrió el formulario
         const fecha = new Date().toLocaleString();
-        const dispositivo = detectarDispositivo();
         emailjs.send("service_teoc3jy", "template_56swemq", { 
-            visitor_name: "Abrió formulario de respuesta 💌",
-            message: `Abrió el formulario para escribirte algo\n📱 Dispositivo: ${dispositivo}\n🕐 Fecha y hora: ${fecha}`
+            visitor_name: "FORMULARIO ABIERTO 📝",
+            message: `Abrió el formulario para escribir\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}`
         });
     }
 
     function ocultarFormulario() {
         const formulario = document.getElementById('formulario-respuesta');
-        if (formulario) {
-            formulario.style.display = 'none';
-        }
+        if (formulario) formulario.style.display = 'none';
     }
 
     function enviarMensajeParaMi() {
@@ -945,33 +1022,52 @@
         }
         
         const fecha = new Date().toLocaleString();
-        const dispositivo = detectarDispositivo();
         
-        // Enviar el mensaje a tu email
         emailjs.send("service_teoc3jy", "template_56swemq", {
             visitor_name: "MENSAJE DE ELLA PARA TI 💌",
-            message: `Ella te escribió:\n\n"${mensaje}"\n\n📱 Dispositivo: ${dispositivo}\n🕐 Fecha y hora: ${fecha}`
+            message: `💌 MENSAJE RECIBIDO:\n\n"${mensaje}"\n\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}`
         })
         .then(function(response) {
-            console.log('Mensaje enviado:', response);
-            
-            // Mostrar mensaje de éxito
             document.getElementById('mensaje-enviado').style.display = 'block';
-            
-            // Limpiar el textarea
             document.getElementById('mensaje-para-mi').value = '';
             
-            // Ocultar formulario después de 3 segundos
             setTimeout(function() {
                 document.getElementById('formulario-respuesta').style.display = 'none';
             }, 3000);
             
         }, function(error) {
-            console.log('Error al enviar:', error);
             alert('Hubo un error al enviar el mensaje. Puedes intentarlo de nuevo 💜');
         });
+    }
+
+    // ========== DETECCIÓN ESPECIAL PARA MÓVILES ==========
+    
+    // Detectar si es iOS
+    const esIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    
+    if (esIOS) {
+        // iOS tiene comportamientos especiales
+        window.addEventListener('blur', function() {
+            // Cuando la app pierde el foco
+            setTimeout(() => enviarTiempoDeVisita("ios_blur"), 50);
+        });
+        
+        // Detectar gesto de cerrar pestaña (aproximación)
+        let touchStartY = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartY = e.touches[0].clientY;
+        }, false);
+        
+        document.addEventListener('touchmove', function(e) {
+            const touchEndY = e.touches[0].clientY;
+            // Si desliza hacia abajo desde la parte superior (gesto de cerrar en iOS)
+            if (touchStartY < 50 && touchEndY - touchStartY > 100) {
+                enviarTiempoDeVisita("ios_swipe_close");
+            }
+        }, false);
     }
 </script>
 </body>
 </html>
+
 
