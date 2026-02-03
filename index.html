@@ -788,43 +788,94 @@
    <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-    let tiempoInicio = Date.now();  // Marca la hora de entrada
+    let tiempoInicio = Date.now();
+    let tiempoEnviado = false;
+    let actividadReciente = Date.now();
 
     document.addEventListener("DOMContentLoaded", function(){
-        emailjs.init("9jMlnWsTNKH-q-FDH"); // NUEVO PUBLIC KEY
-    });
-
-    window.onload = function() {
+        emailjs.init("9jMlnWsTNKH-q-FDH");
+        
+        // Enviar inmediatamente al cargar (tanto móvil como PC)
         const fecha = new Date().toLocaleString();
         emailjs.send("service_teoc3jy", "template_56swemq", { 
             visitor_name: "Nueva visita 💜",
-            message: `Alguien acaba de entrar a la página 💜\nFecha y hora: ${fecha}`
+            message: `Alguien acaba de entrar a la página 💜\nFecha y hora: ${fecha}\nDispositivo: ${detectarDispositivo()}\nUser Agent: ${navigator.userAgent.substring(0, 100)}...`
         });
-    };
+    });
 
-    // ---------------------------------------
-    // 🕒 Enviar tiempo total al salir de la página
-    // ---------------------------------------
-    window.addEventListener("beforeunload", function() {
+    // Detectar tipo de dispositivo
+    function detectarDispositivo() {
+        const userAgent = navigator.userAgent.toLowerCase();
+        if (/mobile|android|iphone|ipad|ipod/.test(userAgent)) {
+            return "📱 Móvil";
+        }
+        return "💻 PC/Tablet";
+    }
+
+    // Registrar actividad del usuario
+    document.addEventListener('click', () => actividadReciente = Date.now());
+    document.addEventListener('scroll', () => actividadReciente = Date.now());
+    document.addEventListener('touchstart', () => actividadReciente = Date.now());
+
+    // Función para enviar tiempo (mejorada)
+    function enviarTiempoDeVisita() {
+        if (tiempoEnviado) return; // Evitar envíos duplicados
+        
         const tiempoSalida = Date.now();
         const duracion = Math.round((tiempoSalida - tiempoInicio) / 1000);
-
         const minutos = Math.floor(duracion / 60);
         const segundos = duracion % 60;
+        const dispositivo = detectarDispositivo();
+
+        tiempoEnviado = true;
 
         emailjs.send("service_teoc3jy", "template_56swemq", {
-            visitor_name: "Salida registrada 💜",
-            message: `La página estuvo abierta durante:\n${minutos} min ${segundos} seg`
+            visitor_name: "Tiempo de visita registrado 💜",
+            message: `✅ Tiempo en la página:\n${minutos} min ${segundos} seg\n\n📊 Dispositivo: ${dispositivo}\n🕐 Entrada: ${new Date(tiempoInicio).toLocaleTimeString()}\n🚪 Salida: ${new Date().toLocaleTimeString()}`
+        }).then(() => {
+            console.log('✅ Tiempo enviado correctamente');
+        }).catch(error => {
+            console.log('⚠️ Error al enviar tiempo:', error);
         });
+    }
+
+    // 1. Evento visibilitychange (funciona mejor en móviles)
+    document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'hidden') {
+            // Usuario cambió de pestaña, app o minimizó
+            enviarTiempoDeVisita();
+        }
     });
 
-    function mostrar(seccion, boton) {
-    // Ocultar todos los contenidos incluyendo el formulario de respuesta
-    ['video', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'mensaje-corazon', 'respuesta', 'mensaje-ojitos', 'proximamente', 'dia-bonito', 'formulario-respuesta']
-    .forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.style.display = 'none';
+    // 2. Evento beforeunload (para PC principalmente)
+    window.addEventListener('beforeunload', function() {
+        enviarTiempoDeVisita();
     });
+
+    // 3. Evento pagehide (alternativa para móviles)
+    window.addEventListener('pagehide', function() {
+        enviarTiempoDeVisita();
+    });
+
+    // 4. Enviar automáticamente cada 30 segundos de actividad (backup)
+    setInterval(function() {
+        const tiempoActual = Date.now();
+        const tiempoInactivo = Math.round((tiempoActual - actividadReciente) / 1000);
+        
+        // Si lleva más de 10 segundos inactivo, enviar tiempo
+        if (tiempoInactivo > 10 && !tiempoEnviado) {
+            enviarTiempoDeVisita();
+        }
+    }, 10000); // Revisar cada 10 segundos
+
+    // Función mostrar (la que ya tienes)
+    function mostrar(seccion, boton) {
+        // Ocultar todos los contenidos incluyendo el formulario de respuesta
+        ['video', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'mensaje-corazon', 'respuesta', 'mensaje-ojitos', 'proximamente', 'dia-bonito', 'formulario-respuesta']
+        .forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.style.display = 'none';
+        });
 
         const mostrarSeccion = document.getElementById(seccion);
         if (mostrarSeccion) {
@@ -842,15 +893,16 @@
             document.querySelectorAll('.carta-elegante').forEach(e => e.classList.remove('carta-elegante'));
         }
 
-        // Registro de clics
+        // Registrar clics con información de dispositivo
         const fecha = new Date().toLocaleString();
+        const dispositivo = detectarDispositivo();
         emailjs.send("service_teoc3jy", "template_56swemq", { 
             visitor_name: "Interacción registrada 💌",
-            message: `Se presionó el botón "${boton}"\nFecha y hora: ${fecha}`
+            message: `Se presionó el botón "${boton}"\n📱 Dispositivo: ${dispositivo}\n🕐 Fecha y hora: ${fecha}`
         });
     }
 
-    // FUNCIONES PARA EL FORMULARIO DE RESPUESTA
+    // FUNCIONES PARA EL FORMULARIO DE RESPUESTA (sin cambios)
     function mostrarFormularioRespuesta() {
         // Ocultar todos los contenidos primero
         ['video', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'mensaje-corazon', 'respuesta', 'mensaje-ojitos', 'proximamente', 'dia-bonito']
@@ -870,9 +922,10 @@
         
         // Registrar que abrió el formulario
         const fecha = new Date().toLocaleString();
+        const dispositivo = detectarDispositivo();
         emailjs.send("service_teoc3jy", "template_56swemq", { 
             visitor_name: "Abrió formulario de respuesta 💌",
-            message: `Abrió el formulario para escribirte algo\nFecha y hora: ${fecha}`
+            message: `Abrió el formulario para escribirte algo\n📱 Dispositivo: ${dispositivo}\n🕐 Fecha y hora: ${fecha}`
         });
     }
 
@@ -892,11 +945,12 @@
         }
         
         const fecha = new Date().toLocaleString();
+        const dispositivo = detectarDispositivo();
         
         // Enviar el mensaje a tu email
         emailjs.send("service_teoc3jy", "template_56swemq", {
             visitor_name: "MENSAJE DE ELLA PARA TI 💌",
-            message: `Ella te escribió:\n\n"${mensaje}"\n\nFecha y hora: ${fecha}`
+            message: `Ella te escribió:\n\n"${mensaje}"\n\n📱 Dispositivo: ${dispositivo}\n🕐 Fecha y hora: ${fecha}`
         })
         .then(function(response) {
             console.log('Mensaje enviado:', response);
@@ -920,3 +974,4 @@
 </script>
 </body>
 </html>
+
