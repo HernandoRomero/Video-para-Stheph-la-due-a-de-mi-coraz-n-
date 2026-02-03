@@ -271,8 +271,9 @@
         <button class="boton" onclick="mostrar('video', '🎥 Ver video')">🎥 Ver video</button>
         <button class="boton" onclick="mostrar('mensaje-corazon', 'Desde el corazón 💌')">19 de Enero 💌</button>
         <button class="boton" onclick="mostrar('dia-bonito', '✨ Un día bonito')">Para ti✨ </button>
-        <button class="boton" onclick="mostrarFormularioRespuesta()">✍️ ¿Quieres decirme algo?</button>
+        <button class="boton" onclick="mostrar('mensaje-ojitos', '✨ De corazón')">✨ De corazón</button>
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
+        <button class="boton" onclick="mostrarFormularioRespuesta()">✍️ ¿Quieres decirme algo?</button>
 
         <!-- CONTENIDO DE LOS 7 BOTONES ACTIVOS -->
 
@@ -642,6 +643,30 @@
             </div>
         </div>
 
+        <!-- NUEVA SECCIÓN "DE CORAZÓN" CON EL DISEÑO DE DIA BONITO -->
+        <div id="mensaje-ojitos" class="contenido contenido-snoopy" style="display: none;">
+            <h2 style="text-align:center; color:#4b0082; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #d8b4fe; background: linear-gradient(135deg, #f8f0ff, #e9d8fd); padding: 15px; border-radius: 10px;">
+                ✨ De corazón ✨
+            </h2>
+            
+            <div class="mensaje-dia-bonito" style="text-align: justify; font-style: normal; font-family: 'Georgia', serif; line-height: 1.8;">
+                Holaaa.<br><br>
+                La verdad no se muy bien qué escribir AJAJAJJAJAJAJ, Asi que supongo que solo seré sincero.<br><br>
+                La verdad es que quiero verte, abrazarte y no soltarte, quedarme ahí sin decir nada. Extraño tus ojitos y esa forma tan tuya de mirarme que siempre me calma y me ilumina. Sé que quizá no sea el momento ideal para decir estas cosas y tal vez sea un poco inapropiado, lo siento si es así pero solo digo lo que siento.<br><br>
+                Solo paso a desearte que tengas un día lindo, que todo te salga bien y que, si no, recuerdes que Dios siempre está ahí para sostenerte y ayudarte a cargar lo que pesa. Entrégale lo que te abruma, Él se encarga del resto.<br><br>
+                Y nada… cualquier cosa aquí estoy, con cariño, pensándote y deseándote siempre cosas bonitas🫶🏽
+            </div>
+            
+            <div style="text-align:center; margin-top:30px; padding:20px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 230, 255, 0.9)); border-radius: 15px; border: 2px dashed #a855f7;">
+                <p style="color:#4b0082; font-size:1.1em; font-style:italic; line-height: 1.6;">
+                    "Porque en tus ojos encuentro la paz que necesito,<br>
+                    y en tu mirada, el hogar al que siempre quiero volver."<br><br>
+                    
+                    Con todo mi cariño, para Sthephanya 🫂❤️ 
+                </p>
+            </div>
+        </div>
+
         <!-- NUEVA SECCIÓN CON FOTO DECORADA DE SNOOPY -->
         <div id="dia-bonito" class="contenido contenido-snoopy" style="display: none;">
             <h2 style="text-align:center; color:#4b0082; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #d8b4fe; background: linear-gradient(135deg, #f8f0ff, #e9d8fd); padding: 15px; border-radius: 10px;">
@@ -662,20 +687,46 @@
             
             <div style="text-align:center; margin-top:30px; padding:20px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 230, 255, 0.9)); border-radius: 15px; border: 2px dashed #a855f7;">
                 <p style="color:#4b0082; font-size:1.1em; font-style:italic; line-height: 1.6;">
-                    "Que tu día esté lleno de pequeños momentos que te hagan sonreír,<br>
-                    de pensamientos bonitos y de la certeza de que eres amada."<br><br>
+                    Que tu día esté lleno de pequeños momentos que te hagan sonreír,<br>
+                    de pensamientos bonitos y de la certeza de que eres amada.<br><br>
                     
                     💜 Te quiero mucho 💜
                 </p>
             </div>
         </div>
 
-        <div id="proximamente" class="contenido">
-            <p style="text-align:center; font-size:1.3em; color:#6b21a8; font-weight:bold;">
-                - ¿Qué haremos con todo lo que sentimos?<br>
-                - TE EXTRAÑO MUCHO<br>
-                - TE QUIERO CON TODO MI CORAZÓN❤️
-            </p>
+        <div id="proximamente" class="contenido" style="display: none;">
+            <div style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff); border-radius: 20px; padding: 40px; margin: 20px auto; max-width: 750px; box-shadow: 0 8px 30px rgba(107, 33, 168, 0.2); border: 4px solid #c084fc; position: relative; overflow: hidden;">
+                
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #a855f7, #7e22ce, #a855f7);"></div>
+                
+                <h2 style="text-align:center; color: #6b21a8; margin-bottom: 30px; font-size: 2em; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); padding-top: 10px;">
+                    ✨ Próximamente... ✨
+                </h2>
+                
+                <div style="background-color: rgba(255, 255, 255, 0.85); border-radius: 15px; padding: 30px; margin-bottom: 25px; border: 2px solid #d8b4fe; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <p style="font-size: 1.6em; color: #6b21a8; font-weight: bold; line-height: 2; margin: 20px 0; text-align: center; font-family: 'Georgia', serif;">
+                        - ¿Qué haremos con todo lo que sentimos?<br>
+                        - TE EXTRAÑO MUCHO<br>
+                        - TE QUIERO CON TODO MI CORAZÓN❤️
+                    </p>
+                </div>
+                
+                <div style="text-align:center; margin-top: 30px; padding-top: 25px; border-top: 2px dashed #a855f7;">
+                    <div style="display: inline-block; background: linear-gradient(135deg, #f0e6ff, #e5d5ff); padding: 15px 30px; border-radius: 50px; border: 2px solid #a855f7;">
+                        <p style="color: #4b0082; font-size: 1.2em; font-style: italic; margin: 0;">
+                            Hay tanto por decir...<br>
+                            Y poco a poco iré compartiéndolo contigo 💜
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="text-align:center; margin-top: 30px;">
+                    <span style="font-size: 2em;">💫</span>
+                    <span style="font-size: 2em; margin: 0 20px;">💜</span>
+                    <span style="font-size: 2em;">💫</span>
+                </div>
+            </div>
         </div>
         
         <!-- FORMULARIO PARA QUE ELLA TE ESCRIBA -->
@@ -769,7 +820,7 @@
 
     function mostrar(seccion, boton) {
     // Ocultar todos los contenidos incluyendo el formulario de respuesta
-    ['video', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'mensaje-corazon', 'respuesta', 'proximamente', 'dia-bonito', 'formulario-respuesta']
+    ['video', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'mensaje-corazon', 'respuesta', 'mensaje-ojitos', 'proximamente', 'dia-bonito', 'formulario-respuesta']
     .forEach(id => {
         const el = document.getElementById(id);
         if (el) el.style.display = 'none';
@@ -802,7 +853,7 @@
     // FUNCIONES PARA EL FORMULARIO DE RESPUESTA
     function mostrarFormularioRespuesta() {
         // Ocultar todos los contenidos primero
-        ['video', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'mensaje-corazon', 'respuesta', 'dia-bonito']
+        ['video', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'mensaje-corazon', 'respuesta', 'mensaje-ojitos', 'proximamente', 'dia-bonito']
         .forEach(id => {
             const el = document.getElementById(id);
             if (el) el.style.display = 'none';
@@ -869,6 +920,3 @@
 </script>
 </body>
 </html>
-
-
-
