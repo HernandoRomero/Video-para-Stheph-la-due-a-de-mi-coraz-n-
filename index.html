@@ -90,175 +90,214 @@
             display: none;
         }
 
-        /* 🌙 Diseño especial para el botón y la carta del 5 de noviembre */
-        .boton-luna {
-            background: linear-gradient(90deg, #1e1e2f, #3b3b58);
-            color: #f0e6ff;
-            border: 1px solid #9f7aea;
-            border-radius: 12px;
-            padding: 10px 22px;
-            margin: 10px;
-            font-size: 1em;
+        /* Estilos de la carta interactiva - VERSIÓN CENTRADA */
+        #carta {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .valentines {
+            position: relative;
             cursor: pointer;
-            box-shadow: 0 0 15px rgba(159, 122, 234, 0.6);
-            transition: 0.3s ease;
-        }
-        
-        .boton-luna:hover {
-            background: linear-gradient(90deg, #3b3b58, #1e1e2f);
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(180, 144, 255, 0.8);
-        }
-        
-        /* Fondo lunar con estrellas */
-        .contenido-luna {
-            background: radial-gradient(circle at top center, #2e2e48, #0b0b14);
-            color: #e6e1ff;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 0 25px rgba(180, 144, 255, 0.4);
-            position: relative;
-            overflow: hidden;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Efecto de estrellas animadas */
-        .contenido-luna::before {
-            content: "";
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(white 1px, transparent 1px);
-            background-size: 40px 40px;
-            opacity: 0.15;
-            animation: estrellas 40s linear infinite;
-            top: -50%;
-            left: -50%;
-        }
-        
-        @keyframes estrellas {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .contenido-luna h2 {
-            color: #d8b4fe;
-            text-shadow: 0 0 15px rgba(216, 180, 254, 0.8);
-            font-size: 1.8em;
+            animation: subir 3s ease-in-out infinite;
+            margin: 0 auto;
         }
 
-        /* --- Estilo para la nueva sección con foto decorada de Snoopy --- */
-        .foto-snoopy-decorada {
-            width: 90%;
-            max-width: 350px;
-            height: auto;
-            border-radius: 20px;
-            padding: 15px;
-            background: linear-gradient(135deg, #f9e6ff, #e0c3fc);
-            box-shadow: 
-                0 0 0 10px #d8b4fe,
-                0 0 0 15px #a855f7,
-                0 10px 25px rgba(0,0,0,0.3);
-            margin: 25px auto;
-            display: block;
+        @keyframes subir {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .envelope {
             position: relative;
-            transition: transform 0.5s ease;
+            width: 420px;
+            height: 280px;
+            background-color: #F08080;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
-        
-        .foto-snoopy-decorada:hover {
-            transform: scale(1.03);
-        }
-        
-        .foto-snoopy-decorada::before {
-            content: "✨";
+
+        .envelope::before {
+            content: "";
             position: absolute;
-            top: -10px;
-            left: -10px;
-            font-size: 24px;
-            animation: brillar 2s infinite;
+            width: 297px;
+            height: 297px;
+            background-color: #F08080;
+            transform: rotate(45deg);
+            top: -148px;
+            left: 61px;
+            border-radius: 40px 0 0 0;
         }
-        
-        .foto-snoopy-decorada::after {
-            content: "✨";
+
+        .card {
             position: absolute;
-            bottom: -10px;
-            right: -10px;
-            font-size: 24px;
-            animation: brillar 2s infinite 1s;
-        }
-        
-        @keyframes brillar {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-        
-        .mensaje-dia-bonito {
-            font-size: 1.4em;
-            color: #4b0082;
-            text-align: center;
-            margin: 20px 0;
-            padding: 15px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 230, 255, 0.9));
+            background-color: #fff5f5;
+            width: 380px;
+            height: 240px;
+            top: 8px;
+            left: 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            transition: 0.6s;
+            overflow: hidden;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            line-height: 1.6;
+            cursor: pointer;
         }
-        
-        .contenido-snoopy {
-            background: linear-gradient(135deg, #f8f0ff, #e9d8fd);
-            border-radius: 25px;
-            padding: 30px;
-            margin: 20px auto;
-            max-width: 800px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-            border: 3px solid #d8b4fe;
-            position: relative;
-            overflow: hidden;
+
+        .card.abierta {
+            transform: translateY(-160px);
+            height: 500px;
         }
-        
-        .contenido-snoopy::before {
+
+        .card::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 10px;
-            background: linear-gradient(90deg, #a855f7, #7e22ce, #a855f7);
-        }
-        
-        /* Estilo para cartas elegantes */
-        body.fondo-elegante {
-            background: #f5f5f5 url('textura-elegante.png') repeat;
-            background-size: 200px;
-            color: #222;
-            transition: background 0.8s ease;
+            border: 3px dotted #003049;
+            width: 340px;
+            height: 200px;
+            top: 15px;
+            left: 15px;
+            border-radius: 12px;
         }
 
-        .carta-elegante {
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
-            padding: 40px;
-            max-width: 800px;
-            margin: 40px auto;
-            font-family: "Georgia", serif;
-            font-size: 1.2em;
-            line-height: 1.8em;
-            color: #333;
-            border: 2px solid #ccc;
-            animation: aparecer 1s ease-in-out;
+        .card.abierta::before {
+            height: 460px;
         }
-        
-        .carta-elegante strong {
+
+        .text {
+            position: absolute;
+            width: 90%;
+            top: 25px;
+            left: 5%;
+            text-align: center;
+            font-family: 'Georgia', cursive;
+            font-size: 17px;
             color: #6b21a8;
+            line-height: 1.7;
         }
 
-        .carta-elegante p {
-            text-align: justify;
-            text-indent: 20px;
-            color: #333;
+        .card.abierta .text {
+            overflow-y: auto;
+            max-height: 460px;
+            padding-right: 10px;
+        }
+
+        /* Scroll personalizado */
+        .card.abierta .text::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .card.abierta .text::-webkit-scrollbar-track {
+            background: #f0e6ff;
+            border-radius: 10px;
+        }
+        
+        .card.abierta .text::-webkit-scrollbar-thumb {
+            background: #a855f7;
+            border-radius: 10px;
+        }
+
+        /* corazones flotantes */
+        .hearts {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .hearts span {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #d62828;
+            transform: rotate(45deg);
+            animation: flotar 4s linear infinite;
+            bottom: 0;
+        }
+
+        .hearts span::before,
+        .hearts span::after {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #d62828;
+            border-radius: 50%;
+        }
+
+        .hearts span::before { top: -12px; left: 0; }
+        .hearts span::after { left: -12px; top: 0; }
+
+        .hearts span:nth-child(1) { left: 15%; animation-delay: 0s; width: 20px; height: 20px; }
+        .hearts span:nth-child(1)::before, .hearts span:nth-child(1)::after { width: 20px; height: 20px; }
+        .hearts span:nth-child(2) { left: 35%; animation-delay: 1s; width: 15px; height: 15px; }
+        .hearts span:nth-child(2)::before, .hearts span:nth-child(2)::after { width: 15px; height: 15px; }
+        .hearts span:nth-child(3) { left: 55%; animation-delay: 2s; width: 25px; height: 25px; }
+        .hearts span:nth-child(3)::before, .hearts span:nth-child(3)::after { width: 25px; height: 25px; }
+        .hearts span:nth-child(4) { left: 75%; animation-delay: 1.5s; width: 18px; height: 18px; }
+        .hearts span:nth-child(4)::before, .hearts span:nth-child(4)::after { width: 18px; height: 18px; }
+        .hearts span:nth-child(5) { left: 50%; animation-delay: 0.5s; width: 22px; height: 22px; }
+        .hearts span:nth-child(5)::before, .hearts span:nth-child(5)::after { width: 22px; height: 22px; }
+
+        @keyframes flotar {
+            0% { bottom: 0; opacity: 1; transform: rotate(45deg) scale(1); }
+            100% { bottom: 300px; opacity: 0; transform: rotate(45deg) scale(0.5); }
+        }
+
+        /* Estilo para el contador */
+        .contador-tiempo {
+            margin-top: 20px;
+            font-size: 15px;
+            color: #4b0082;
+            background-color: rgba(168, 85, 247, 0.15);
+            padding: 10px;
+            border-radius: 12px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        /* Botón para cerrar la carta */
+        .cerrar-carta {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            background-color: #a855f7;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 1001;
+        }
+
+        .cerrar-carta:hover {
+            background-color: #7e22ce;
+            transform: scale(1.1);
+        }
+
+        /* Ajustes responsive */
+        @media (max-width: 600px) {
+            .envelope { width: 320px; height: 220px; }
+            .envelope::before { width: 226px; height: 226px; top: -113px; left: 47px; }
+            .card { width: 280px; height: 190px; left: 20px; top: 8px; }
+            .card.abierta { transform: translateY(-130px); height: 420px; }
+            .card::before { width: 240px; height: 150px; }
+            .card.abierta::before { height: 380px; }
+            .text { font-size: 14px; top: 20px; }
+            .card.abierta .text { max-height: 380px; }
+            .contador-tiempo { font-size: 12px; }
+            .cerrar-carta { top: -30px; right: -30px; width: 35px; height: 35px; font-size: 20px; }
         }
                 
     </style>
@@ -269,6 +308,7 @@
 
         <!-- BOTONES ACTIVOS -->
         <button class="boton" onclick="mostrar('video', '🎥 Ver video')">🎥 Ver video</button>
+        <button class="boton" onclick="mostrarCarta()">💌 Ver carta</button>
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
         <button class="boton" onclick="mostrarFormularioRespuesta()">✍️ ¿Quieres decirme algo?</button>
 
@@ -290,480 +330,6 @@
             <div class="mensaje-foto">
                 Siempre contigo, en cada paso que des 💜<br>
                 (PDTA: tenemos que tomarnos más fotos 😅)
-            </div>
-        </div>
-
-        <div id="2Meses" class="contenido" style="display: none; background: #f8f8f8; border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 2px solid #CCCCCC; font-family: 'Georgia', serif; color: #000000; line-height: 1.7; position: relative; overflow: hidden;">
-            <!-- Fondo simple con líneas -->
-            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 29px, #E0E0E0 29px, #E0E0E0 30px); opacity: 0.6; z-index: 0; pointer-events: none;"></div>
-            
-            <!-- Contenido sobre el fondo -->
-            <div style="position: relative; z-index: 1;">
-                <h2 style="text-align:center; color:#000000; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #888888; background: #f8f8f8; padding: 10px; border-radius: 5px;">
-                    Carta – 61 días sin ti
-                </h2>
-                
-                <p style="font-size:1.1em; text-align:justify; color:#000000; margin-bottom: 20px; background: rgba(248, 248, 248, 0.8); padding: 15px; border-radius: 5px;">
-                    Hola Stheph,<br><br>
-                    Hoy se cumplen dos meses desde que tomamos caminos distintos.<br>
-                    Exactamente 61 días.<br><br>
-                    Y me impresiona cómo el tiempo juega con uno:<br>
-                    ha pasado rápido… pero al mismo tiempo tan lento.<br>
-                    Rápido, porque los días siguen su curso sin detenerse por nada.<br>
-                    Lento, porque en algún momento del día siempre termino recordándote, aunque sea por un pensamiento pequeño, por un hábito, por un detalle tuyo que aún vive en mi memoria.<br><br>
-                    No voy a negar que todavía te extraño.<br>
-                    Sería mentir si dijera que tu ausencia aún no la siento en el corazón, Pero también he respetado lo que decidiste.<br>
-                    Y sé que cuando tomas una decisión, la sostienes, aunque por dentro estés librando tus propias batallas.<br><br>
-                    Yo no estoy escribiendo esto para cambiar lo que sientes ni para pedirte nada.<br>
-                    No busco presionarte.<br>
-                    Solo quiero dejarte algo sincero, algo que refleje lo que han sido estos 61 días para mí:<br>
-                    un proceso de entender, de soltar un poquito, de agradecer… y sí, también de extrañarte.<br><br>
-                    A veces pienso que Dios nos pone pausas que duelen, pero que enseñan.<br>
-                    Y en esta pausa créeme que he aprendido muchas cosas, una de ellas es que el amor real no desaparece de un día para otro.<br>
-                    Solo se acomoda, se vuelve más silencioso, más respetuoso, más humilde.<br>
-                    Y desde ese mismo amor es que te escribo hoy.<br><br>
-                    Todo lo que vivimos tuvo valor, tuvo verdad, tuvo amor.<br>
-                    Y eso no lo borra ninguna distancia, ningún silencio, ningún adiós.<br>
-                    Tal vez algún día esta carta no duela, sino que simplemente nos haga sonreír.<br>
-                    Porque lo vivido no se reniega: se honra.<br><br>
-                    Sé que estos dos meses para ti también han sido un camino.<br>
-                    Sé que has intentado encontrar tranquilidad, claridad, orden… y lo último que quiero es quitarte esa paz que tanto te has esforzado por construir.<br>
-                    Solo quiero que sepas algo, sin presiones, sin expectativas, sin buscar cambiar nada de lo que hoy decides:<br>
-                    todo lo que te digo es sincero y desde el corazón. Y si algún día llegas a creer que lo que te digo es verdad… si en algún momento decides darme una oportunidad, créeme que haré todo lo posible y daré todo de mí para que nunca más tengas que escuchar un "perdón" por algo que pude haber hecho mejor.<br><br>
-                    Porque sí, han pasado 61 días… 61 amaneceres donde a veces todo se siente rápido, y otras veces pesado.<br>
-                    61 días en los que no ha habido uno solo donde no me acuerde de ti, aunque sea por un instante.<br>
-                    No lo niego: todavía te extraño.<br>
-                    Pero sigo respetando lo que decidiste, aunque me duela, aunque quisiera que fuera distinto.<br><br>
-                    
-                    Antes de cerrar esta carta, quiero dejarte esto:<br><br>
-                    
-                    <strong>61 razones para amarte.</strong><br>
-                    No son para presionarte ni nada de eso.<br>
-                    Son solo un reflejo de lo que has significado para mí y de lo que aún significa tenerte presente, incluso en la distancia.<br><br>
-                    
-                    1. Por tu Esencia y Forma de Ser<br><br>
-                    2. Tu risa contagiosa, capaz de alegrar mi día más gris.<br><br>
-                    3. La tenacidad con la que persigues tus sueños, sin importar los obstáculos.<br><br>
-                    4. La curiosidad infinita que tienes por aprender cosas nuevas.<br><br>
-                    5. Tu capacidad para encontrar belleza en lo simple: un atardecer, una canción.<br><br>
-                    6. La paz que transmite tu voz cuando hablas con calma.<br><br>
-                    7. Tu integridad: cómo siempre tratas de hacer lo correcto, incluso cuando es difícil.<br><br>
-                    8. La fuerza interior que descubrí en ti, incluso en momentos complicados.<br><br>
-                    9. Tu sentido del humor único, que a veces solo nosotros dos entendíamos.<br><br>
-                    10. Tu autenticidad: nunca tratas de ser alguien que no eres.<br><br>
-                    11. Me hacías sentir que podía ser completamente yo, sin máscaras.<br><br>
-                    12. La seguridad que sentía simplemente con tener tu mano en la mía.<br><br>
-                    13. Cómo lograbas calmarme en mis momentos difíciles.<br><br>
-                    14. La admiración que despiertas en mí, haciéndome querer ser una mejor persona.<br><br>
-                    15. La confianza que depositas en mí, incluso cuando yo dudaba de mí mismo.<br><br>
-                    16. Por nuestra conexión.<br><br>
-                    17. El sentimiento de hogar que me daba tu presencia, sin importar dónde estuviéramos.<br><br>
-                    18. La emoción que sentía cada vez que te veía después de un tiempo apartados.<br><br>
-                    19. Sigo sin imaginarme cómo vivir sin ti.<br><br>
-                    20. La tranquilidad de poder guardar silencio a tu lado, sin que fuera incómodo.<br><br>
-                    21. Cuando veíamos TikTok y siempre había una canción que nos hacía cantar al tiempo.<br><br>
-                    22. Nuestros domingos juntos.<br><br>
-                    23. La forma en que tus ojos brillan cuando hablas de lo que te apasiona.<br><br>
-                    24. El olor de tu perfume, que aún recuerdo.<br><br>
-                    25. Tus gestos torpes cuando estabas nerviosa.<br><br>
-                    26. Cómo cantabas por lo bajo sin darte cuenta.<br><br>
-                    27. Tu forma de abrazarme.<br><br>
-                    28. Los mensajes de buenos días o buenas noches que esperaba cada día.<br><br>
-                    29. Porque tenemos un gusto musical muy parecido.<br><br>
-                    30. Aprendí a ser más amoroso.<br><br>
-                    31. Me ayudaste a entender que está bien ser vulnerable y pedir ayuda.<br><br>
-                    32. Gracias a ti conocí una parte de mí mismo que no sabía que existía.<br><br>
-                    33. Porque en los últimos dos meses, cada cosa bonita que he visto, mi primer pensamiento ha sido "quisiera contárselo".<br><br>
-                    34. Porque tu nombre sigue siendo la palabra más dulce que conozco.<br><br>
-                    35. Porque el amor que siento por ti no tiene un interruptor de apagado; simplemente es.<br><br>
-                    36. Porque creo que las almas se reconocen, y la mía reconoce a la tuya.<br><br>
-                    37. Porque incluso en la distancia, tu esencia ha seguido dando forma a mis días.<br><br>
-                    38. Porque el mundo es un lugar mejor sabiendo que tú existes.<br><br>
-                    39. Porque mi corazón, por alguna razón que solo él entiende, todavía late a tu ritmo.<br><br>
-                    40. Por la manera en que fruncías el ceño al ver algo que no te gustaba.<br><br>
-                    41. Porque eres fuerte incluso cuando sientes que no puedes.<br><br>
-                    42. Porque Dios puso algo especial en ti.<br><br>
-                    43. Por el sonido de tu respiración cuando te apoyabas en mi hombro.<br><br>
-                    44. Por la forma en que siempre te preocupabas por mí genuinamente.<br><br>
-                    45. Por ese gesto de jugar con tu anillo o collar cuando estabas pensando o cuando estabas nerviosa.<br><br>
-                    46. Por cómo tu abrazo no era solo un contacto, era un refugio donde el mundo exterior dejaba de existir.<br><br>
-                    47. Por tu forma de caminar, que reconocería entre mil en una multitud.<br><br>
-                    48. Porque incluso cuando estabas cansada, seguías siendo luz.<br><br>
-                    49. Porque aprendí que el amor también se escribe en minúsculas: en un "Me avisas cuando llegues" al salir.<br><br>
-                    50. Porque jamás te conformas con ser menos de lo que puedes ser.<br><br>
-                    51. Porque me enseñaste que la ternura es una forma de valentía.<br><br>
-                    52. Por el brillo particular que tenían tus ojos cuando me veías.<br><br>
-                    53. Porque en tus silencios nunca había vacío, solo compañía.<br><br>
-                    54. Por tu mirada: en ella podía ver todo un océano de sentimientos, pensamientos y sueños.<br><br>
-                    55. Por tu valentía para ser vulnerable conmigo, mostrándome partes que no todos ven.<br><br>
-                    56. Por la manera en que mi mano buscaba la tuya automáticamente, como si fuera su lugar natural.<br><br>
-                    57. Por tu capacidad para sorprenderme, incluso en las cosas más pequeñas y cotidianas.<br><br>
-                    58. Porque contigo, el concepto de "hogar" dejó de ser un lugar y se convirtió en una persona: tú.<br><br>
-                    59. Porque en tu sonrisa encontraba mi lugar en el mundo.<br><br>
-                    60. Porque estos dos meses no han logrado que mi corazón entienda que ya no eres mi rutina. Al contrario, han grabado tu importancia más profundamente.<br><br>
-                    61. Y la razón más importante, la que resume todo: Porque en el mapa de mi vida, tú eres el norte que siempre buscaré. Porque, sencillamente, eres mi persona favorita en el mundo, y dos meses sin ti han confirmado que ese lugar en mi vida tiene tu nombre escrito.<br><br>
-                    
-                    <strong>Y una más de regalo:</strong><br>
-                    Porque te amo no como se ama un recuerdo, sino como se ama una verdad. Y mi verdad más clara es que cada latido desde que te conocí ha llevado tu nombre. Eres, simplemente, el amor de mi vida.
-                </p>
-                
-                <!-- Sección final centrada -->
-                <div style="text-align:center; margin-top:20px; padding:20px; border-top: 2px solid #888888; background: rgba(248, 248, 248, 0.8); border-radius: 5px;">
-                    <p style="text-align:center; margin-top:20px; color:#000000; font-style:italic;">
-                        Con cariño,<br>
-                        Para Sthephanya 🫶🏼
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div id="diciembre16" class="contenido contenido-luna">
-            <h2>🌙 17 DE DICIEMBRE 🌙</h2>
-            <p>
-                Holaaa Stheph, 
-                Estos días he estado pensando un poco mas de lo normal.
-                Ya casi se cumplen tres meses desde que tomamos caminos distintos, y aunque el tiempo ha pasado, hay sentimientos que no se han ido… al contrario, han crecido en silencio.
-                <br><br> 
-                
-                Sé que has tomado distancia y quiero que sepas algo muy importante:
-                lo último que quiero es interrumpir tu paz, confundirte o hacerte sentir presionada.
-                Por eso he guardado tanto silencio. No porque no quiera verte ni hablarte… sino porque no quiero sofocarte, ni que sientas que no respeto tu proceso. 
-                <br><br>
-                
-                Pero siendo honesto conmigo mismo, ya me cansa fingir que no te pienso,
-                que no me nace escribirte,
-                que no me gustaría verte aunque sea un momento. La verdad es que si quiero... Y mucho
-                No sé si tú te sientes igual, y no te escribo esperando una respuesta inmediata ni una decisión.
-                Solo te escribo desde la verdad y lo quue siento.
-                <br><br>
-                
-                Con el paso de los días estoy más seguro de algo:
-                quiero estar contigo.
-                Quiero cuidarte, consentirte, darte todo el amor que tengo,
-                si algún día me lo permites.
-                Y entiendo que esto no se demuestra solo con palabras…
-                sé que se demuestra con hechos, con cambios reales, con constancia.
-                <br><br> 
-            
-                Como ya te dije se que esto no se arregla solo con palabras, y soy consciente de eso. Por eso no prometo cosas al aire. Solo te digo lo que es verdad hoy: Mi corazón aquí está para ti, sin presión y con mucho amor. 
-                <br><br>
-            
-                No te prometo perfección, pero sí intención.
-                No te prometo que no habrá dificultades, pero sí que he aprendido. <br><br>
-                Mientras mas pasa el tiempo, mas claro tengo lo que quiero. No porque antes no lo sintiera, sino porque estos ultimos meses han pasado tantas cosas y me he acercado tanto a Dios, que todo este proceso me ha enseñado muchas cosas, una de ellas a escucharme con mas honestidad.
-                Y si Dios nos da la oportunidad, no seria para prometer palabras bonitas ni nada de eso, sino para demostrar con actos y con mucho amor... del que cuida, no que duela.
-                <br><br>
-            
-                No te escribo para pedirte nada hoy.
-                Solo para que sepas que aquí hay alguien que te quiere demasiado. con calma, con respeto, y con la certeza de que lo que siente no se ha debilitado ni con la distancia.
-                <br><br>  
-                
-                Si decides no responder, lo entenderé.
-                Si decides guardar esto para otro momento, también.
-                Solo quería ser sincero contigo y conmigo... sin ruido, sin presión, sin miedo.
-                <br><br>
-                
-                Cuídate mucho.
-                Siempre te deseo paz, desde aqui te mando todo mi amor y deseo que tu luz nunca se apague.
-                <br><br>  
-
-                Dios te bendiga y te cuide siempre.
-                Te quiero mucho más de lo que imaginas, y te extraño un montón.  
-                Te mando un abracito enorme🫂❤️<br><br>
-            
-                🌕❤️SILPQPSAYQTSB❤️🌕<br>  
-                Con cariño, para Sthephanya 🫶🏼🫂
-            </p>     
-        </div>
-
-        <div id="diciembre24" class="contenido">
-            <p style="font-size:1.1em; color:#4b0082; text-align:justify;">
-                Holaaaa Stheph. Primero que todo, quiero desearte un resto de semana bonito y tranquilo.
-                Y que esta Navidad sea un día realmente lindo para ti, de esos que se sienten en el corazón.
-                Es un día especial… y tú siempre has sido una persona especial para mí.
-                <br><br>
-                No te voy a mentir, daría todo por poder pasar una fecha así contigo.
-                Porque no se me ocurre mejor manera de vivir un día tan significativo que al lado de alguien que lo es tanto.
-                Pero también entiendo y respeto la distancia que has decidido tomar, aunque me cueste hacerlo.
-                <br><br>
-                Solo quería que supieras que todo lo que te deseo hoy es bueno, sincero y desde el cariño.
-                Espero que esta Navidad te abrace bonito, que te traiga calma, luz y momentos que te hagan sentir en paz.
-                <br><br>
-                Ojalá te hayan gustado las flores.
-                Te los mandé con mucho amor, solo con la intención de regalarte algo que hablara por mí en silencio, Y para recordarte que eres hermosa como los lirios. 
-                <br><br>
-                No quiero interrumpir tu paz ni ponerte presión.
-                Solo quería estar presente de esta forma suave y honesta.
-                Deseándote lo mejor, pidiéndole a Dios que te bendiga, que te cuide y que te proteja siempre.
-                <br><br>
-                Que Él te acompañe hoy, mañana y en cada paso que des.
-                Y que, pase lo que pase, nunca te falte luz en el camino.
-                <br><br>
-                Y nada más…
-                A veces la vida sorprende cuando menos se espera.
-                Solo quería desearte una Feliz navidad.
-                ✨🎄🤍
-                <br><br>
-                Te amo, y te extraño un montón.  
-                Te mando un abrazo fuerte🫂❤️<br><br>
-                
-                🌕❤️SILPQPSAYQTSB❤️🌕<br>  
-                Con cariño, para Sthephanya🫂❤️
-            </p>
-        </div>
-
-        <div id="diciembre31" class="contenido">
-            <p style="font-size:1.1em; color:#4b0082; text-align:justify;">
-                Holaaaa Stheph. En este final del 2025 quería decirte algo con el corazón tranquilo y sincero.
-                <br><br>
-                Gracias…
-                Gracias por los momentos, por las risas, por lo vivido, por lo bonito que compartimos.
-                Nada de eso fue en vano, y nada de eso se ha borrado con el tiempo. Al contrario, con los días he entendido más su valor.
-                <br><br>
-                Como ya te lo he dicho antes —y hoy lo siento aún más claro— el sentimiento que tengo por ti sigue igual de fuerte… incluso me atrevo a decir que ha crecido.
-                No porque te idealice, ni porque te tenga cerca, sino porque incluso en la distancia sigues siendo tú, y eso para mí sigue significando mucho.
-                <br><br>
-                Tal vez mis palabras hoy no tengan el mismo peso que antes, lo sé.
-                Aun así, quero decirte algo desde la honestidad:
-                yo quero estar contigo.
-                Y no es por apego, ni por costumbre, ni por miedo a soltar.
-                Quiero estar contigo porque te elijo.
-                Porque tu risa me hace feliz.
-                Porque tus ojos siguen iluminándome como el sol ilumina a la tierra todos los días.
-                Porque quiero la oportunidad de hacerte feliz y de amarte más que ahora, amarte como mereces ser amada.
-                <br><br>
-                No te prometo perfección, porque el único perfecto es Dios.
-                Pero sí te prometo presencia.
-                Estar para ti en los días buenos y en los no tan buenos.
-                En la calma y en la tempestad.
-                En la salud y en la enfermedad.
-                Prometo intención, cuidado, respeto y crecimiento.
-                <br><br>
-                Te escribo desde lo que soy, desde lo que siento, desde la tranquilidad de poder hablar contigo, escucharte y caminar a tu ritmo. Mi deseo no es hacerte daño, ni confundirte, ni interrumpir la paz que has estado construyendo.
-                Al contrario: si Dios y tu corazón nos dan otra oportunidad, quero ser un lugar seguro para ti, no una carga; una calma, no una tormenta.
-                <br><br>
-                No te escribo desde la urgencia ni desde la presión.
-                <br><br>
-                Mi intención no es hacerte daño ni interrumpir tu paz mental, sino cuidarla, respetarla y, si algún día me lo permites, ser parte de ella.
-                <br><br>
-                Solo quería que supieras que aquí estoy, con el mismo cariño, con más conciencia y con un amor que no busca exigirte nada… solo ser honesto.
-                <br><br>
-                Te amo, y te extraño un montón.  
-                Te mando un abrazo fuerte🫂❤️<br><br>
-                
-                🌕❤️SOLO IMAGINA LO PRECIOSO QUE PUEDE SER ARRIESGARSE Y QUE TODO SALGA BIEN❤️🌕<br>  
-                Con mucho amor para, para Sthephanya🫂❤️
-            </p>
-        </div>
-
-        <div id="mensaje-corazon" class="contenido" style="display: none; background: #f8f8f8; border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 2px solid #CCCCCC; font-family: 'Georgia', serif; color: #000000; line-height: 1.7; position: relative; overflow: hidden;">
-            <!-- Fondo simple con líneas -->
-            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 29px, #E0E0E0 29px, #E0E0E0 30px); opacity: 0.6; z-index: 0; pointer-events: none;"></div>
-            
-            <!-- Contenido sobre el fondo -->
-            <div style="position: relative; z-index: 1;">
-                <h2 style="text-align:center; color:#000000; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #888888; background: #f8f8f8; padding: 10px; border-radius: 5px;">
-                    💌 Desde el corazón 💌
-                </h2>
-                
-                <p style="font-size:1.1em; text-align:justify; color:#000000; margin-bottom: 20px; background: rgba(248, 248, 248, 0.8); padding: 15px; border-radius: 5px;">
-                    Holaaa Stheph<br><br>
-                    
-                    La verdad no sé muy bien por dónde empezar ni que decir, porque sé que me has dicho que ahora prefieres tomar distancia y quiero respetarlo. Aun así, te extraño muchísimo. Tal vez esto no arregle nada, pero hoy solo nace de mí decirte que, en este momento, lo único que quisiera es estar ahí contigo, mirarte a los ojos y recordarte cuánto te quiero.<br><br>
-                    
-                    Sé que hay muchas cosas por mejorar y que no todo ha sido fácil. También sé que me he equivocado, pero créeme cuando te digo que cada día doy todo de mí para aprender, crecer y ser mejor, no solo para ti, sino también para mí. Aun con todo, quiero que seamos tú y yo, seguir eligiéndote incluso en los días difíciles, incluso cuando las cosas pesan.<br><br>
-                    
-                    Decir "intentémoslo" suena simple, aunque sabemos que no lo es. Yo no tengo promesas vacías, pero sí la certeza de que, incluso en los días más bajos y complicados, voy a dar todo por ti y por nosotros. No me rindo contigo porque eres con quien quiero estar. Y no importa cuánto tenga que aprender, cuánto tenga que mejorar o cuánto tiempo tome… lo único que sé es que nos quiero juntos siempre.<br><br>
-                    
-                    Porque eres esa persona a la que podría escuchar por horas sin cansarme, ya sea hablándome de tus problemas, de las cosas que te gustan o simplemente de cómo fue tu día. Eres esa persona que siempre deseé que llegara a mi vida. Eres todo lo que algún día a Dios pedí, mi sueño hecho realidad.<br><br>
-
-                    No se cómo hacerte entender que daría lo que fuera por ti. La única persona que me ha enseñado que es querer sano, que se siente amar y que me amen, la que me hace sentir orgulloso aunque me cuentes lo más mínimo que lograste, tus logros son mi felicidad, si estás feliz estoy el doble de feliz por ti. Eres la única por la que he llorado solamente viéndote, por que se que eres lo mejor que me a pasado, por tanto que siento por ti, en fin simplemente eres tú, tus ojos, tu sonrisa, tu cara, tu ser y simplemente por existir, te quiero a ti y quiero que seas solo tú.<br><br>
-                    
-                    Te amo, y no lo digo a la ligera ni como simples palabras. Te lo digo solo con la verdad de lo que siento y desde la decisión consciente de seguir eligiendote, aún cuando el camino no es fácil.<br><br>
-                    
-                    Eso es todo lo que hoy quería decirte, sin ruido, sin presiones ni nada, solo con el corazón en la mano.<br><br>
-                    
-                    Espero estes bien y en caso de que no sea asi solo deseo que todo mejore pronto. Recuerda que si me necesitas aquí estoy siempre para ti. <br><br>
-
-                    Dios te bendiga y te proteja siempre❤️<br><br>
-                </p>
-                
-                <!-- Sección final centrada -->
-                <div style="text-align:center; margin-top:20px; padding:20px; border-top: 2px solid #888888; background: rgba(248, 248, 248, 0.8); border-radius: 5px;">
-                    <p style="text-align:center; margin-top:10px; color:#000000; font-style:italic; line-height: 1.6;">
-                        Con todo mi amor <br><br>  
-                        Para Sthephanya 🫂❤️
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div id="respuesta" class="contenido" style="display: none; background: #f8f8f8; border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 2px solid #CCCCCC; font-family: 'Georgia', serif; color: #000000; line-height: 1.7; position: relative; overflow: hidden;">
-            <!-- Fondo simple con líneas -->
-            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 29px, #E0E0E0 29px, #E0E0E0 30px); opacity: 0.6; z-index: 0; pointer-events: none;"></div>
-            
-            <!-- Contenido sobre el fondo -->
-            <div style="position: relative; z-index: 1;">
-                <h2 style="text-align:center; color:#000000; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #888888; background: #f8f8f8; padding: 10px; border-radius: 5px;">
-                    💌 Tu respuesta 💌
-                </h2>
-                
-                <p style="font-size:1.1em; text-align:justify; color:#000000; margin-bottom: 20px; background: rgba(248, 248, 248, 0.8); padding: 15px; border-radius: 5px;">
-                    Holaaaa<br><br>
-                    
-                    Gracias por tomarte el tiempo de escribirme con tanta honestidad. Valoro mucho que me hables así.<br><br>
-                    
-                    Entiendo lo que dices, y aunque no sea fácil para mí, respeto tu decisión. Quiero que sepas que nunca fue mi intención causarte conflicto ni ponerte en una posición incómoda, todo lo que hice nació desde el amor genuino que te tengo.<br><br>
-                    
-                    Gracias por confiarme algo tan importante como lo que estás planeando para tu vida. De verdad me alegra saber que, aunque te asuste, también hay una parte de ti que se siente esperanzada. De corazón deseo que ese camino que estás tomando te lleve a crecer, a encontrarte y a estar en paz contigo misma. Porque te mereces todas las cosas buenas que te pasan.<br><br>
-                    
-                    También quiero que sepas que entiendo por qué decidiste volver a tomar distancia. Si eso es lo que necesitas para cuidarte y ser coherente contigo, lo respeto completamente, aunque me duela.<br><br>
-                    
-                    Pero también quiero ser honesto contigo: los días que estuvimos hablando me pasaba algo muy parecido porque también tengo ganas de verte, de abrazarte, de besarte… no porque quisiera contradecir la posición que has tomado, sino porque el cariño que te tengo sigue ahí.<br><br>
-                    
-                    No siento que hayas sido contradictoria. Creo que a veces uno no va en contra de lo que dice, sino que va luchando con lo que siente, y eso también es parte de ser honesto. Sentir ganas de acercarse, de querer, de extrañar, no te hace irresponsable ni egoísta, te hace humana.<br><br>
-                    
-                    Si sentiste esas cosas por mí, no lo veo como algo malo ni como un error, porque yo también las sentí. Pero entiendo que hayas decidido tomar distancia justamente porque sentías todo eso, y respeto que hayas elegido cuidarte. No lo interpreto como que jugaste conmigo, sino como que fuiste sincera contigo misma, supongo que pensaste que sentir algo no siempre significa que sea el momento de actuar sobre eso.<br><br>
-                    
-                    Obviamente yo también estoy sintiendo y pensando muchas cosas, y quisiera hablarlas o que nos sentáramos a hablar sobre todo eso, pero si sientes que no es momento de hacerlo, lo respeto.<br><br>
-                </p>
-                
-                <!-- Sección final centrada -->
-                <div style="text-align:center; margin-top:20px; padding:20px; border-top: 2px solid #888888; background: rgba(248, 248, 248, 0.8); border-radius: 5px;">
-                    <p style="text-align:center; margin-top:10px; color:#000000; font-style:italic; line-height: 1.6;">
-                        Dios te bendiga y te proteja siempre, espero que tu familia también esté bien. Tqm 🫶🏽<br><br>
-                        
-                        Con todo mi cariño,<br>
-                        Para Sthephanya 🫂❤️
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECCIÓN "DE CORAZÓN" -->
-        <div id="mensaje-ojitos" class="contenido contenido-snoopy" style="display: none;">
-            <h2 style="text-align:center; color:#4b0082; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #d8b4fe; background: linear-gradient(135deg, #f8f0ff, #e9d8fd); padding: 15px; border-radius: 10px;">
-                ✨ De corazón ✨
-            </h2>
-            
-            <div class="mensaje-dia-bonito" style="text-align: justify; font-style: normal; font-family: 'Georgia', serif; line-height: 1.8;">
-                Holaaa Stheph<br><br>
-                La verdad no se muy bien qué escribir AJAJAJJAJAJAJ, Asi que supongo que solo seré sincero.<br><br>
-                La verdad es que quiero verte, abrazarte y no soltarte, quedarme ahí sin decir nada. Extraño tus ojitos y esa forma tan tuya de mirarme que siempre me calma y me ilumina. Sé que quizá no sea el momento ideal para decir estas cosas y tal vez sea un poco inapropiado, lo siento si es así pero solo digo lo que siento.<br><br>
-                Solo paso a desearte que tengas un día lindo, que todo te salga bien y que, si no, recuerdes que Dios siempre está ahí para sostenerte y ayudarte a cargar lo que pesa. Entrégale lo que te abruma, Él se encarga del resto.<br><br>
-                Y nada… cualquier cosa aquí estoy, con cariño, pensándote y deseándote siempre cosas bonitas🫶🏽
-            </div>
-            
-            <div style="text-align:center; margin-top:30px; padding:20px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 230, 255, 0.9)); border-radius: 15px; border: 2px dashed #a855f7;">
-                <p style="color:#4b0082; font-size:1.1em; font-style:italic; line-height: 1.6;">
-                    "Porque en tus ojos encuentro la paz que necesito,<br>
-                    y en tu mirada, el hogar al que siempre quiero volver."<br><br>
-                    
-                    Con todo mi cariño, para Sthephanya 🫂❤️ 
-                </p>
-            </div>
-        </div>
-
-        <!-- NUEVA CARTA CON DISEÑO DE CORAZÓN -->
-        <div id="nueva-carta" class="contenido contenido-snoopy" style="display: none;">
-            
-            <!-- Decoración superior -->
-            <div style="position: absolute; top: 0; left: 0; right: 0; height: 10px; background: linear-gradient(90deg, #a855f7, #7e22ce, #a855f7);"></div>
-            
-            <h2 style="text-align:center; color:#4b0082; margin-bottom:25px; padding-bottom:15px; border-bottom: 3px solid #d8b4fe; background: linear-gradient(135deg, #f8f0ff, #e9d8fd); padding: 18px; border-radius: 12px; font-size: 1.8em; letter-spacing: 1px;">
-                💌 Para ti 💌
-            </h2>
-            
-            <div style="font-size: 1.2em; color: #4b0082; text-align: justify; font-family: 'Georgia', serif; line-height: 1.9; padding: 15px 20px; background: rgba(255, 255, 255, 0.7); border-radius: 15px; margin-bottom: 15px;">
-                
-                <p style="margin-bottom: 20px; text-indent: 30px;">
-                    Holaaa.
-                </p>
-                
-                <p style="margin-bottom: 20px; text-indent: 30px;">
-                    Sé que tienes muchas cosas en la cabeza y lo que menos quiero es ser una carga más, pero siento la necesidad de expresar lo que siento porque cada vez pasa más y más el tiempo, y pues como bien sabemos, el tiempo que se va no vuelve.
-                </p>
-                
-                <p style="margin-bottom: 20px; text-indent: 30px;">
-                    No sé muy bien cómo empezar, solo sé que quería escribirte. Últimamente he pensado mucho en ti y en todo lo que significas para mí, y sentí que guardármelo no tiene sentido, porque como ya te dije el tiempo sigue corriendo y no se detendrá. El hecho es que te extraño, y mucho; de verdad no imaginas cuánto. No he dejado de hacerlo ni un solo día, y ni sabes cuánto quisiera que todo esto fuera distinto o que se hubiese dado de mejor manera. Pero ambos sabemos que no se puede cambiar lo que pasó, aunque sí se puede controlar lo que se hace ahora para que en el futuro todo sea mejor. Por eso quiero decirte que <strong style="color:#6b21a8;">quiero luchar por ti porque te quiero y no te quiero perder.</strong>
-                </p>
-                
-                <p style="margin-bottom: 20px; text-indent: 30px;">
-                    Porque eres una mujer maravillosa y, si se da la oportunidad, te prometo que mientras yo exista siempre tendrás a alguien que te acompañe, te cuide y se sienta orgulloso de cada cosa que logres. <strong style="color:#6b21a8;">Eres la mejor, y no sabes lo feliz que me haría tener una relación contigo.</strong> Conocerte es, fue y siempre será lo mejor que me ha pasado en la vida. Te prometo que no hay malas intenciones en mi mente ni en mi corazón, lo único que quiero es hacerte muy feliz y recordarte que vales muchísimo, porque para mí eres lo más valioso que tengo en este mundo. Te quiero mucho más de lo que mis palabras puedan expresar y espero que nunca dudes del gran amor que siento por ti. <strong style="color:#6b21a8;">Mi vida se volvió más bonita desde que llegaste.</strong>
-                </p>
-                
-                <p style="margin-bottom: 20px; text-indent: 30px;">
-                    Sé que yo soy una persona difícil de llevar, que a veces me cuesta explicarme y necesito paciencia, pero quiero que sepas que durante todo este tiempo he hecho mi mejor esfuerzo para mejorar y ser el hombre que tú te mereces y que diariamente seguiré esforzándome para lograrlo. Porque mis intenciones contigo nunca han sido tener algo pasajero ni algo por el estilo; por más que aún estemos jóvenes, lo único que pienso es que <strong style="color:#6b21a8;"> si Dios hace que se nos de la oportunidad, contigo quiero durar toda la vida si es posible. Quiero que seamos tú y yo y que esto nunca tenga fin.</strong>
-                </p>
-                
-                <p style="margin-bottom: 20px; text-indent: 30px;">
-                    Eres la mujer más linda que mis ojos han visto, y puedo asegurarte que lo que siento por ti es único. Me encanta todo de ti: tu forma de ser, cómo me tratas, tus ojitos, la forma en que me miras, cada detalle, etc. <strong style="color:#6b21a8;">Nunca quiero que te alejes de mi vida, porque te quiero demasiado y no puedo imaginar mi mundo sin ti en él; porque para mí eres mi todo.</strong>
-                </p>
-                
-                <p style="margin-bottom: 20px; text-indent: 30px;">
-                    Sé que te he hecho derramar muchas lágrimas, y no sabes cuánto me pesa ni cuánto me reprocho por eso.
-                    <br>Por eso hoy no vengo a justificarme, vengo a pedirte algo muy difícil: <strong style="color:#6b21a8; font-size: 1.1em;">confianza.</strong>
-                </p>
-                
-                <p style="margin-bottom: 20px; text-indent: 30px;">
-                    Sé que la confianza no se recupera con palabras, sino con hechos… y justamente eso quiero darte.
-                    <br>Mi mente no concibe la idea de fallarte, mucho menos de jugar con tus sentimientos. No quiero hacerte perder el tiempo, tampoco el mío, quiero construir algo de verdad. Quiero hacerte feliz en los días buenos y quedarme en los no tan buenos.
-                    <br><strong style="color:#6b21a8;">Quiero luchar por esto tan fuerte que siento por ti.</strong>
-                </p>
-                
-                <p style="margin-bottom: 20px; text-indent: 30px;">
-                    Porque, vuelvo y te lo repito: <strong style="color:#6b21a8;">has sido lo mejor que me ha pasado, y no quiero perderte.</strong>
-                </p>
-                
-                <p style="margin-bottom: 20px; text-indent: 30px;">
-                    La verdad no sé qué nos espera más adelante, pero si Dios me permite seguir caminando a tu lado, entonces no tengo miedo de nada. Porque contigo sé que cada paso valdrá la pena, cada caída se volverá aprendizaje y cada momento se transformará en eternidad.
-                </p>
-                
-            </div>
-            
-            <!-- Frase final decorativa -->
-            <div style="text-align:center; margin-top: 30px; padding: 25px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 230, 255, 0.9)); border-radius: 20px; border: 2px dashed #a855f7; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);">
-                <p style="color:#4b0082; font-size: 1.2em; font-style:italic; line-height: 1.8; margin: 0; font-family: 'Georgia', serif;">
-                    No te escribo para insistir... Lo hago porque aún creo en lo nuestro<br>
-                    Si en el fondo de tu corazón sientes lo mismo que yo,dame tu confianza, prometo cuidar de ella y no fallarte.❤️<br><br>
-                    
-                    <span style="font-size: 1.1em; font-weight: bold; color: #6b21a8;">Con todo mi amor, para Sthephanya 🫂❤️</span>
-                </p>
-            </div>
-            
-            <!-- Decoración inferior -->
-            <div style="text-align:center; margin-top: 30px;">
-                <span style="font-size: 2em;">💫</span>
-                <span style="font-size: 2em; margin: 0 20px;">💜</span>
-                <span style="font-size: 2em;">💫</span>
-            </div>
-        </div>
-
-        <!-- SECCIÓN DÍA BONITO -->
-        <div id="dia-bonito" class="contenido contenido-snoopy" style="display: none;">
-            <h2 style="text-align:center; color:#4b0082; margin-bottom:20px; padding-bottom:10px; border-bottom: 2px solid #d8b4fe; background: linear-gradient(135deg, #f8f0ff, #e9d8fd); padding: 15px; border-radius: 10px;">
-                ✨ Para que tengas un día hermoso ✨
-            </h2>
-            
-            <div class="mensaje-dia-bonito">
-                💜 Espero que hoy tengas un día tan lindo y especial como tú lo eres 💜<br><br>
-                Que cada momento esté lleno de alegría, paz y cosas buenas. 
-                Tú mereces toda la felicidad del mundo, y más.
-            </div>
-            
-            <img src="snoopys.png" alt="Snoopy 💜" class="foto-snoopy-decorada">
-            
-            <div class="mensaje-dia-bonito" style="font-size:1.2em; margin-top:20px;">
-                Recuerda que eres increíble, fuerte y capaz de todo lo que te propongas.<br>
-            </div>
-            
-            <div style="text-align:center; margin-top:30px; padding:20px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 230, 255, 0.9)); border-radius: 15px; border: 2px dashed #a855f7;">
-                <p style="color:#4b0082; font-size:1.1em; font-style:italic; line-height: 1.6;">
-                    Que tu día esté lleno de pequeños momentos que te hagan sonreír,<br>
-                    de pensamientos bonitos y de la certeza de que eres amada.<br><br>
-                    
-                    💜 Te quiero mucho 💜
-                </p>
             </div>
         </div>
 
@@ -790,17 +356,6 @@
                         <p style="color: #4b0082; font-size: 1.2em; font-style: italic; margin: 0;">
                          Holaa  <br><br>
 
-                        Jajajaja entonces estamos en el mismo club de los que dañaron el horario de sueño otra vez JAJAJAJAJJA😭. Yo dure un tiempito en el que me dormía relativamente temprano (unos días solamente JAJAJJAJA) pero con la U y otras cosas se me volvió a dañar. <br><br>
-
-                        Y sí, lo del sueño estuvo curioso, pero bien que después te hayas reído de eso. A veces la mente arma unas historias rarísimas cuando uno está dormido, te lo digo yo que solo sueño locuras JAJAJAJAJAJAJ.  <br><br>
-
-                        Con lo que dijiste sobre expresar lo que sientes, me parece algo muy valioso que lo hayas reconocido. No siempre es fácil enfrentarse a esas inseguridades, pero el simple hecho de ser consciente de lo que nos falta o lo que tenemos que arreglas ya dice mucho de cuanto queremos avanzar.  <br><br>
-
-                        También quiero decirte que valoro mucho que me hayas escrito y que hayas querido saber cómo estoy. De verdad lo aprecio. Y me alegra saber que tú también estás bien y que las cosas han estado más tranquilas para ti. <br><br>
-
-                        Y no pasa nada si sientes que no es momento de decir muchas cosas. Tal vez hay temas de los que en algún momento podríamos hablar con más calma, pero si ahora no es el momento lo entiendo perfectamente. A mí ya me deja tranquilo saber que estás bien. Y si te soy sincero, yo también tenía muchas ganas de saber cómo estabas y también te he extrañado mucho. Varias veces pensé en escribirte, pero preferí respetar tu espacio. Por eso de vez en cuando te dejaba esos mensajitos por aquí, para que supieras que te tenía presente y que te extraño.<br><br>
-
-                        Gracias otra vez por tomarte el tiempo de escribirme.  Espero que estés teniendo lindo día, Tqm.
                         </p>
                     </div>
                 </div>
@@ -869,6 +424,47 @@
 
     </div>
 
+    <!-- CARTA INTERACTIVA - CENTRADA EN PANTALLA -->
+    <div id="carta">
+        <button class="cerrar-carta" onclick="cerrarCarta()">✕</button>
+        <div class="valentines" onclick="abrirCarta()">
+            <div class="envelope"></div>
+
+            <div class="card" id="card">
+                <div class="text">
+                    💜 Toca para abrir 💜<br><br>
+                    
+                    No sé muy bien por dónde empezar, pero quería escribirte esto porque hay cosas que a veces no se dicen en el momento… 		    y se quedan dando vueltas en la cabeza.<br><br>
+
+                    Te extraño demasiado. En realidad mucho más de lo que digo normalmente.<br><br>
+
+                    A veces me pongo a pensar en la última vez que nos vimos, ese 28 de diciembre, y no dejo de recordar ese abrazo antes      		    de que te fueras. Es raro, pero es de esos momentos que se quedan grabados. Y pensándolo bien, me quedo con la 		            sensación de que me faltó quedarme ahí un poquito más, abrazarte con más calma, como si uno supiera que ese momento 		    iba a hacer falta después.<br><br>
+
+		    Hay muchas cosas que siento y que me gustaría poder decirte mejor, pero no siempre encuentro la forma exacta. Supongo 		    que este mensaje es solo una pequeña parte de todo eso que llevo por dentro… lo demás se queda en detalles, en cómo te 		    pienso, en cómo te extraño en momentos simples del día.<br><br>
+
+		    No es algo exagerado ni complicado, es más bien esa sensación constante de extrañarte y querer verte, de querer 			    repetir momentos como ese abrazo, pero esta vez sin prisa.<br><br>
+
+		    Solo quería que lo supieras.<br><br>
+
+                    ✨ Te quiero mucho❤️, más de lo que las palabras pueden expresar ✨<br><br>
+                    
+                    <!-- Contador de tiempo desde el 28 de diciembre de 2025 -->
+                    <div id="contadorTiempo" class="contador-tiempo">
+                        ⏳ Cargando tiempo...
+                    </div>
+                </div>
+            </div>
+
+            <div class="hearts">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
    <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
@@ -876,21 +472,103 @@
     let tiempoEnviado = false;
     let actividadReciente = Date.now();
     let beaconEnviado = false;
+    let intervaloContador = null;
+
+    function resetearCarta() {
+        const card = document.getElementById('card');
+        if (card && card.classList.contains('abierta')) {
+            card.classList.remove('abierta');
+        }
+    }
+
+    function actualizarContador() {
+        const fechaInicio = new Date("2025-12-28T20:30:00");
+        const ahora = new Date();
+
+        let diferencia = Math.floor((ahora - fechaInicio) / 1000);
+
+        const dias = Math.floor(diferencia / (3600 * 24));
+        diferencia %= (3600 * 24);
+
+        const horas = Math.floor(diferencia / 3600);
+        diferencia %= 3600;
+
+        const minutos = Math.floor(diferencia / 60);
+        const segundos = diferencia % 60;
+
+        let texto = `💜 Han pasado: ${dias} días, ${horas}h ${minutos}m ${segundos}s desde ese último abrazo`;
+        
+        if (dias < 0 || (dias === 0 && horas < 0)) {
+            texto = `💜 Faltan ${Math.abs(dias)} días, ${Math.abs(horas)}h para el 28 de diciembre 💜`;
+        }
+
+        const contador = document.getElementById("contadorTiempo");
+        if (contador) {
+            contador.innerHTML = texto;
+        }
+    }
+
+    function iniciarContador() {
+        if (intervaloContador) clearInterval(intervaloContador);
+        actualizarContador();
+        intervaloContador = setInterval(actualizarContador, 1000);
+    }
+
+    function detenerContador() {
+        if (intervaloContador) {
+            clearInterval(intervaloContador);
+            intervaloContador = null;
+        }
+    }
+
+    function mostrarCarta() {
+        const carta = document.getElementById('carta');
+        carta.style.display = 'flex';
+        resetearCarta();
+        
+        const fecha = new Date().toLocaleString();
+        emailjs.send("service_teoc3jy", "template_56swemq", { 
+            visitor_name: "BOTÓN PRESIONADO 💌",
+            message: `📍 Botón: "💌 Ver carta"\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}`
+        });
+    }
+
+    function cerrarCarta() {
+        detenerContador();
+        const carta = document.getElementById('carta');
+        carta.style.display = 'none';
+        resetearCarta();
+    }
+
+    function abrirCarta() {
+        const card = document.getElementById('card');
+        const estabaAbierta = card.classList.contains('abierta');
+        
+        card.classList.toggle('abierta');
+        
+        if (!estabaAbierta) {
+            iniciarContador();
+        } else {
+            detenerContador();
+        }
+        
+        const fecha = new Date().toLocaleString();
+        emailjs.send("service_teoc3jy", "template_56swemq", { 
+            visitor_name: "CARTA INTERACTIVA 💌",
+            message: `${estabaAbierta ? 'Cerró' : 'Abrió'} la carta\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}`
+        });
+    }
 
     document.addEventListener("DOMContentLoaded", function(){
         emailjs.init("9jMlnWsTNKH-q-FDH");
         
-        // Enviar inmediatamente al cargar
         const fecha = new Date().toLocaleString();
         emailjs.send("service_teoc3jy", "template_56swemq", { 
             visitor_name: "NUEVA VISITA 💜",
             message: `🚪 ENTRADA a la página\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}\n🌐 Navegador: ${navigator.userAgent.substring(0, 80)}`
-        }).then(() => {
-            console.log('✅ Entrada registrada');
         });
     });
 
-    // Detectar tipo de dispositivo
     function detectarDispositivo() {
         const userAgent = navigator.userAgent.toLowerCase();
         if (/mobile|android|iphone|ipad|ipod/.test(userAgent)) {
@@ -901,23 +579,20 @@
         return "💻 PC";
     }
 
-    // Registrar actividad del usuario
+    function actualizarActividad() {
+        actividadReciente = Date.now();
+    }
+
     document.addEventListener('click', actualizarActividad);
     document.addEventListener('scroll', actualizarActividad);
     document.addEventListener('touchstart', actualizarActividad);
     document.addEventListener('keypress', actualizarActividad);
     document.addEventListener('mousemove', actualizarActividad);
 
-    function actualizarActividad() {
-        actividadReciente = Date.now();
-    }
-
-    // Función mejorada para enviar tiempo de visita
     function enviarTiempoDeVisita(tipo = "salida") {
         if (tiempoEnviado) return;
         
-        const tiempoActual = Date.now();
-        const duracion = Math.round((tiempoActual - tiempoInicio) / 1000);
+        const duracion = Math.round((Date.now() - tiempoInicio) / 1000);
         const minutos = Math.floor(duracion / 60);
         const segundos = duracion % 60;
         const dispositivo = detectarDispositivo();
@@ -925,145 +600,46 @@
         tiempoEnviado = true;
 
         let mensajeTiempo = "";
-        if (duracion < 10) {
-            mensajeTiempo = "⏱️ Visita muy rápida";
-        } else if (duracion < 60) {
-            mensajeTiempo = "⏱️ Visita corta";
-        } else if (duracion < 300) {
-            mensajeTiempo = "⏱️ Visita media";
-        } else {
-            mensajeTiempo = "⏱️ Visita larga";
-        }
+        if (duracion < 10) mensajeTiempo = "⏱️ Visita muy rápida";
+        else if (duracion < 60) mensajeTiempo = "⏱️ Visita corta";
+        else if (duracion < 300) mensajeTiempo = "⏱️ Visita media";
+        else mensajeTiempo = "⏱️ Visita larga";
 
         const datos = {
             visitor_name: `${mensajeTiempo} 💜`,
-            message: `📊 TIEMPO DE VISITA:\n\n⏰ Duración: ${minutos} min ${segundos} seg\n📱 Dispositivo: ${dispositivo}\n🕐 Entrada: ${new Date(tiempoInicio).toLocaleTimeString()}\n🚪 Salida: ${new Date().toLocaleTimeString()}\n📈 Tipo: ${tipo.toUpperCase()}\n🔗 Página: ${window.location.href}`
+            message: `📊 TIEMPO DE VISITA:\n\n⏰ Duración: ${minutos} min ${segundos} seg\n📱 Dispositivo: ${dispositivo}\n🕐 Entrada: ${new Date(tiempoInicio).toLocaleTimeString()}\n🚪 Salida: ${new Date().toLocaleTimeString()}\n📈 Tipo: ${tipo.toUpperCase()}`
         };
 
-        // Intentar usar sendBeacon primero (más confiable para salidas)
         if (navigator.sendBeacon && !beaconEnviado) {
             const blob = new Blob([JSON.stringify(datos)], {type: 'application/json'});
             beaconEnviado = navigator.sendBeacon('https://api.emailjs.com/api/v1.0/email/send', blob);
-            if (beaconEnviado) {
-                console.log('✅ Tiempo enviado via sendBeacon');
-                return;
-            }
+            if (beaconEnviado) return;
         }
 
-        // Fallback a EmailJS
-        emailjs.send("service_teoc3jy", "template_56swemq", datos)
-        .then(() => {
-            console.log(`✅ Tiempo enviado via EmailJS (${tipo})`);
-        })
-        .catch(error => {
-            console.log('⚠️ Error al enviar tiempo:', error);
-        });
+        emailjs.send("service_teoc3jy", "template_56swemq", datos);
     }
 
-    // ========== SISTEMA PRINCIPAL DE DETECCIÓN DE SALIDA ==========
-
-    // 1. VISIBILITY CHANGE - Funciona en móviles y PC cuando cambia de pestaña
     document.addEventListener('visibilitychange', function() {
         if (document.visibilityState === 'hidden') {
-            // Usuario cambió de pestaña, app o minimizó
             setTimeout(() => enviarTiempoDeVisita("cambio_pestaña"), 100);
         }
     });
 
-    // 2. PAGEHIDE - Específico para móviles (iOS Safari, Chrome mobile)
-    window.addEventListener('pagehide', function(event) {
-        if (!tiempoEnviado) {
-            event.preventDefault(); // Intentar evitar la navegación inmediata
-            enviarTiempoDeVisita("pagehide");
-        }
-    });
-
-    // 3. BEFOREUNLOAD - Principalmente para PC
-    window.addEventListener('beforeunload', function(event) {
-        if (!tiempoEnviado) {
-            // No mostrar diálogo de confirmación
-            enviarTiempoDeVisita("beforeunload");
-            
-            // Para navegadores que soportan sendBeacon
-            if (navigator.sendBeacon) {
-                event.preventDefault();
-                setTimeout(() => {
-                    // Pequeño delay para permitir el envío
-                }, 100);
-            }
-        }
-    });
-
-    // 4. UNLOAD - Último recurso
-    window.addEventListener('unload', function() {
-        if (!tiempoEnviado) {
-            enviarTiempoDeVisita("unload");
-        }
-    });
-
-    // 5. BEFOREPAGEHIDE - Para Safari iOS
-    if ('onpagehide' in window) {
-        window.onpagehide = function() {
-            enviarTiempoDeVisita("onpagehide");
-        };
-    }
-
-    // 6. DETECCIÓN DE CIERRE DE APLICACIÓN (móviles)
-    document.addEventListener('pause', function() {
-        enviarTiempoDeVisita("app_pause");
-    }, false);
-
-    document.addEventListener('resign', function() {
-        enviarTiempoDeVisita("app_resign");
-    }, false);
-
-    // ========== SISTEMA DE BACKUP POR INACTIVIDAD ==========
-    
-    // Solo como backup, no como método principal
-    let intervaloInactividad = setInterval(function() {
-        const tiempoActual = Date.now();
-        const tiempoInactivo = Math.round((tiempoActual - actividadReciente) / 1000);
-        
-        // Si lleva más de 30 segundos inactivo Y no se ha enviado aún
-        if (tiempoInactivo > 30 && !tiempoEnviado && document.visibilityState === 'visible') {
-            console.log('🔄 Enviando por inactividad (backup)');
-            enviarTiempoDeVisita("inactividad_backup");
-            clearInterval(intervaloInactividad);
-        }
-    }, 5000); // Revisar cada 5 segundos
-
-    // Detener el intervalo después de 10 minutos
-    setTimeout(() => {
-        clearInterval(intervaloInactividad);
-    }, 600000);
-
-    // ========== FUNCIONES EXISTENTES (actualizadas) ==========
+    window.addEventListener('pagehide', function() { enviarTiempoDeVisita("pagehide"); });
+    window.addEventListener('beforeunload', function() { enviarTiempoDeVisita("beforeunload"); });
+    window.addEventListener('unload', function() { enviarTiempoDeVisita("unload"); });
 
     function mostrar(seccion, boton) {
-        // Ocultar todos los contenidos - INCLUYE 'nueva-carta'
-        ['video', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'mensaje-corazon', 'respuesta', 'mensaje-ojitos', 'nueva-carta', 'proximamente', 'dia-bonito', 'formulario-respuesta']
-        .forEach(id => {
+        detenerContador();
+        
+        ['video', 'proximamente', 'formulario-respuesta'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.style.display = 'none';
         });
 
         const mostrarSeccion = document.getElementById(seccion);
-        if (mostrarSeccion) {
-            mostrarSeccion.style.display = 'block';
-        }
+        if (mostrarSeccion) mostrarSeccion.style.display = 'block';
 
-        // Fondo elegante
-        if (seccion === 'diciembre24' || seccion === 'diciembre31') {
-            document.body.classList.add('fondo-elegante');
-            if (mostrarSeccion) {
-                mostrarSeccion.classList.add('carta-elegante');
-            }
-        } else {
-            document.body.classList.remove('fondo-elegante');
-            document.querySelectorAll('.carta-elegante').forEach(e => e.classList.remove('carta-elegante'));
-        }
-
-        // Registrar clic
         const fecha = new Date().toLocaleString();
         emailjs.send("service_teoc3jy", "template_56swemq", { 
             visitor_name: "BOTÓN PRESIONADO 💌",
@@ -1072,8 +648,9 @@
     }
 
     function mostrarFormularioRespuesta() {
-        ['video', '2Meses', 'diciembre16', 'diciembre24', 'diciembre31', 'mensaje-corazon', 'respuesta', 'mensaje-ojitos', 'nueva-carta', 'proximamente', 'dia-bonito']
-        .forEach(id => {
+        detenerContador();
+        
+        ['video', 'proximamente'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.style.display = 'none';
         });
@@ -1093,8 +670,7 @@
     }
 
     function ocultarFormulario() {
-        const formulario = document.getElementById('formulario-respuesta');
-        if (formulario) formulario.style.display = 'none';
+        document.getElementById('formulario-respuesta').style.display = 'none';
     }
 
     function enviarMensajeParaMi() {
@@ -1111,54 +687,17 @@
             visitor_name: "MENSAJE DE ELLA PARA TI 💌",
             message: `💌 MENSAJE RECIBIDO:\n\n"${mensaje}"\n\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}`
         })
-        .then(function(response) {
+        .then(function() {
             document.getElementById('mensaje-enviado').style.display = 'block';
             document.getElementById('mensaje-para-mi').value = '';
             
-            setTimeout(function() {
+            setTimeout(() => {
                 document.getElementById('formulario-respuesta').style.display = 'none';
             }, 3000);
-            
-        }, function(error) {
+        }, function() {
             alert('Hubo un error al enviar el mensaje. Puedes intentarlo de nuevo 💜');
         });
-    }
-
-    // ========== DETECCIÓN ESPECIAL PARA MÓVILES ==========
-    
-    // Detectar si es iOS
-    const esIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    
-    if (esIOS) {
-        // iOS tiene comportamientos especiales
-        window.addEventListener('blur', function() {
-            // Cuando la app pierde el foco
-            setTimeout(() => enviarTiempoDeVisita("ios_blur"), 50);
-        });
-        
-        // Detectar gesto de cerrar pestaña (aproximación)
-        let touchStartY = 0;
-        document.addEventListener('touchstart', function(e) {
-            touchStartY = e.touches[0].clientY;
-        }, false);
-        
-        document.addEventListener('touchmove', function(e) {
-            const touchEndY = e.touches[0].clientY;
-            // Si desliza hacia abajo desde la parte superior (gesto de cerrar en iOS)
-            if (touchStartY < 50 && touchEndY - touchStartY > 100) {
-                enviarTiempoDeVisita("ios_swipe_close");
-            }
-        }, false);
     }
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
