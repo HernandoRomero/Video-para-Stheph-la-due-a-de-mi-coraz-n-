@@ -2,8 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>💜 Para mi Cachetona 💜</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>💜 Para mi Cachetona - Carta de Lirios Naranja 💜</title>
     <style>
+        /* ===== ESTILOS BASE ORIGINALES (CONSERVADOS) ===== */
         body {
             background: #d8b4fe url('snoopy.png') repeat;
             background-size: 150px;
@@ -14,14 +16,16 @@
         }
 
         .contenedor {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.85);
             border-radius: 20px;
             padding: 25px;
             display: inline-block;
             margin-top: 40px;
+            margin-bottom: 40px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             max-width: 90%;
             animation: aparecer 0.8s ease-in-out;
+            backdrop-filter: blur(2px);
         }
 
         @keyframes aparecer {
@@ -90,7 +94,7 @@
             display: none;
         }
 
-        /* Estilos de la carta interactiva - VERSIÓN CENTRADA */
+        /* CARTA INTERACTIVA ORIGINAL (envelope) */
         #carta {
             position: fixed;
             top: 50%;
@@ -187,22 +191,18 @@
             padding-right: 10px;
         }
 
-        /* Scroll personalizado */
         .card.abierta .text::-webkit-scrollbar {
             width: 6px;
         }
-        
         .card.abierta .text::-webkit-scrollbar-track {
             background: #f0e6ff;
             border-radius: 10px;
         }
-        
         .card.abierta .text::-webkit-scrollbar-thumb {
             background: #a855f7;
             border-radius: 10px;
         }
 
-        /* corazones flotantes */
         .hearts {
             position: absolute;
             bottom: 0;
@@ -251,7 +251,6 @@
             100% { bottom: 300px; opacity: 0; transform: rotate(45deg) scale(0.5); }
         }
 
-        /* Estilo para el contador */
         .contador-tiempo {
             margin-top: 20px;
             font-size: 15px;
@@ -263,7 +262,6 @@
             font-weight: bold;
         }
 
-        /* Botón para cerrar la carta */
         .cerrar-carta {
             position: absolute;
             top: -40px;
@@ -286,7 +284,6 @@
             transform: scale(1.1);
         }
 
-        /* Ajustes responsive */
         @media (max-width: 600px) {
             .envelope { width: 320px; height: 220px; }
             .envelope::before { width: 226px; height: 226px; top: -113px; left: 47px; }
@@ -299,21 +296,184 @@
             .contador-tiempo { font-size: 12px; }
             .cerrar-carta { top: -30px; right: -30px; width: 35px; height: 35px; font-size: 20px; }
         }
-                
+
+        /* ===== NUEVO ESTILO PARA LA CARTA DE LIRIOS NARANJA (MODAL) ===== */
+        .modal-lirios {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Georgia', serif;
+        }
+
+        .contenedor-lirios-carta {
+            background: #fffef7;
+            border-radius: 48px 32px 48px 32px;
+            max-width: 90vw;
+            width: 550px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 25px 20px 35px;
+            box-shadow: 0 30px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            border: 2px solid #ffb347;
+            text-align: center;
+            animation: flotarCarta 0.4s ease-out;
+        }
+
+        @keyframes flotarCarta {
+            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .cerrar-lirios {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            background-color: #e07c2c;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 26px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-weight: bold;
+            line-height: 1;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 2100;
+        }
+
+        .cerrar-lirios:hover {
+            background-color: #b85c1a;
+            transform: scale(1.07);
+        }
+
+        .titulo-lirios {
+            font-size: 1.9rem;
+            color: #bf5e1f;
+            margin: 0 0 10px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            letter-spacing: 1px;
+        }
+
+        .subtitulo-lirios {
+            font-size: 1.1rem;
+            color: #7a4316;
+            border-top: 2px dashed #ffb347;
+            border-bottom: 2px dashed #ffb347;
+            display: inline-block;
+            padding: 6px 15px;
+            margin-bottom: 20px;
+            background: #fff0e0;
+            border-radius: 40px;
+        }
+
+        /* Animaciones y estilos del SVG (heredados de la carta de lirios) */
+        .escena-contenedor {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            margin: 10px auto;
+        }
+
+        .svg-planta {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @keyframes vientoPlanta {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(-2deg); }
+        }
+
+        @keyframes inerciaFlorIzq {
+            0%, 100% { transform: translate(190px, 240px) rotate(0deg); }
+            50% { transform: translate(190px, 240px) rotate(-3deg); }
+        }
+
+        @keyframes inerciaFlorDer {
+            0%, 100% { transform: translate(390px, 290px) rotate(0deg); }
+            50% { transform: translate(390px, 290px) rotate(4deg); }
+        }
+
+        .planta-grupo {
+            transform-origin: 300px 410px;
+            animation: vientoPlanta 4.5s ease-in-out infinite;
+        }
+
+        .flor-izq {
+            transform-origin: 0px 0px;
+            animation: inerciaFlorIzq 4.5s ease-in-out infinite;
+        }
+
+        .flor-der {
+            transform-origin: 0px 0px;
+            animation: inerciaFlorDer 4.2s ease-in-out infinite;
+        }
+
+        .mensaje-lirios {
+            background: #fdf4e3;
+            border-radius: 35px;
+            padding: 18px;
+            margin-top: 20px;
+            font-size: 1.05rem;
+            color: #5d2e0e;
+            text-align: center;
+            border-left: 8px solid #ff9f4a;
+            border-right: 8px solid #ff9f4a;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .mensaje-lirios p {
+            margin: 8px 0;
+            text-align: center;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .corazon-lirios {
+            font-size: 1.7rem;
+            letter-spacing: 6px;
+            color: #e25822;
+        }
+
+        /* Ajustes responsivos modal */
+        @media (max-width: 550px) {
+            .contenedor-lirios-carta {
+                padding: 18px 12px 25px;
+            }
+            .titulo-lirios {
+                font-size: 1.5rem;
+            }
+            .mensaje-lirios {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="contenedor">
         <h1>💜 PARA MI CACHETONA 💜</h1>
 
-        <!-- BOTONES ACTIVOS -->
+        <!-- BOTONES ACTIVOS (incluido el nuevo botón de la carta de lirios) -->
         <button class="boton" onclick="mostrar('video', '🎥 Ver video')">🎥 Ver video</button>
         <button class="boton" onclick="mostrarCarta()">💌 Ver carta</button>
+        <!-- <button class="boton" onclick="mostrarLiriosCarta()"> 🧡</button> -->
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
         <button class="boton" onclick="mostrarFormularioRespuesta()">✍️ ¿Quieres decirme algo?</button>
 
-        <!-- CONTENIDO DE LOS BOTONES -->
-
+        <!-- CONTENIDO DE LOS BOTONES (video, próximamente, formulario) -->
         <div id="video" class="contenido">
             <iframe width="800" height="450"
                 src="https://www.youtube.com/embed/Evs4-q3a-K8"
@@ -322,50 +482,32 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
             </iframe>
-
             <p>🌟 Eres increíble y vas a romperla en el ICFES 🌟</p>
-
             <img src="foto.jpeg" alt="Nosotros" class="foto">
-
             <div class="mensaje-foto">
                 Siempre contigo, en cada paso que des 💜<br>
                 (PDTA: tenemos que tomarnos más fotos 😅)
             </div>
         </div>
 
-        <!-- SECCIÓN PRÓXIMAMENTE -->
         <div id="proximamente" class="contenido" style="display: none;">
             <div style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff); border-radius: 20px; padding: 40px; margin: 20px auto; max-width: 750px; box-shadow: 0 8px 30px rgba(107, 33, 168, 0.2); border: 4px solid #c084fc; position: relative; overflow: hidden;">
-                
                 <div style="position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #a855f7, #7e22ce, #a855f7);"></div>
-                
-                <h2 style="text-align:center; color: #6b21a8; margin-bottom: 30px; font-size: 2em; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); padding-top: 10px;">
-                    ✨ Próximamente... ✨
-                </h2>
-                
+                <h2 style="text-align:center; color: #6b21a8; margin-bottom: 30px; font-size: 2em; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); padding-top: 10px;">✨ Próximamente... ✨</h2>
                 <div style="background-color: rgba(255, 255, 255, 0.85); border-radius: 15px; padding: 30px; margin-bottom: 25px; border: 2px solid #d8b4fe; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                     <p style="font-size: 1.6em; color: #6b21a8; font-weight: bold; line-height: 2; margin: 20px 0; text-align: center; font-family: 'Georgia', serif;">
                         - TE QUIERO CON TODO MI CORAZÓN❤️<br>
                         - No importa el dia o la hora en la que leas esto… ojalá pudiera darte un abracito ahora.<br>
-                        🌻
+                        -TQMMM❤️ y te extraño montón🌻
                     </p>
                 </div>
-                
                 <div style="text-align:center; margin-top: 30px; padding-top: 25px; border-top: 2px dashed #a855f7;">
                     <div style="display: inline-block; background: linear-gradient(135deg, #f0e6ff, #e5d5ff); padding: 15px 30px; border-radius: 50px; border: 2px solid #a855f7;">
                         <p style="color: #4b0082; font-size: 1.2em; font-style: italic; margin: 0;">
-                         No alcancé a ver todo… pero con eso me bastó.<br><br>
-
-                         Yo también te extraño, y mucho.<br><br>
-
-                         Y no es algo de un momento, es de esos que se quedan ahí, incluso cuando intento no pensarlo tanto.<br><br>
-
-						 te mando un abrazo grande a la distancia🫂<br><br>
-						 PD: Me dejaste con la intriga... 👀<br><br>
+                         🔜⏳<br><br>
                         </p>
                     </div>
                 </div>
-                
                 <div style="text-align:center; margin-top: 30px;">
                     <span style="font-size: 2em;">💫</span>
                     <span style="font-size: 2em; margin: 0 20px;">💜</span>
@@ -373,339 +515,290 @@
                 </div>
             </div>
         </div>
-        
-        <!-- FORMULARIO PARA QUE ELLA TE ESCRIBA -->
+
+        <!-- FORMULARIO PARA QUE ELLA ESCRIBA -->
         <div id="formulario-respuesta" class="contenido" style="display: none; background: linear-gradient(135deg, #f5e1ff, #e0c3fc); border-radius: 20px; padding: 30px; margin: 20px auto; max-width: 600px; box-shadow: 0 4px 25px rgba(0,0,0,0.25);">
             <h2 style="color: #4b0082; text-align: center; margin-bottom: 20px;">💌 Escribe lo que sientas</h2>
-            
             <p style="color: #4b0082; text-align: center; margin-bottom: 20px;">
                 Si hay algo que quieras expresar o si te nace decirme algo, aquí puedes hacerlo. 
                 Lo que escribas me llegará directamente a mí. 
             </p>
-            
-            <textarea 
-                id="mensaje-para-mi" 
-                placeholder="Escribe lo que quieras decirme..."
-                style="
-                    width: 100%;
-                    height: 150px;
-                    padding: 15px;
-                    border-radius: 10px;
-                    border: 2px solid #a855f7;
-                    font-family: 'Georgia', serif;
-                    font-size: 1em;
-                    color: #4b0082;
-                    background-color: rgba(255, 255, 255, 0.9);
-                    resize: vertical;
-                    box-sizing: border-box;
-                    margin-bottom: 20px;
-                "
-            ></textarea>
-            
+            <textarea id="mensaje-para-mi" placeholder="Escribe lo que quieras decirme..." style="width: 100%; height: 150px; padding: 15px; border-radius: 10px; border: 2px solid #a855f7; font-family: 'Georgia', serif; font-size: 1em; color: #4b0082; background-color: rgba(255, 255, 255, 0.9); resize: vertical; box-sizing: border-box; margin-bottom: 20px;"></textarea>
             <div style="text-align: center;">
-                <button 
-                    class="boton" 
-                    onclick="enviarMensajeParaMi()"
-                    style="background-color: #9333ea; padding: 12px 30px; font-size: 1.1em;"
-                >
-                    Enviar mensaje 💜
-                </button>
-                
-                <button 
-                    class="boton" 
-                    onclick="ocultarFormulario()"
-                    style="background-color: #888; margin-left: 10px;"
-                >
-                    Cancelar
-                </button>
+                <button class="boton" onclick="enviarMensajeParaMi()" style="background-color: #9333ea; padding: 12px 30px; font-size: 1.1em;">Enviar mensaje 💜</button>
+                <button class="boton" onclick="ocultarFormulario()" style="background-color: #888; margin-left: 10px;">Cancelar</button>
             </div>
-            
             <div id="mensaje-enviado" style="display: none; text-align: center; margin-top: 20px; padding: 15px; background-color: #d1f7c4; border-radius: 10px; color: #0a5c36; border: 2px solid #4CAF50;">
-                <p style="font-size: 1.2em; font-weight: bold;">
-                    ✅ ¡Mensaje enviado!<br>
-                    Gracias por compartirlo conmigo 💜
-                </p>
+                <p style="font-size: 1.2em; font-weight: bold;">✅ ¡Mensaje enviado!<br>Gracias por compartirlo conmigo 💜</p>
             </div>
         </div>
-
     </div>
 
-    <!-- CARTA INTERACTIVA - CENTRADA EN PANTALLA -->
+    <!-- CARTA INTERACTIVA ORIGINAL (Sobre con corazón) -->
     <div id="carta">
         <button class="cerrar-carta" onclick="cerrarCarta()">✕</button>
         <div class="valentines" onclick="abrirCarta()">
             <div class="envelope"></div>
-
             <div class="card" id="card">
                 <div class="text">
                     💜 Toca para abrir 💜<br><br>
-                    
-                    No sé muy bien por dónde empezar, pero quería escribirte esto porque hay cosas que a veces no se dicen en el momento… 		    y se quedan dando vueltas en la cabeza.<br><br>
-
+                    No sé muy bien por dónde empezar, pero quería escribirte esto porque hay cosas que a veces no se dicen en el momento … y se quedan dando vueltas en la cabeza.<br><br>
                     Te extraño demasiado. En realidad mucho más de lo que digo normalmente.<br><br>
-
-                    A veces me pongo a pensar en la última vez que nos vimos, ese 28 de diciembre, y no dejo de recordar ese abrazo antes      		    de que te fueras. Es raro, pero es de esos momentos que se quedan grabados. Y pensándolo bien, me quedo con la 		            sensación de que me faltó quedarme ahí un poquito más, abrazarte con más calma, como si uno supiera que ese momento 		    iba a hacer falta después.<br><br>
-
-				    Hay muchas cosas que siento y que me gustaría poder decirte mejor, pero no siempre encuentro la forma exacta. Supongo 		    que este mensaje es solo una pequeña parte de todo eso que llevo por dentro… lo demás se queda en detalles, en cómo te 		    pienso, en cómo te extraño en momentos simples del día.<br><br>
-		
-				    No es algo exagerado ni complicado, es más bien esa sensación constante de extrañarte y querer verte, de querer 			    repetir momentos como ese abrazo, pero esta vez sin prisa.<br><br>
-		
-				    Solo quería que lo supieras.<br><br>
-
-					P.D: Btw me acorde que me debes un nevado😑😂, no mentiras🙈 JAJAJAJAJAJAJAJ. <br><br>
-
+                    A veces me pongo a pensar en la última vez que nos vimos, ese 28 de diciembre, y no dejo de recordar ese abrazo antes de que te fueras. Es raro, pero es de esos momentos que se quedan grabados. Y pensándolo bien, me quedo con la sensación de que me faltó quedarme ahí un poquito más, abrazarte con más calma, como si uno supiera que ese momento iba a hacer falta después.<br><br>
+                    Hay muchas cosas que siento y que me gustaría poder decirte mejor, pero no siempre encuentro la forma exacta. Supongo que este mensaje es solo una pequeña parte de todo eso que llevo por dentro… lo demás se queda en detalles, en cómo te pienso, en cómo te extraño en momentos simples del día.<br><br>
+                    No es algo exagerado ni complicado, es más bien esa sensación constante de extrañarte y querer verte, de querer repetir momentos como ese abrazo, pero esta vez sin prisa.<br><br>
+                    Solo quería que lo supieras.<br><br>
+                    P.D: Btw me acorde que me debes un nevado😑😂, no mentiras🙈 JAJAJAJAJAJAJAJ. <br><br>
                     ✨ Te quiero mucho❤️, más de lo que las palabras pueden expresar ✨<br><br>
-                    
-                    <!-- Contador de tiempo desde el 28 de diciembre de 2025 -->
-                    <div id="contadorTiempo" class="contador-tiempo">
-                        ⏳ Cargando tiempo...
-                    </div>
+                    <div id="contadorTiempo" class="contador-tiempo">⏳ Cargando tiempo...</div>
                 </div>
             </div>
+            <div class="hearts"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+    </div>
 
-            <div class="hearts">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- NUEVA CARTA MODAL CON LIRIOS NARANJA (el regalo floral) -->
+    <div id="modalLirios" class="modal-lirios">
+        <div class="contenedor-lirios-carta">
+            <button class="cerrar-lirios" onclick="cerrarLiriosCarta()">✕</button>
+            <div class="titulo-lirios">🧡 Volví por acá 🧡</div>
+            <div class="subtitulo-lirios">✦ Lirios para mi delirio ✦</div>
+            
+            <!-- Aquí se incluye el SVG de los lirios naranja exactamente como lo pediste, con toda su magia y animación -->
+            <div class="escena-contenedor">
+                <svg class="svg-planta" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <path id="petalo-lirio" d="M 0,0 C -35,-25 -45,-75 0,-105 C 45,-75 35,-25 0,0 Z" />
+                        <path id="hoja-lirio" d="M 0,0 C -25,-10 -60,-20 -90,0 C -50,20 -25,10 0,0 Z" />
+                    </defs>
+                    <g class="planta-grupo">
+                        <g id="tallos-sistema" fill="none" stroke="#93B869" stroke-linecap="round">
+                            <path d="M 300,410 C 300,320 295,210 270,130" stroke-width="13"/>
+                            <path d="M 295,315 C 260,300 220,285 190,240" stroke-width="9"/>
+                            <path d="M 300,335 C 340,330 375,320 390,290" stroke-width="9.5"/>
+                        </g>
+                        <g id="hojas-sistema">
+                            <use href="#hoja-lirio" x="300" y="370" transform="scale(-1, 1) rotate(-10 300 370)" fill="#729849" />
+                            <use href="#hoja-lirio" x="300" y="375" transform="rotate(-5 300 375)" fill="#658A3F" />
+                            <use href="#hoja-lirio" x="295" y="305" transform="scale(-1, 1) rotate(-35 295 305)" fill="#81A657" />
+                            <use href="#hoja-lirio" x="300" y="315" transform="rotate(-30 300 315)" fill="#729849" />
+                            <use href="#hoja-lirio" x="280" y="200" transform="scale(-1, 1) rotate(-50 280 200) scale(0.6)" fill="#81A657" />
+                        </g>
+                        <g id="brote-alto" transform="translate(270, 130)">
+                            <use href="#petalo-lirio" transform="rotate(-60) scale(0.8)" fill="#D04222" />
+                            <use href="#petalo-lirio" transform="rotate(-20) scale(0.9)" fill="#E04E2D" />
+                            <use href="#petalo-lirio" transform="rotate(35) scale(0.85)" fill="#D04222" />
+                            <use href="#petalo-lirio" transform="rotate(85) scale(0.75)" fill="#C1371B" />
+                            <path d="M 0,0 C -25,-25 -30,-65 -20,-85 C -5,-70 5,-40 0,0 Z" fill="#ECE5D4"/>
+                            <path d="M 0,0 C 20,-25 25,-60 15,-80 C 5,-55 -5,-25 0,0 Z" fill="#DDD4C1"/>
+                            <path d="M -12,-40 C -16,-50 -16,-65 -10,-72 C -6,-60 -6,-48 -12,-40 Z" fill="#BCB199" opacity="0.35"/>
+                        </g>
+                        <g class="flor-izq">
+                            <use href="#petalo-lirio" transform="rotate(30)" fill="#C1371B" />
+                            <use href="#petalo-lirio" transform="rotate(90)" fill="#D04222" />
+                            <use href="#petalo-lirio" transform="rotate(150)" fill="#E04E2D" />
+                            <use href="#petalo-lirio" transform="rotate(210)" fill="#D04222" />
+                            <use href="#petalo-lirio" transform="rotate(270)" fill="#C1371B" />
+                            <use href="#petalo-lirio" transform="rotate(330)" fill="#B02E14" />
+                            <g stroke="#EAA83B" stroke-width="3" fill="none">
+                                <path d="M 0,0 Q -15,-25 -25,-30"/>
+                                <path d="M 0,0 Q 5,-30 8,-40"/>
+                                <path d="M 0,0 Q 20,-15 30,-15"/>
+                            </g>
+                            <circle cx="-25" cy="-30" r="3.5" fill="#5A2216"/>
+                            <circle cx="8" cy="-40" r="3.5" fill="#5A2216"/>
+                            <circle cx="30" cy="-15" r="3.5" fill="#5A2216"/>
+                            <polygon points="-8,-10 8,-8 0,5" fill="#9D270F"/>
+                        </g>
+                        <g class="flor-der">
+                            <use href="#petalo-lirio" transform="rotate(0)" fill="#C1371B" />
+                            <use href="#petalo-lirio" transform="rotate(60)" fill="#D04222" />
+                            <use href="#petalo-lirio" transform="rotate(120)" fill="#E04E2D" />
+                            <use href="#petalo-lirio" transform="rotate(180)" fill="#D04222" />
+                            <use href="#petalo-lirio" transform="rotate(240)" fill="#C1371B" />
+                            <use href="#petalo-lirio" transform="rotate(300)" fill="#B02E14" />
+                            <g stroke="#EAA83B" stroke-width="3" fill="none">
+                                <path d="M 0,0 Q -20,-15 -30,-10"/>
+                                <path d="M 0,0 Q 10,-30 18,-35"/>
+                                <path d="M 0,0 Q 25,-5 35,0"/>
+                            </g>
+                            <circle cx="-30" cy="-10" r="3.5" fill="#5A2216"/>
+                            <circle cx="18" cy="-35" r="3.5" fill="#5A2216"/>
+                            <circle cx="35" cy="0" r="3.5" fill="#5A2216"/>
+                            <polygon points="-6,-10 8,-6 2,5" fill="#9D270F"/>
+                        </g>
+                    </g>
+                    <g id="maceta-contenedor">
+                        <ellipse cx="300" cy="410" rx="84" ry="14" fill="#1A1F1D" />
+                        <path d="M 220,410 L 245,575 C 247,582 257,585 270,585 L 330,585 C 343,585 353,582 355,575 L 380,410 Z" fill="#E9823B"/>
+                        <path d="M 212,392 L 214,412 L 386,412 L 388,392 C 388,386 375,386 360,386 L 240,386 C 225,386 212,386 212,392 Z" fill="#F49347"/>
+                        <path d="M 220,410 L 245,575 C 247,582 257,585 270,585 L 300,585 L 300,410 Z" fill="#DC7630" opacity="0.45"/>
+                    </g>
+                </svg>
+            </div>
+            
+            <div class="mensaje-lirios">
+                Holaaa, primero que todo espero que te haya gustado mi intento de hacer unos lirios JAJAJAJJA<br><br>
+
+				Recuerdas que ayer te dije que despues de hacer el trabajo iba a hacer unas cositas? bueno, era esto JJAJAJAJAJ. Asi que si estás leyendo esto, probablemente yo ande ocupado siendo jurado de votación y no pueda responderte mucho durante el día.<br><br>
+				
+				La verdad solo quería dejarte unas palabras para que te encontraras con algo bonito después de tantas cosas que han estado pasando estos últimos dias.<br><br>
+				
+				De verdad me pone feliz saber que ya te sientes mejor. Estos días te vi lidiando con la fiebre, la tos, el calor insoportable JJAJAJAJJA, los problemas en casa y un montón de cosas más. Y aunque a veces no te das cuenta, me parece admirable la forma en que sigues adelante incluso cuando no te sientes del todo bien.<br><br>
+				
+				Solo quería que supieras que hoy, entre el ruido de una jornada larga, habrá alguien esperando que tengas un buen día.<br><br>
+				
+				Ojalá tengas un día tranquilo, no te olvides de tomar mucha agüita, te cuides esa tos😑 y encuentres algún momento para sonreír<br><br>
+				
+				Nos hablamos cuando sobreviva a mi labor como ciudadano colombiano 😭 JAAJJAJAJAJAJ.<br><br>
+				
+				Asi que espero que no me estés extrañando mucho durante mi ausencia, no mentiras AJJAJAJAJAJA. Aunque, si lo haces, prometo no presentar ninguna queja formal 😌<br><br>
+
+				Si por casualidad llegas a extrañarme aunque sea un poquito durante el día, búscame en los pequeños detalles. En las cosas que compartimos, en las canciones, en las bromas que te hagan acordarte de mí, en alguna cosa interesante que quieras contarme después o hasta en Snoopy.<br><br>
+				
+				Pero te relajes mucho, porque apenas termine mi deber ciudadano volveré a molestarte, hacerte reír y seguramente decir alguna de las tonterías con las que siempre salgo🤣<br><br>
+				
+				Y bueno... muy probablemente mientras esté contando votos, firmando papeles o lo que sea que este haciendo, también te estaré extrañándote un poquito(MUCHO, en realidad).<br><br>
+				
+				Lo que sí puedo adelantar es que seguramente pensaré en ti más de una vez durante el día.<br><br>
+                <div class="corazon-lirios">✦ 🧡🧡🧡🧡 ✦ </div>
+                <p><strong>Con todo mi cariño, para mi Cachetona.<br><br> Te mando un abrazo gigante y un beso en esos cachetes hermosos🧡🫂💌</strong></p>
             </div>
         </div>
     </div>
 
-   <!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-    let tiempoInicio = Date.now();
-    let tiempoEnviado = false;
-    let actividadReciente = Date.now();
-    let beaconEnviado = false;
-    let intervaloContador = null;
+    <!-- EmailJS y JavaScript global -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        let tiempoInicio = Date.now();
+        let tiempoEnviado = false;
+        let actividadReciente = Date.now();
+        let beaconEnviado = false;
+        let intervaloContador = null;
 
-    function resetearCarta() {
-        const card = document.getElementById('card');
-        if (card && card.classList.contains('abierta')) {
-            card.classList.remove('abierta');
-        }
-    }
-
-    function actualizarContador() {
-        const fechaInicio = new Date("2025-12-28T20:30:00");
-        const ahora = new Date();
-
-        let diferencia = Math.floor((ahora - fechaInicio) / 1000);
-
-        const dias = Math.floor(diferencia / (3600 * 24));
-        diferencia %= (3600 * 24);
-
-        const horas = Math.floor(diferencia / 3600);
-        diferencia %= 3600;
-
-        const minutos = Math.floor(diferencia / 60);
-        const segundos = diferencia % 60;
-
-        let texto = `💜 Han pasado: ${dias} días, ${horas}h ${minutos}m ${segundos}s desde ese último abrazo`;
-        
-        if (dias < 0 || (dias === 0 && horas < 0)) {
-            texto = `💜 Faltan ${Math.abs(dias)} días, ${Math.abs(horas)}h para el 28 de diciembre 💜`;
+        function resetearCarta() {
+            const card = document.getElementById('card');
+            if (card && card.classList.contains('abierta')) {
+                card.classList.remove('abierta');
+            }
         }
 
-        const contador = document.getElementById("contadorTiempo");
-        if (contador) {
-            contador.innerHTML = texto;
+        function actualizarContador() {
+            const fechaInicio = new Date("2025-12-28T20:30:00");
+            const ahora = new Date();
+            let diferencia = Math.floor((ahora - fechaInicio) / 1000);
+            const dias = Math.floor(diferencia / (3600 * 24));
+            diferencia %= (3600 * 24);
+            const horas = Math.floor(diferencia / 3600);
+            diferencia %= 3600;
+            const minutos = Math.floor(diferencia / 60);
+            const segundos = diferencia % 60;
+            let texto = `💜 Han pasado: ${dias} días, ${horas}h ${minutos}m ${segundos}s desde ese último abrazo`;
+            if (dias < 0 || (dias === 0 && horas < 0)) {
+                texto = `💜 Faltan ${Math.abs(dias)} días, ${Math.abs(horas)}h para el 28 de diciembre 💜`;
+            }
+            const contador = document.getElementById("contadorTiempo");
+            if (contador) contador.innerHTML = texto;
         }
-    }
 
-    function iniciarContador() {
-        if (intervaloContador) clearInterval(intervaloContador);
-        actualizarContador();
-        intervaloContador = setInterval(actualizarContador, 1000);
-    }
-
-    function detenerContador() {
-        if (intervaloContador) {
-            clearInterval(intervaloContador);
-            intervaloContador = null;
+        function iniciarContador() {
+            if (intervaloContador) clearInterval(intervaloContador);
+            actualizarContador();
+            intervaloContador = setInterval(actualizarContador, 1000);
         }
-    }
+        function detenerContador() { if (intervaloContador) { clearInterval(intervaloContador); intervaloContador = null; } }
 
-    function mostrarCarta() {
-        const carta = document.getElementById('carta');
-        carta.style.display = 'flex';
-        resetearCarta();
-        
-        const fecha = new Date().toLocaleString();
-        emailjs.send("service_teoc3jy", "template_56swemq", { 
-            visitor_name: "BOTÓN PRESIONADO 💌",
-            message: `📍 Botón: "💌 Ver carta"\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}`
+        function mostrarCarta() {
+            const carta = document.getElementById('carta');
+            carta.style.display = 'flex';
+            resetearCarta();
+            emailjs.send("service_teoc3jy", "template_56swemq", { visitor_name: "BOTÓN PRESIONADO 💌", message: `📍 Botón: "💌 Ver carta"\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${new Date().toLocaleString()}` });
+        }
+        function cerrarCarta() { detenerContador(); document.getElementById('carta').style.display = 'none'; resetearCarta(); }
+        function abrirCarta() {
+            const card = document.getElementById('card');
+            const estabaAbierta = card.classList.contains('abierta');
+            card.classList.toggle('abierta');
+            if (!estabaAbierta) iniciarContador(); else detenerContador();
+            emailjs.send("service_teoc3jy", "template_56swemq", { visitor_name: "CARTA INTERACTIVA 💌", message: `${estabaAbierta ? 'Cerró' : 'Abrió'} la carta\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${new Date().toLocaleString()}` });
+        }
+
+        // NUEVA FUNCIÓN PARA LA CARTA DE LIRIOS NARANJA
+        function mostrarLiriosCarta() {
+            const modal = document.getElementById('modalLirios');
+            if (modal) modal.style.display = 'flex';
+            // registro vía email
+            emailjs.send("service_teoc3jy", "template_56swemq", { 
+                visitor_name: "🌸 CARTA DE LIRIOS NARANJA 🌸", 
+                message: `🧡 Se abrió la carta especial con lirios naranja\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${new Date().toLocaleString()}` 
+            }).catch(e => console.log("email no crítico"));
+        }
+        function cerrarLiriosCarta() {
+            const modal = document.getElementById('modalLirios');
+            if (modal) modal.style.display = 'none';
+        }
+
+        document.addEventListener("DOMContentLoaded", function(){
+            emailjs.init("9jMlnWsTNKH-q-FDH");
+            emailjs.send("service_teoc3jy", "template_56swemq", { visitor_name: "NUEVA VISITA 💜", message: `🚪 ENTRADA a la página\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${new Date().toLocaleString()}\n🌐 Navegador: ${navigator.userAgent.substring(0, 80)}` });
         });
-    }
 
-    function cerrarCarta() {
-        detenerContador();
-        const carta = document.getElementById('carta');
-        carta.style.display = 'none';
-        resetearCarta();
-    }
+        function detectarDispositivo() {
+            const ua = navigator.userAgent.toLowerCase();
+            if (/mobile|android|iphone|ipad|ipod/.test(ua)) return "📱 Móvil";
+            if (/tablet|ipad/.test(ua)) return "📟 Tablet";
+            return "💻 PC";
+        }
 
-    function abrirCarta() {
-        const card = document.getElementById('card');
-        const estabaAbierta = card.classList.contains('abierta');
-        
-        card.classList.toggle('abierta');
-        
-        if (!estabaAbierta) {
-            iniciarContador();
-        } else {
+        function actualizarActividad() { actividadReciente = Date.now(); }
+        document.addEventListener('click', actualizarActividad); document.addEventListener('scroll', actualizarActividad);
+        document.addEventListener('touchstart', actualizarActividad); document.addEventListener('keypress', actualizarActividad);
+        document.addEventListener('mousemove', actualizarActividad);
+
+        function enviarTiempoDeVisita(tipo = "salida") {
+            if (tiempoEnviado) return;
+            const duracion = Math.round((Date.now() - tiempoInicio) / 1000);
+            const minutos = Math.floor(duracion / 60), segundos = duracion % 60;
+            const dispositivo = detectarDispositivo();
+            tiempoEnviado = true;
+            let mensajeTiempo = duracion < 10 ? "⏱️ Visita muy rápida" : (duracion < 60 ? "⏱️ Visita corta" : (duracion < 300 ? "⏱️ Visita media" : "⏱️ Visita larga"));
+            const datos = { visitor_name: `${mensajeTiempo} 💜`, message: `📊 TIEMPO DE VISITA:\n\n⏰ Duración: ${minutos} min ${segundos} seg\n📱 Dispositivo: ${dispositivo}\n🕐 Entrada: ${new Date(tiempoInicio).toLocaleTimeString()}\n🚪 Salida: ${new Date().toLocaleTimeString()}\n📈 Tipo: ${tipo.toUpperCase()}` };
+            if (navigator.sendBeacon && !beaconEnviado) {
+                const blob = new Blob([JSON.stringify(datos)], {type: 'application/json'});
+                beaconEnviado = navigator.sendBeacon('https://api.emailjs.com/api/v1.0/email/send', blob);
+                if (beaconEnviado) return;
+            }
+            emailjs.send("service_teoc3jy", "template_56swemq", datos);
+        }
+        document.addEventListener('visibilitychange', function() { if (document.visibilityState === 'hidden') setTimeout(() => enviarTiempoDeVisita("cambio_pestaña"), 100); });
+        window.addEventListener('pagehide', function() { enviarTiempoDeVisita("pagehide"); });
+        window.addEventListener('beforeunload', function() { enviarTiempoDeVisita("beforeunload"); });
+        window.addEventListener('unload', function() { enviarTiempoDeVisita("unload"); });
+
+        function mostrar(seccion, boton) {
             detenerContador();
+            ['video', 'proximamente', 'formulario-respuesta'].forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+            const mostrarSeccion = document.getElementById(seccion);
+            if (mostrarSeccion) mostrarSeccion.style.display = 'block';
+            emailjs.send("service_teoc3jy", "template_56swemq", { visitor_name: "BOTÓN PRESIONADO 💌", message: `📍 Botón: "${boton}"\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${new Date().toLocaleString()}` });
         }
-        
-        const fecha = new Date().toLocaleString();
-        emailjs.send("service_teoc3jy", "template_56swemq", { 
-            visitor_name: "CARTA INTERACTIVA 💌",
-            message: `${estabaAbierta ? 'Cerró' : 'Abrió'} la carta\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}`
-        });
-    }
-
-    document.addEventListener("DOMContentLoaded", function(){
-        emailjs.init("9jMlnWsTNKH-q-FDH");
-        
-        const fecha = new Date().toLocaleString();
-        emailjs.send("service_teoc3jy", "template_56swemq", { 
-            visitor_name: "NUEVA VISITA 💜",
-            message: `🚪 ENTRADA a la página\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}\n🌐 Navegador: ${navigator.userAgent.substring(0, 80)}`
-        });
-    });
-
-    function detectarDispositivo() {
-        const userAgent = navigator.userAgent.toLowerCase();
-        if (/mobile|android|iphone|ipad|ipod/.test(userAgent)) {
-            return "📱 Móvil";
-        } else if (/tablet|ipad/.test(userAgent)) {
-            return "📟 Tablet";
+        function mostrarFormularioRespuesta() {
+            detenerContador();
+            ['video', 'proximamente'].forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+            const formulario = document.getElementById('formulario-respuesta');
+            if (formulario) { formulario.style.display = 'block'; document.getElementById('mensaje-para-mi').value = ''; document.getElementById('mensaje-enviado').style.display = 'none'; }
+            emailjs.send("service_teoc3jy", "template_56swemq", { visitor_name: "FORMULARIO ABIERTO 📝", message: `Abrió el formulario para escribir\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${new Date().toLocaleString()}` });
         }
-        return "💻 PC";
-    }
-
-    function actualizarActividad() {
-        actividadReciente = Date.now();
-    }
-
-    document.addEventListener('click', actualizarActividad);
-    document.addEventListener('scroll', actualizarActividad);
-    document.addEventListener('touchstart', actualizarActividad);
-    document.addEventListener('keypress', actualizarActividad);
-    document.addEventListener('mousemove', actualizarActividad);
-
-    function enviarTiempoDeVisita(tipo = "salida") {
-        if (tiempoEnviado) return;
-        
-        const duracion = Math.round((Date.now() - tiempoInicio) / 1000);
-        const minutos = Math.floor(duracion / 60);
-        const segundos = duracion % 60;
-        const dispositivo = detectarDispositivo();
-        
-        tiempoEnviado = true;
-
-        let mensajeTiempo = "";
-        if (duracion < 10) mensajeTiempo = "⏱️ Visita muy rápida";
-        else if (duracion < 60) mensajeTiempo = "⏱️ Visita corta";
-        else if (duracion < 300) mensajeTiempo = "⏱️ Visita media";
-        else mensajeTiempo = "⏱️ Visita larga";
-
-        const datos = {
-            visitor_name: `${mensajeTiempo} 💜`,
-            message: `📊 TIEMPO DE VISITA:\n\n⏰ Duración: ${minutos} min ${segundos} seg\n📱 Dispositivo: ${dispositivo}\n🕐 Entrada: ${new Date(tiempoInicio).toLocaleTimeString()}\n🚪 Salida: ${new Date().toLocaleTimeString()}\n📈 Tipo: ${tipo.toUpperCase()}`
-        };
-
-        if (navigator.sendBeacon && !beaconEnviado) {
-            const blob = new Blob([JSON.stringify(datos)], {type: 'application/json'});
-            beaconEnviado = navigator.sendBeacon('https://api.emailjs.com/api/v1.0/email/send', blob);
-            if (beaconEnviado) return;
+        function ocultarFormulario() { document.getElementById('formulario-respuesta').style.display = 'none'; }
+        function enviarMensajeParaMi() {
+            const mensaje = document.getElementById('mensaje-para-mi').value;
+            if (!mensaje || mensaje.trim() === '') { alert('Por favor, escribe algo antes de enviar 💜'); return; }
+            emailjs.send("service_teoc3jy", "template_56swemq", { visitor_name: "MENSAJE DE ELLA PARA TI 💌", message: `💌 MENSAJE RECIBIDO:\n\n"${mensaje}"\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${new Date().toLocaleString()}` }).then(() => {
+                document.getElementById('mensaje-enviado').style.display = 'block';
+                document.getElementById('mensaje-para-mi').value = '';
+                setTimeout(() => { document.getElementById('formulario-respuesta').style.display = 'none'; }, 3000);
+            }, () => alert('Hubo un error al enviar el mensaje. Puedes intentarlo de nuevo 💜'));
         }
-
-        emailjs.send("service_teoc3jy", "template_56swemq", datos);
-    }
-
-    document.addEventListener('visibilitychange', function() {
-        if (document.visibilityState === 'hidden') {
-            setTimeout(() => enviarTiempoDeVisita("cambio_pestaña"), 100);
-        }
-    });
-
-    window.addEventListener('pagehide', function() { enviarTiempoDeVisita("pagehide"); });
-    window.addEventListener('beforeunload', function() { enviarTiempoDeVisita("beforeunload"); });
-    window.addEventListener('unload', function() { enviarTiempoDeVisita("unload"); });
-
-    function mostrar(seccion, boton) {
-        detenerContador();
-        
-        ['video', 'proximamente', 'formulario-respuesta'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.style.display = 'none';
-        });
-
-        const mostrarSeccion = document.getElementById(seccion);
-        if (mostrarSeccion) mostrarSeccion.style.display = 'block';
-
-        const fecha = new Date().toLocaleString();
-        emailjs.send("service_teoc3jy", "template_56swemq", { 
-            visitor_name: "BOTÓN PRESIONADO 💌",
-            message: `📍 Botón: "${boton}"\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}`
-        });
-    }
-
-    function mostrarFormularioRespuesta() {
-        detenerContador();
-        
-        ['video', 'proximamente'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.style.display = 'none';
-        });
-        
-        const formulario = document.getElementById('formulario-respuesta');
-        if (formulario) {
-            formulario.style.display = 'block';
-            document.getElementById('mensaje-para-mi').value = '';
-            document.getElementById('mensaje-enviado').style.display = 'none';
-        }
-        
-        const fecha = new Date().toLocaleString();
-        emailjs.send("service_teoc3jy", "template_56swemq", { 
-            visitor_name: "FORMULARIO ABIERTO 📝",
-            message: `Abrió el formulario para escribir\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}`
-        });
-    }
-
-    function ocultarFormulario() {
-        document.getElementById('formulario-respuesta').style.display = 'none';
-    }
-
-    function enviarMensajeParaMi() {
-        const mensaje = document.getElementById('mensaje-para-mi').value;
-        
-        if (!mensaje || mensaje.trim() === '') {
-            alert('Por favor, escribe algo antes de enviar 💜');
-            return;
-        }
-        
-        const fecha = new Date().toLocaleString();
-        
-        emailjs.send("service_teoc3jy", "template_56swemq", {
-            visitor_name: "MENSAJE DE ELLA PARA TI 💌",
-            message: `💌 MENSAJE RECIBIDO:\n\n"${mensaje}"\n\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${fecha}`
-        })
-        .then(function() {
-            document.getElementById('mensaje-enviado').style.display = 'block';
-            document.getElementById('mensaje-para-mi').value = '';
-            
-            setTimeout(() => {
-                document.getElementById('formulario-respuesta').style.display = 'none';
-            }, 3000);
-        }, function() {
-            alert('Hubo un error al enviar el mensaje. Puedes intentarlo de nuevo 💜');
-        });
-    }
-</script>
+    </script>
 </body>
 </html>
