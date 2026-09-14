@@ -377,7 +377,6 @@
             border-radius: 40px;
         }
 
-        /* Animaciones y estilos del SVG (heredados de la carta de lirios) */
         .escena-contenedor {
             position: relative;
             width: 100%;
@@ -447,7 +446,6 @@
             color: #e25822;
         }
 
-        /* Ajustes responsivos modal */
         @media (max-width: 550px) {
             .contenedor-lirios-carta {
                 padding: 18px 12px 25px;
@@ -460,16 +458,189 @@
                 padding: 12px;
             }
         }
+
+        /* ============================================================
+           BLOQUE 1 · CSS  →  modal "Sorpresa" (pastel + carta + corazón)
+           ============================================================ */
+        .modal-todo{
+          position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);
+          z-index:2000;display:none;justify-content:center;align-items:center;padding:20px;
+        }
+        .tarjeta-todo{
+          background:#EFE7F6;border-radius:26px;padding:26px 18px 30px;
+          width:min(480px,94vw);max-height:92vh;overflow-y:auto;position:relative;
+          box-shadow:0 30px 40px rgba(0,0,0,.4);font-family:Georgia,serif;
+          display:flex;flex-direction:column;align-items:center;gap:18px;
+        }
+        .tarjeta-todo::-webkit-scrollbar{width:6px}
+        .tarjeta-todo::-webkit-scrollbar-track{background:#f0e6ff;border-radius:10px}
+        .tarjeta-todo::-webkit-scrollbar-thumb{background:#a855f7;border-radius:10px}
+
+        .cerrar-todo{
+          position:absolute;top:12px;right:14px;background:#a855f7;color:#fff;border:none;
+          border-radius:50%;width:38px;height:38px;font-size:24px;line-height:1;cursor:pointer;
+          box-shadow:0 2px 8px rgba(0,0,0,.2);transition:.2s;z-index:10;
+        }
+        .cerrar-todo:hover{background:#7e22ce;transform:scale(1.07)}
+        .cerrar-todo:focus-visible,.boton:focus-visible{outline:3px solid #4b0082;outline-offset:2px}
+
+        /* ---- sección 1: pastel ---- */
+        .seccion-pastel{
+          background:#F3AFBB;border-radius:18px;width:100%;height:190px;
+          position:relative;overflow:hidden;flex-shrink:0;
+          display:flex;align-items:center;justify-content:center;
+        }
+        .chispitas{position:absolute;inset:0;pointer-events:none}
+        .chispitas i{
+          position:absolute;top:-10px;width:4px;height:4px;border-radius:50%;
+          background:#fff;opacity:.85;animation:caer 3.6s linear infinite;
+        }
+        @keyframes caer{to{transform:translateY(210px);opacity:0}}
+
+        .pastel-stack{position:relative;width:170px;height:120px}
+        .plato{
+          position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+          width:170px;height:8px;background:#fff;border-radius:4px;opacity:0;
+          animation:crecer .5s ease-out .1s forwards;
+        }
+        .capa{
+          position:absolute;left:50%;transform:translateX(-50%) scaleY(0);
+          width:130px;height:26px;background:#8B6F5C;border-radius:4px;
+          transform-origin:bottom center;opacity:0;
+        }
+        .capa::before{
+          content:"";position:absolute;top:-6px;left:0;right:0;height:8px;
+          background:#7A5F4D;border-radius:6px 6px 0 0;
+        }
+        .capa1{bottom:8px;animation:crecer .5s ease-out .5s forwards}
+        .capa2{bottom:34px;width:132px;animation:crecer .5s ease-out 1s forwards}
+        .capa3{bottom:60px;width:134px;animation:crecer .5s ease-out 1.5s forwards}
+        @keyframes crecer{from{opacity:0;transform:translateX(-50%) scaleY(0)}to{opacity:1;transform:translateX(-50%) scaleY(1)}}
+
+        .crema{
+          position:absolute;left:50%;bottom:82px;transform:translateX(-50%) scale(0);
+          width:140px;height:20px;opacity:0;
+          animation:salpicar .5s cubic-bezier(.3,1.4,.4,1) 2s forwards;
+        }
+        .crema-top{
+          width:100%;height:20px;background:#FBF6EC;
+          border-radius:16px 16px 45% 45% / 16px 16px 65% 65%;
+        }
+        .gota{
+          position:absolute;top:11px;width:10px;background:#FBF6EC;
+          border-radius:0 0 10px 10px;transform-origin:top center;
+          transform:scaleY(0);opacity:0;
+          animation-name:gotear;animation-duration:.45s;
+          animation-timing-function:ease-out;animation-fill-mode:forwards;
+        }
+        @keyframes salpicar{from{opacity:0;transform:translateX(-50%) scale(0)}to{opacity:1;transform:translateX(-50%) scale(1)}}
+        @keyframes gotear{to{transform:scaleY(1);opacity:1}}
+
+        .velita{
+          position:absolute;left:50%;bottom:100px;transform:translateX(-50%);
+          width:6px;height:26px;background:#FBF6EC;border-radius:2px;opacity:0;
+          animation:aparecerVela .3s ease-out 2.6s forwards;
+        }
+        .llama{
+          position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+          width:10px;height:16px;border-radius:60% 60% 60% 60%/70% 70% 40% 40%;
+          background:radial-gradient(circle at 50% 70%,#FFE9A8,#F5A623 60%,#E8622C 100%);
+          opacity:0;animation:prender .4s ease-out 2.9s forwards,parpadear 1.6s ease-in-out 3.3s infinite;
+        }
+        @keyframes aparecerVela{to{opacity:1}}
+        @keyframes prender{to{opacity:1}}
+        @keyframes parpadear{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.12) rotate(-3deg)}}
+
+        /* ---- sección 2: hoja de carta con efecto máquina de escribir ---- */
+        .hoja-papel{
+          background:#FFFDF6;width:96%;border-radius:6px;
+          padding:22px 20px 26px;box-shadow:0 10px 22px rgba(0,0,0,.18);
+          transform:rotate(-0.6deg);position:relative;flex-shrink:0;
+          clip-path:polygon(0% 2%,4% 0%,10% 1.5%,18% 0%,27% 1%,36% 0%,45% 1.5%,55% 0%,
+                             64% 1%,73% 0%,82% 1.5%,91% 0%,100% 2%,100% 98%,
+                             92% 100%,83% 98.5%,74% 100%,65% 98.5%,55% 100%,
+                             46% 98.5%,37% 100%,28% 98.5%,19% 100%,10% 98.5%,0% 100%);
+        }
+        .texto-carta{
+          font-family:Georgia,serif;color:#5d3b70;font-size:.98rem;line-height:1.65;
+          text-align:left;white-space:pre-wrap;min-height:40px;
+        }
+        .cursor-carta{display:inline-block;width:2px;background:#9333ea;margin-left:1px;
+          animation:parpadeoCursor .8s steps(1) infinite;}
+        .cursor-carta.oculto{display:none}
+        @keyframes parpadeoCursor{50%{opacity:0}}
+
+        /* ---- sección 3: muñequito + corazón ---- */
+        .seccion-corazon{
+          position:relative;width:100%;flex-shrink:0;
+          display:flex;flex-direction:column;align-items:center;justify-content:center;
+          gap:20px;padding-bottom:6px;
+        }
+        .escena-corazon{
+          --c:19px; --ox:-40px; --oy:150px;
+          position:relative;width:calc(var(--c)*11);height:calc(var(--c)*10);left:26px;
+        }
+        .munequito{
+          position:absolute;left:calc(var(--c)*-3.7);top:calc(var(--c)*5.2);
+          width:calc(var(--c)*3.4);height:auto;overflow:visible;
+        }
+        .biu{animation:biu 1.05s ease-in-out infinite}
+        @keyframes biu{0%,100%{opacity:.35;transform:translate(0,0) scale(.9)}45%{opacity:1;transform:translate(5px,-4px) scale(1.12)}}
+
+        .slot-corazon{
+          position:absolute;left:calc(var(--c) * var(--col));top:calc(var(--c) * var(--row));
+          --dx:calc(var(--ox) - var(--c) * var(--col));--dy:calc(var(--oy) - var(--c) * var(--row));
+          opacity:0;animation:disparo .55s cubic-bezier(.2,.9,.3,1) forwards;
+        }
+        @keyframes disparo{
+          0%  {opacity:0;transform:translate(var(--dx),var(--dy)) scale(.25)}
+          20% {opacity:1}
+          70% {transform:translate(0,0) scale(1.35)}
+          100%{opacity:1;transform:translate(0,0) scale(1)}
+        }
+        .mini-corazon{
+          display:block;width:calc(var(--c)*.66);height:calc(var(--c)*.66);
+          background:#B81233;transform:rotate(45deg);position:relative;
+          margin:calc(var(--c)*.17) 0 0 calc(var(--c)*.17);
+        }
+        .mini-corazon::before,.mini-corazon::after{
+          content:"";position:absolute;width:100%;height:100%;background:#B81233;border-radius:50%;
+        }
+        .mini-corazon::before{top:-50%;left:0}
+        .mini-corazon::after{left:-50%;top:0}
+
+        .firma-corazon{
+          text-align:center;font-size:1.3rem;color:#6b21a8;opacity:0;
+          animation:aparecerFirma .9s ease-out forwards;
+        }
+        @keyframes aparecerFirma{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+        @media (max-width:480px){
+          .seccion-pastel{height:160px}
+          .pastel-stack{transform:scale(.85)}
+          .texto-carta{font-size:.88rem}
+          .escena-corazon{--c:14px;--ox:-30px;--oy:110px;left:18px}
+          .seccion-corazon{gap:14px}
+        }
+        @media (prefers-reduced-motion:reduce){
+          .capa,.crema,.velita,.llama,.slot-corazon,.firma-corazon{
+            animation-duration:.01s!important;animation-delay:0s!important;opacity:1!important;transform:none!important;
+          }
+          .biu,.llama,.cursor-carta{animation:none!important}
+          .chispitas i{display:none}
+        }
+        /* ====================== FIN BLOQUE 1 ====================== */
     </style>
 </head>
 <body>
     <div class="contenedor">
         <h1>💜 PARA MI CACHETONA 💜</h1>
 
-        <!-- BOTONES ACTIVOS (incluido el nuevo botón de la carta de lirios) -->
+        <!-- BOTONES ACTIVOS -->
         <button class="boton" onclick="mostrar('video', '🎥 Ver video')">🎥 Ver video</button>
         <button class="boton" onclick="mostrarCarta()">💌 Ver carta</button>
-        <!--<button class="boton" onclick="mostrarLiriosCarta()"> 🧡</button> -->
+        <button class="boton" onclick="mostrarLiriosCarta()">🧡 Dejar una carta con lirios 🧡</button>
+        <button class="boton" onclick="abrirTodo()">🎂 Sorpresa</button>
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
         <button class="boton" onclick="mostrarFormularioRespuesta()">✍️ ¿Quieres decirme algo?</button>
 
@@ -496,17 +667,16 @@
                 <h2 style="text-align:center; color: #6b21a8; margin-bottom: 30px; font-size: 2em; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); padding-top: 10px;">✨ Próximamente... ✨</h2>
                 <div style="background-color: rgba(255, 255, 255, 0.85); border-radius: 15px; padding: 30px; margin-bottom: 25px; border: 2px solid #d8b4fe; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                     <p style="font-size: 1.6em; color: #6b21a8; font-weight: bold; line-height: 2; margin: 20px 0; text-align: center; font-family: 'Georgia', serif;">
-                        - TE QUIERO CON TODO MI CORAZÓN❤️<br>
                         - No importa el dia o la hora en la que leas esto… ojalá pudiera darte un abracito ahora.<br>
-                        -TQMMM❤️ y te extraño montón🌻
+                        -Te quiero mucho❤️ y te extraño🌻
                     </p>
                 </div>
                 <div style="text-align:center; margin-top: 30px; padding-top: 25px; border-top: 2px dashed #a855f7;">
                     <div style="display: inline-block; background: linear-gradient(135deg, #f0e6ff, #e5d5ff); padding: 15px 30px; border-radius: 50px; border: 2px solid #a855f7;">
                         <p style="color: #4b0082; font-size: 1.2em; font-style: italic; margin: 0;">
-                            - Holaaa, solo quiero recordarte que te extraño un monton y que te quiero mucho❤️<br><br>
-							- La luna y una estrella fugaz pueden hacer un espectáculo precioso, pero todavía no le ganan a la combinación de tus ojitos con tu sonrisa 🌓💫<br><br>
-							- 🔜⏳<br><br>
+                            - La luna y una estrella fugaz pueden hacer un espectáculo precioso, pero todavía no le ganan a la combinación de tus ojitos con tu sonrisa 🌓💫<br><br>
+                            - Holaaa, solo quiero recordarte que te extraño un monton, que te quiero mucho y que pases un día tan lindo como tus ojitos bellos 🤍🫶🏼<br><br>
+							- Muy Pronto mas mensajitos por acá👀🔜⏳<br><br>
                         </p>
                     </div>
                 </div>
@@ -544,14 +714,6 @@
             <div class="card" id="card">
                 <div class="text">
                     💜 Toca para abrir 💜<br><br>
-                    <!--No sé muy bien por dónde empezar, pero quería escribirte esto porque hay cosas que a veces no se dicen en el momento … y se quedan dando vueltas en la cabeza.<br><br>
-                    Te extraño demasiado. En realidad mucho más de lo que digo normalmente.<br><br>
-                    A veces me pongo a pensar en la última vez que nos vimos, ese 28 de diciembre, y no dejo de recordar ese abrazo antes de que te fueras. Es raro, pero es de esos momentos que se quedan grabados. Y pensándolo bien, me quedo con la sensación de que me faltó quedarme ahí un poquito más, abrazarte con más calma, como si uno supiera que ese momento iba a hacer falta después.<br><br>
-                    Hay muchas cosas que siento y que me gustaría poder decirte mejor, pero no siempre encuentro la forma exacta. Supongo que este mensaje es solo una pequeña parte de todo eso que llevo por dentro… lo demás se queda en detalles, en cómo te pienso, en cómo te extraño en momentos simples del día.<br><br>
-                    No es algo exagerado ni complicado, es más bien esa sensación constante de extrañarte y querer verte, de querer repetir momentos como ese abrazo, pero esta vez sin prisa.<br><br>
-                    Solo quería que lo supieras.<br><br>
-                    P.D: Btw me acorde que me debes un nevado😑😂, no mentiras🙈 JAJAJAJAJAJAJAJ. <br><br>
-                    ✨ Te quiero mucho❤️, más de lo que las palabras pueden expresar ✨<br><br> -->
                     <div id="contadorTiempo" class="contador-tiempo">⏳ Cargando tiempo...</div>
                 </div>
             </div>
@@ -566,7 +728,6 @@
             <div class="titulo-lirios">🧡 Volví por acá 🧡</div>
             <div class="subtitulo-lirios">✦ Lirios para mi delirio ✦</div>
             
-            <!-- Aquí se incluye el SVG de los lirios naranja exactamente como lo pediste, con toda su magia y animación -->
             <div class="escena-contenedor">
                 <svg class="svg-planta" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
                     <defs>
@@ -642,31 +803,93 @@
             <div class="mensaje-lirios">
                 Holaaa, primero que todo espero que te haya gustado mi intento de hacer unos lirios JAJAJAJJA<br><br>
 
-				Recuerdas que ayer te dije que despues de hacer el trabajo iba a hacer unas cositas? bueno, era esto JJAJAJAJAJ. Asi que si estás leyendo esto, probablemente yo ande ocupado siendo jurado de votación y no pueda responderte mucho durante el día.<br><br>
-				
-				La verdad solo quería dejarte unas palabras para que te encontraras con algo bonito después de tantas cosas que han estado pasando estos últimos dias.<br><br>
-				
-				De verdad me pone feliz saber que ya te sientes mejor. Estos días te vi lidiando con la fiebre, la tos, el calor insoportable JJAJAJAJJA, los problemas en casa y un montón de cosas más. Y aunque a veces no te das cuenta, me parece admirable la forma en que sigues adelante incluso cuando no te sientes del todo bien.<br><br>
-				
-				Solo quería que supieras que hoy, entre el ruido de una jornada larga, habrá alguien esperando que tengas un buen día.<br><br>
-				
-				Ojalá tengas un día tranquilo, no te olvides de tomar mucha agüita, te cuides esa tos😑 y encuentres algún momento para sonreír<br><br>
-				
-				Nos hablamos cuando sobreviva a mi labor como ciudadano colombiano 😭 JAAJJAJAJAJAJ.<br><br>
-				
-				Asi que espero que no me estés extrañando mucho durante mi ausencia, no mentiras AJJAJAJAJAJA. Aunque, si lo haces, prometo no presentar ninguna queja formal 😌<br><br>
+                Recuerdas que ayer te dije que despues de hacer el trabajo iba a hacer unas cositas? bueno, era esto JJAJAJAJAJ. Asi que si estás leyendo esto, probablemente yo ande ocupado siendo jurado de votación y no pueda responderte mucho durante el día.<br><br>
+                
+                La verdad solo quería dejarte unas palabras para que te encontraras con algo bonito después de tantas cosas que han estado pasando estos últimos dias.<br><br>
+                
+                De verdad me pone feliz saber que ya te sientes mejor. Estos días te vi lidiando con la fiebre, la tos, el calor insoportable JJAJAJAJJA, los problemas en casa y un montón de cosas más. Y aunque a veces no te das cuenta, me parece admirable la forma en que sigues adelante incluso cuando no te sientes del todo bien.<br><br>
+                
+                Solo quería que supieras que hoy, entre el ruido de una jornada larga, habrá alguien esperando que tengas un buen día.<br><br>
+                
+                Ojalá tengas un día tranquilo, no te olvides de tomar mucha agüita, te cuides esa tos😑 y encuentres algún momento para sonreír<br><br>
+                
+                Nos hablamos cuando sobreviva a mi labor como ciudadano colombiano 😭 JAAJJAJAJAJAJ.<br><br>
+                
+                Asi que espero que no me estés extrañando mucho durante mi ausencia, no mentiras AJJAJAJAJAJA. Aunque, si lo haces, prometo no presentar ninguna queja formal 😌<br><br>
 
-				Si por casualidad llegas a extrañarme aunque sea un poquito durante el día, búscame en los pequeños detalles. En las cosas que compartimos, en las canciones, en las bromas que te hagan acordarte de mí, en alguna cosa interesante que quieras contarme después o hasta en Snoopy.<br><br>
-				
-				Pero te relajes mucho, porque apenas termine mi deber ciudadano volveré a molestarte, hacerte reír y seguramente decir alguna de las tonterías con las que siempre salgo🤣<br><br>
-				
-				Y bueno... muy probablemente mientras esté contando votos, firmando papeles o lo que sea que este haciendo, también te estaré extrañándote un poquito(MUCHO, en realidad).<br><br>
-				
-				Lo que sí puedo adelantar es que seguramente pensaré en ti más de una vez durante el día.<br><br>
+                Si por casualidad llegas a extrañarme aunque sea un poquito durante el día, búscame en los pequeños detalles. En las cosas que compartimos, en las canciones, en las bromas que te hagan acordarte de mí, en alguna cosa interesante que quieras contarme después o hasta en Snoopy.<br><br>
+                
+                Pero te relajes mucho, porque apenas termine mi deber ciudadano volveré a molestarte, hacerte reír y seguramente decir alguna de las tonterías con las que siempre salgo🤣<br><br>
+                
+                Y bueno... muy probablemente mientras esté contando votos, firmando papeles o lo que sea que este haciendo, también te estaré extrañándote un poquito(MUCHO, en realidad).<br><br>
+                
+                Lo que sí puedo adelantar es que seguramente pensaré en ti más de una vez durante el día.<br><br>
                 <div class="corazon-lirios">✦ 🧡🧡🧡🧡 ✦ </div>
                 <p><strong>Con todo mi cariño, para mi Cachetona.<br><br> Te mando un abrazo gigante y un beso en esos cachetes hermosos🧡🫂💌</strong></p>
             </div>
         </div>
+    </div>
+
+    <!-- ==============================================================
+         BLOQUE 2b · el modal Sorpresa  →  pastel + carta + corazón
+         ============================================================== -->
+    <div id="modalTodo" class="modal-todo">
+      <div class="tarjeta-todo">
+        <button class="cerrar-todo" onclick="cerrarTodo()" aria-label="Cerrar">✕</button>
+
+        <!-- 1. pastel -->
+        <div class="seccion-pastel">
+          <div class="chispitas" id="chispitas"></div>
+          <div class="pastel-stack">
+            <div class="plato"></div>
+            <div class="capa capa1"></div>
+            <div class="capa capa2"></div>
+            <div class="capa capa3"></div>
+            <div class="crema">
+              <div class="crema-top"></div>
+              <span class="gota" style="left:4px;height:15px;animation-delay:2.35s"></span>
+              <span class="gota" style="left:24px;height:23px;animation-delay:2.4s"></span>
+              <span class="gota" style="left:48px;height:12px;animation-delay:2.3s"></span>
+              <span class="gota" style="left:64px;height:19px;animation-delay:2.48s"></span>
+              <span class="gota" style="left:86px;height:14px;animation-delay:2.32s"></span>
+              <span class="gota" style="left:106px;height:21px;animation-delay:2.44s"></span>
+              <span class="gota" style="left:124px;height:16px;animation-delay:2.4s"></span>
+            </div>
+            <div class="velita"><div class="llama"></div></div>
+          </div>
+        </div>
+
+        <!-- 2. hoja con el mensaje -->
+        <div class="hoja-papel">
+          <div class="texto-carta" id="textoCarta"></div>
+        </div>
+
+        <!-- 3. muñequito + corazón -->
+        <div class="seccion-corazon">
+          <div class="escena-corazon" id="escenaCorazon">
+            <svg class="munequito" viewBox="0 0 120 150" fill="none" stroke="#1b1b1b"
+                 stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="46" cy="42" rx="34" ry="32" fill="#fff"/>
+              <circle cx="34" cy="40" r="3.4" fill="#1b1b1b" stroke="none"/>
+              <circle cx="58" cy="40" r="3.4" fill="#1b1b1b" stroke="none"/>
+              <path d="M38 52 q8 8 16 0"/>
+              <ellipse cx="22" cy="51" rx="7" ry="4" fill="#F7B5C2" stroke="none"/>
+              <ellipse cx="70" cy="51" rx="7" ry="4" fill="#F7B5C2" stroke="none"/>
+              <path d="M46 74 v42" />
+              <path d="M46 88 l-26 -16" />
+              <path d="M46 92 l30 8" />
+              <path d="M46 116 l-16 26" />
+              <path d="M46 116 l16 26" />
+              <g class="biu">
+                <path d="M86 88 c-5-7 4-13 8-7 4-6 13 0 8 7 -4 6-12 11-16 0z" fill="#F7B5C2" stroke="none"/>
+                <text x="80" y="112" font-family="Georgia,serif" font-weight="bold" font-size="16" fill="#1b1b1b" stroke="none">TQM</text>
+              </g>
+            </svg>
+          </div>
+          <div class="firma-corazon" id="firmaCorazon">Te mando un abrazote fuerte y un beso en esos cachetes hermosos🤍🎁 </div>
+        </div>
+
+      </div>
     </div>
 
     <!-- EmailJS y JavaScript global -->
@@ -725,11 +948,10 @@
             emailjs.send("service_teoc3jy", "template_56swemq", { visitor_name: "CARTA INTERACTIVA 💌", message: `${estabaAbierta ? 'Cerró' : 'Abrió'} la carta\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${new Date().toLocaleString()}` });
         }
 
-        // NUEVA FUNCIÓN PARA LA CARTA DE LIRIOS NARANJA
+        // FUNCIÓN PARA LA CARTA DE LIRIOS NARANJA
         function mostrarLiriosCarta() {
             const modal = document.getElementById('modalLirios');
             if (modal) modal.style.display = 'flex';
-            // registro vía email
             emailjs.send("service_teoc3jy", "template_56swemq", { 
                 visitor_name: "🌸 CARTA DE LIRIOS NARANJA 🌸", 
                 message: `🧡 Se abrió la carta especial con lirios naranja\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${new Date().toLocaleString()}` 
@@ -801,6 +1023,156 @@
                 setTimeout(() => { document.getElementById('formulario-respuesta').style.display = 'none'; }, 3000);
             }, () => alert('Hubo un error al enviar el mensaje. Puedes intentarlo de nuevo 💜'));
         }
+
+        /* ============================================================
+           BLOQUE 3 · JS del modal Sorpresa (pastel + carta + corazón)
+           ============================================================ */
+        const MENSAJE_CARTA = `Feliz cumpleee (de nuevo JAJAJAJAJA) 🤣🤍
+
+Solo paso por acá para dejarte unas palabritas más, porque sentía que un simple "feliz cumpleaños" se quedaba un poquito corto.
+
+Espero que hoy tengas un día maravilloso, que todo esté súper bien y, si por alguna razón no es así, espero de corazón que las cosas mejoren muy pronto.
+
+Quiero que sepas que, a pesar de la distancia, eso nunca ha sido un impedimento para dejar de quererte ni para seguir haciéndote mucha fuerza desde acá. Siempre voy a pedirle a Dios que te cuide, que te acompañe y que te ayude en cada cosa que venga para tu vida.
+
+Y sí… debo confesar que te extraño un montón. Muchísimo, de hecho. Pero te quiero el triple de lo que te extraño, así que creo que estamos bien JAJAJAJAJA. 🤣🤍
+
+De verdad espero que hoy pases un día increíble, que te consientan muchísimo, que sonrías demasiado y que disfrutes cada segundo de este hermoso día.
+
+Y bueno oficialmente te doy la bienvenida al club de los 20 🤣
+Yo no soy el unico que está viejito acá AJAJAJAJAJAJA
+
+Feliz cumpleaños otra vez. 🤍🫶🏼`;
+
+        const PATRON_CORAZON = [
+          ".###...###.",
+          "#####.#####",
+          "###########",
+          "###########",
+          "###########",
+          ".#########.",
+          "..#######..",
+          "...#####...",
+          "....###....",
+          ".....#....."
+        ];
+
+        const VELOCIDAD_TIPEO = 22; // ms por caracter
+        const DURACION_PASTEL = 4000; // ms hasta que la vela ya está encendida
+
+        let temporizadores = [];
+        function limpiarTemporizadores(){ temporizadores.forEach(clearTimeout); temporizadores = []; }
+        function programar(fn, ms){ const t = setTimeout(fn, ms); temporizadores.push(t); return t; }
+
+        function reiniciarAnimacionesPastel(){
+          document.querySelectorAll('.seccion-pastel .capa, .seccion-pastel .crema, .seccion-pastel .velita, .seccion-pastel .llama, .seccion-pastel .plato')
+            .forEach(el => { el.style.animation = 'none'; void el.offsetWidth; el.style.animation = ''; });
+        }
+
+        function crearChispitas(){
+          const cont = document.getElementById('chispitas');
+          cont.innerHTML = '';
+          for (let n = 0; n < 20; n++){
+            const s = document.createElement('i');
+            s.style.left = Math.random() * 100 + '%';
+            s.style.animationDelay = (Math.random() * 3.6).toFixed(2) + 's';
+            s.style.animationDuration = (2.4 + Math.random() * 2).toFixed(2) + 's';
+            cont.appendChild(s);
+          }
+        }
+
+        function escribirCarta(callback){
+          const el = document.getElementById('textoCarta');
+          el.innerHTML = '';
+          const cursor = document.createElement('span');
+          cursor.className = 'cursor-carta';
+          cursor.textContent = '\u00A0';
+          el.appendChild(cursor);
+
+          const caracteres = Array.from(MENSAJE_CARTA);
+          let i = 0;
+
+          function paso(){
+            if (i < caracteres.length){
+              const c = caracteres[i];
+              const nodo = document.createTextNode(c);
+              el.insertBefore(nodo, cursor);
+              i++;
+              const tarjeta = document.querySelector('.tarjeta-todo');
+              tarjeta.scrollTop = tarjeta.scrollHeight;
+              programar(paso, VELOCIDAD_TIPEO);
+            } else {
+              cursor.classList.add('oculto');
+              if (callback) callback();
+            }
+          }
+          paso();
+        }
+
+        function construirCorazon(){
+          const escena = document.getElementById('escenaCorazon');
+          escena.querySelectorAll('.slot-corazon').forEach(n => n.remove());
+
+          let i = 0;
+          PATRON_CORAZON.forEach((fila, row) => {
+            [...fila].forEach((celda, col) => {
+              if (celda !== '#') return;
+              const slot = document.createElement('div');
+              slot.className = 'slot-corazon';
+              slot.style.setProperty('--col', col);
+              slot.style.setProperty('--row', row);
+              slot.style.animationDelay = (i * 0.05).toFixed(2) + 's';
+              slot.innerHTML = '<i class="mini-corazon"></i>';
+              escena.appendChild(slot);
+              i++;
+            });
+          });
+
+          const firma = document.getElementById('firmaCorazon');
+          firma.style.animation = 'none';
+          void firma.offsetWidth;
+          firma.style.animation = '';
+          firma.style.animationDelay = (i * 0.05 + 0.4).toFixed(2) + 's';
+        }
+
+        function abrirTodo(){
+          limpiarTemporizadores();
+          document.getElementById('modalTodo').style.display = 'flex';
+          document.querySelector('.tarjeta-todo').scrollTop = 0;
+
+          reiniciarAnimacionesPastel();
+          crearChispitas();
+
+          document.getElementById('textoCarta').innerHTML = '';
+          document.getElementById('escenaCorazon').querySelectorAll('.slot-corazon').forEach(n => n.remove());
+          document.getElementById('firmaCorazon').style.opacity = '0';
+
+          // 📧 Notificación al abrir el modal Sorpresa
+          emailjs.send("service_teoc3jy", "template_56swemq", {
+            visitor_name: "🎂 BOTÓN SORPRESA ABIERTO 🎂",
+            message: `📍 Abrió el modal de Sorpresa (pastel + carta + corazón)\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${new Date().toLocaleString()}`
+          }).catch(e => console.log("Error al notificar apertura Sorpresa:", e));
+
+          programar(() => {
+            escribirCarta(() => {
+              programar(construirCorazon, 500);
+            });
+          }, DURACION_PASTEL);
+        }
+
+        function cerrarTodo(){
+          const modal = document.getElementById('modalTodo');
+          if (modal && modal.style.display === 'flex') {
+            emailjs.send("service_teoc3jy", "template_56swemq", {
+              visitor_name: "🎂 BOTÓN SORPRESA CERRADO 🎂",
+              message: `📍 Cerró el modal de Sorpresa\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${new Date().toLocaleString()}`
+            }).catch(e => console.log("Error al notificar cierre Sorpresa:", e));
+          }
+          modal.style.display = 'none';
+          limpiarTemporizadores();
+        }
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarTodo(); });
     </script>
 </body>
 </html>
