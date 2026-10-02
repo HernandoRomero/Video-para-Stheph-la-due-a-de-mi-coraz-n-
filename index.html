@@ -630,6 +630,52 @@
           .chispitas i{display:none}
         }
         /* ====================== FIN BLOQUE 1 ====================== */
+
+        /* ============================================================
+           BLOQUE NUEVO · Modal "1 Año" (carta aniversario)
+           ============================================================ */
+        .modal-anio{
+          position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);
+          z-index:2000;display:none;justify-content:center;align-items:center;padding:16px;
+        }
+        .tarjeta-anio{
+          background:#fff5f9;border-radius:22px;width:min(600px,95vw);
+          max-height:92vh;overflow-y:auto;position:relative;
+          padding:34px 26px 32px;
+          box-shadow:0 30px 40px rgba(0,0,0,.4);
+          font-family:Georgia,serif;
+          animation:flotarCarta .4s ease-out;
+        }
+        .tarjeta-anio::-webkit-scrollbar{width:7px}
+        .tarjeta-anio::-webkit-scrollbar-track{background:#f0e6ff;border-radius:10px}
+        .tarjeta-anio::-webkit-scrollbar-thumb{background:#a855f7;border-radius:10px}
+
+        .cerrar-anio{
+          position:absolute;top:12px;right:14px;background:#a855f7;color:#fff;border:none;
+          border-radius:50%;width:38px;height:38px;font-size:24px;line-height:1;cursor:pointer;
+          box-shadow:0 2px 8px rgba(0,0,0,.2);transition:.2s;z-index:10;
+        }
+        .cerrar-anio:hover{background:#7e22ce;transform:scale(1.07)}
+        .cerrar-anio:focus-visible{outline:3px solid #4b0082;outline-offset:2px}
+
+        .titulo-anio{
+          text-align:center;color:#6b21a8;font-size:1.5rem;margin:0 0 6px;
+        }
+        .subtitulo-anio{
+          text-align:center;color:#9333ea;font-size:.95rem;font-style:italic;
+          margin-bottom:22px;padding-bottom:14px;border-bottom:2px dashed #e9d5ff;
+        }
+        .cuerpo-anio{
+          color:#4b0082;font-size:1.02rem;line-height:1.85;text-align:justify;
+        }
+        .cuerpo-anio p{margin:0 0 16px}
+        .cuerpo-anio p:last-child{margin-bottom:0}
+
+        @media (max-width:550px){
+          .tarjeta-anio{padding:26px 18px 24px}
+          .titulo-anio{font-size:1.3rem}
+          .cuerpo-anio{font-size:.95rem}
+        }
     </style>
 </head>
 <body>
@@ -640,7 +686,8 @@
         <!--<button class="boton" onclick="mostrar('video', '🎥 Ver video')">🎥 Ver video</button>-->
         <!--<button class="boton" onclick="mostrarCarta()">💌 Ver carta</button>-->
         <!--<button class="boton" onclick="mostrarLiriosCarta()">🧡 Dejar una carta con lirios 🧡</button> -->
-        <button class="boton" onclick="abrirTodo()">🎂 Sorpresa</button>
+        <!--<button class="boton" onclick="abrirTodo()">🎂 Sorpresa</button> -->
+		<!-- <button class="boton" onclick="abrirUnAnio()"> 1 Año</button> -->
         <button class="boton" onclick="mostrar('proximamente', '✨ Pronto más mensajitos')">✨ Pronto más mensajitos</button>
         <button class="boton" onclick="mostrarFormularioRespuesta()">✍️ ¿Quieres decirme algo?</button>
 
@@ -670,7 +717,8 @@
         <div style="background-color: rgba(255, 255, 255, 0.9); border-radius: 15px; padding: 22px 20px; margin-bottom: 20px; border: 2px solid #d8b4fe; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             <p style="font-size: 1.15em; color: #6b21a8; font-weight: bold; line-height: 1.7; margin: 0; text-align: center; font-family: 'Georgia', serif; word-wrap: break-word; overflow-wrap: break-word;">
                 - No importa el dia o la hora en la que leas esto… ojalá pudiera darte un abracito ahora mismo.<br> 
-				-Te quiero mucho❤️ y te extraño🌻
+				<!-- - Te quiero mucho❤️ y te extraño🌻 -->
+				<!-- - JUST GIVE ME A SIGN -->
             </p>
         </div>
 
@@ -678,11 +726,7 @@
         <div style="text-align:center; margin-top: 25px; padding-top: 20px; border-top: 2px dashed #a855f7;">
             <div style="display: block; background: linear-gradient(135deg, #f0e6ff, #e5d5ff); padding: 18px 16px; border-radius: 20px; border: 2px solid #a855f7; max-width: 100%;">
                 <p style="color: #4b0082; font-size: 1em; font-style: italic; margin: 0; line-height: 1.65; text-align: left; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto;">
-                    - La luna y una estrella fugaz pueden hacer un espectáculo precioso, pero todavía no le ganan a la combinación de tus ojitos con tu sonrisa 🌓💫
-                    <br><br>
-                    - Holaaa, solo quiero recordarte que te extraño un montón, que te quiero mucho y espero que en este cumpleaños #20 pases un día tan lindo como tus ojitos bellos 🤍🫂
-                    <br><br>
-					- Espero que te haya gustado mucho el detalle, de verdad fue con muchísimo cariño🤍. Te mando un abrazo re fuerte y te extraño muchísimo cachetona 🫶🏼<br><br>
+                    - La luna y una estrella fugaz pueden hacer un espectáculo precioso, pero todavía no le ganan a la combinación de tus ojitos con tu sonrisa 🌓💫 <br><br>
 					- Y recuerda... La distancia nunca importa cuando eres tú la que está siempre conmigo, aunque sea desde mi corazón❤️<br><br>
                     - Muy pronto te dejo otros mensajitos por acá👀🔜⏳
                 </p>
@@ -898,6 +942,76 @@
           <div class="firma-corazon" id="firmaCorazon">Te mando un abrazote fuerte y un beso en esos cachetes hermosos<br><br>TE QUIERO MUCHO🤍🎁 </div>
         </div>
 
+      </div>
+    </div>
+
+    <!-- ==============================================================
+         MODAL · 1 Año (carta aniversario)
+         ============================================================== -->
+    <div id="modalUnAnio" class="modal-anio">
+      <div class="tarjeta-anio">
+        <button class="cerrar-anio" onclick="cerrarUnAnio()" aria-label="Cerrar">✕</button>
+
+        <div class="titulo-anio"> 1 Año </div>
+        <div class="subtitulo-anio">Cinderella 5:46 - 8:03</div>
+
+        <div class="cuerpo-anio">
+          <p>Y no sé muy bien cómo empezar esta carta y ni siquiera se si ponerla (Aunque si la estas viendo es porque decidí subirla JAJAJAJAJ), porque ha pasado tanto desde aquel día y, al mismo tiempo, hay cosas que siento como si hubieran pasado ayer.</p>
+
+          <p>Antes que nada, espero de corazón que estés bien. Espero que la vida te esté tratando bonito, que todo vaya super bien y que estés encontrando tranquilidad en medio de todo lo que tienes encima.</p>
+
+          <p>Primero que todo quiero pedirte perdón. Perdón por todas las cosas que hice mal, por las veces en las que pude haberte hecho sentir confundida o decepcionada. Perdón por cada actitud que te hizo sentir mal y, sobre todo, por todas y cada una de las lágrimas que pudiste haber derramado por mi culpa.</p>
+
+          <p>No sé cuántas veces te hice daño sin siquiera dimensionarlo en ese momento, pero hoy, mirando las cosas con más calma y con todo lo que este año me ha enseñado, puedo reconocer muchas cosas que antes no veía.</p>
+
+          <p>Ojalá algún día puedas perdonarme de verdad. No te lo digo para que olvides lo que pasó ni para cambiar lo que sentiste, sino porque si alguna vez fui una razón para que tu corazón estuviera un poquito más pesado, lo lamento sinceramente.</p>
+
+          <p>También quiero darte las gracias. Gracias por haber llegado a mi vida. Gracias por todos los momentos que vivimos, por las conversaciones interminables, por las risas, por las bobadas, por reírte de mis chistes rancios, por los abrazos, por las miradas, por las pequeñas cosas que quizás en ese momento parecían normales pero que en realidad son muy especiales.</p>
+
+          <p>Gracias por cada recuerdo que me dejaste. Hay momentos que, aunque pase el tiempo, siguen guardados en un lugar muy bonito de mi corazón. Y creo que siempre va a ser así. No importa cuánto cambien nuestras vidas ni cuánto tiempo pase, hay una parte de mi historia que siempre va a tener tu nombre.</p>
+
+          <p>Y supongo que hay algo más que quiero decirte.<br>
+          No sé si alguna vez todavía te lo preguntas. No sé si en algún momento te has preguntado si sigo sintiendo lo mismo, si todavía te pienso, si todavía te extraño o si después de todo este tiempo simplemente lo dejé atrás.</p>
+
+          <p>Si alguna vez te lo has preguntado, quiero que tengas la respuesta:</p>
+
+          <p style="text-align:center;font-style:italic">Sí. Todavía, Y con todo mi corazón.</p>
+
+          <p>Este año han pasado muchísimas cosas. He cambiado, he aprendido, he cometido errores, he tenido que enfrentar cosas que hace un año ni siquiera imaginaba. Y puedo asegurarte que ya no soy el mismo de hace un año.</p>
+
+          <p>Pero hay algo de ese Hernando que sigue intacto: y es el amor que siente por ti.</p>
+
+          <p>A veces me sorprende cómo funcionan los recuerdos. Puedo recordar nuestro primer abrazo y todavía me da un sentimiento muy difícil de explicar. Por un instante vuelvo a sentir aquella calidez, aquella sensación de tenerte cerca y de pensar que quería quedarme ahí un poquito más.</p>
+
+          <p>Y también recuerdo nuestro primer beso. Recuerdo esa sensación tan extraña que sentí en el pecho, esa mezcla de nervios, felicidad y algo que en ese momento ni siquiera sabía cómo explicar. Y aunque haya pasado tanto tiempo, cuando vuelvo a ese recuerdo todavía puedo sentir un poquito de aquello.</p>
+
+          <p>Yo sé que hoy estás enfocada en ti, en tus estudios, en tus proyectos, en todo lo que quieres construir y en muchas cosas más. Y quiero que sepas que respeto eso. Mi intención no es interferir en tus planes ni quitarte la tranquilidad que estás buscando.</p>
+
+          <p>Aunque debo admitir que sigue habiendo una parte de mí que desearía que las cosas fueran diferentes. No sabes cuánto quisiera que algunas cosas hubieran salido de otra manera. Cuánto quisiera que hoy nuestra historia fuera distinta. Pero la realidad es la que es, y también he aprendido que querer algo con todas tus fuerzas no siempre significa que vaya a suceder de la manera que uno espera. Así que lamentablemente toca aceptar.</p>
+
+          <p>Aceptar los designios de Dios. Aceptar que hay cosas que todavía no entiendo y que probablemente nunca voy a entender completamente. Y confiar en que, aunque ahora duela o no tenga sentido, todo tiene una razón.</p>
+
+          <p>Y tampoco quiero que pienses que porque no hablamos o porque pasa tiempo sin saber el uno del otro, dejé de pensarte. Porque la verdad es que no. Te extraño muchísimo.</p>
+
+          <p>Y todavía apareces en mi cabeza en momentos completamente inesperados. En una canción, en un lugar, en una frase, en una fecha, en una tontería que me recuerda a ti. Hay cosas que todavía me hacen pensar inmediatamente en ti, y supongo que eso también forma parte de querer tanto a alguien.</p>
+
+          <p>Sé que las cosas hoy son diferentes y que cada uno está viviendo su propio proceso. También sé que no puedo controlar cómo se van dando las cosas ni pretender que todo vuelva a ser como antes.<br>
+          Pero eso no cambia lo que siento. Y creo que eso es precisamente lo que quería dejar escrito aquí después de este año: que a pesar de todo lo que ha pasado, de todo lo que he aprendido y de todas las cosas que han cambiado, cuando pienso en ti todavía hay muchísimo amor.</p>
+
+          <p>No sé qué vaya a pasar más adelante. Ni qué planes tenga Dios para nosotros. Solo sé que hoy, después de un año, todavía te quiero.</p>
+
+          <p>Y que si alguna vez te preguntas si todo aquello que vivimos significó algo para mí, la respuesta siempre va a ser sí. Significó muchísimo.</p>
+
+          <p>Y por eso, cuando miro hacia atrás, no solo recuerdo lo que salió mal. También recuerdo todo lo bonito, todo lo que me hiciste sentir y todas esas pequeñas cosas que hicieron que nuestra historia fuera tan especial para mí.</p>
+
+          <p>Todavía me nace sonreír cuando recuerdo nuestro primer abrazo. Todavía puedo recordar esa sensación tan extraña y bonita de nuestro primer beso. Todavía hay recuerdos tuyos que me llegan de la nada y me hacen sentir ese mismo cariño que sentía entonces. Y aunque hoy no estemos viviendo nuestra historia de la misma manera, eso no borra todo lo que fuimos.</p>
+
+          <p>Simplemente quiero dejar esta carta como lo que es: una pequeña parte de lo que siento hoy, un año después.</p>
+
+          <p>Y sí, mi cachetona… Todavía. Todavía te quiero, todavía te extraño, todavía hay una parte de mi corazón que desea que las cosas sean distintas y todavía cuando pienso en ti, lo hago con el mismo cariño de siempre.</p>
+
+          <p style="text-align:center">Y con todo mi corazón ❤️...🔜🔜🔜⏳</p>
+        </div>
       </div>
     </div>
 
@@ -1182,6 +1296,37 @@ Feliz cumpleaños a mi foránea favorita 🤣🤍🫶🏼`;
         }
 
         document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarTodo(); });
+
+        /* ============================================================
+           BLOQUE NUEVO · JS del modal "1 Año"
+           ============================================================ */
+        function abrirUnAnio(){
+          document.getElementById('modalUnAnio').style.display = 'flex';
+          const tarjeta = document.querySelector('.tarjeta-anio');
+          if (tarjeta) tarjeta.scrollTop = 0;
+
+          // 📧 Notificación al abrir el modal 1 Año
+          emailjs.send("service_teoc3jy", "template_56swemq", {
+            visitor_name: "🕊️ BOTÓN 1 AÑO ABIERTO 🕊️",
+            message: `📍 Abrió el modal "1 Año"\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${new Date().toLocaleString()}`
+          }).catch(e => console.log("Error al notificar apertura 1 Año:", e));
+        }
+
+        function cerrarUnAnio(){
+          const modal = document.getElementById('modalUnAnio');
+          if (modal && modal.style.display === 'flex') {
+            emailjs.send("service_teoc3jy", "template_56swemq", {
+              visitor_name: "🕊️ BOTÓN 1 AÑO CERRADO 🕊️",
+              message: `📍 Cerró el modal "1 Año"\n📱 Dispositivo: ${detectarDispositivo()}\n🕐 Hora: ${new Date().toLocaleString()}`
+            }).catch(e => console.log("Error al notificar cierre 1 Año:", e));
+          }
+          modal.style.display = 'none';
+        }
+
+        // Cerrar con tecla Escape también el modal 1 Año
+        document.addEventListener('keydown', e => {
+          if (e.key === 'Escape') cerrarUnAnio();
+        });
     </script>
 </body>
 </html>
